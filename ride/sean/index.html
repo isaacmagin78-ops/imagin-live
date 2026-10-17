@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title data-tpl="{firstName} · Your Personal Driver">Your Personal Driver · Book your next ride</title>
+  <meta name="description" content="Private · On Call. Book your next ride with the same driver: airport runs, errands, nights out and long trips.">
+  <meta name="theme-color" content="#0a0a0b">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Your Personal Driver">
+  <meta property="og:description" content="Private · On Call. Same driver. Every time. Scan, request, and get your price by text.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230a0a0b'/%3E%3Ccircle cx='32' cy='32' r='21' fill='none' stroke='%23d4af37' stroke-width='5'/%3E%3Ccircle cx='32' cy='32' r='5' fill='%23d4af37'/%3E%3Cpath d='M12 31h14M38 31h14M32 38v14' stroke='%23d4af37' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    document.documentElement.classList.add("js");
+    // Failsafe: if app.js never runs, show the page instead of leaving reveals hidden.
+    setTimeout(function () { if (!window.__driverReady) document.documentElement.classList.remove("js"); }, 2500);
+  </script>
+  <script src="config.js"></script>
+  <script>try { if (CONFIG.accent) document.documentElement.style.setProperty("--gold", CONFIG.accent); } catch (e) {}</script>
+</head>
+<body>
+<main>
+
+  <header class="hero">
+    <div class="road" aria-hidden="true"><div class="road__plane"><span class="road__dash"></span></div></div>
+
+    <div class="wrap hero__inner">
+      <svg class="logo reveal" viewBox="0 0 120 120" role="img" aria-label="Steering wheel and road emblem">
+        <defs>
+          <linearGradient id="lg-gold" gradientUnits="userSpaceOnUse" x1="14" y1="8" x2="106" y2="114">
+            <stop offset="0" class="s-hi"></stop>
+            <stop offset=".45" class="s-mid"></stop>
+            <stop offset=".75" class="s-lo"></stop>
+            <stop offset="1" class="s-hi"></stop>
+          </linearGradient>
+          <linearGradient id="lg-shine" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#fff" stop-opacity="0"></stop>
+            <stop offset=".5" stop-color="#fff" stop-opacity=".9"></stop>
+            <stop offset="1" stop-color="#fff" stop-opacity="0"></stop>
+          </linearGradient>
+          <g id="lg-wheel">
+            <circle cx="60" cy="60" r="50" fill="none" stroke-width="6"></circle>
+            <circle cx="60" cy="60" r="41.5" fill="none" stroke-width="1.25" opacity=".55"></circle>
+            <path d="M10.5 58c13-4 26-4.5 39.5-1.5M109.5 58c-13-4-26-4.5-39.5-1.5" fill="none" stroke-width="6" stroke-linecap="round"></path>
+            <circle cx="60" cy="60" r="10" fill="none" stroke-width="4"></circle>
+            <circle cx="60" cy="60" r="3.2" stroke="none"></circle>
+            <path d="M56 70.5L45.5 108M64 70.5L74.5 108" fill="none" stroke-width="3.2" stroke-linecap="round"></path>
+          </g>
+          <mask id="lg-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="120" height="120">
+            <use href="#lg-wheel" stroke="#fff" fill="#fff"></use>
+          </mask>
+        </defs>
+        <use href="#lg-wheel" stroke="url(#lg-gold)" fill="url(#lg-gold)"></use>
+        <line class="logo-dash" x1="60" y1="76" x2="60" y2="105" stroke="url(#lg-gold)" stroke-width="2.4" stroke-linecap="round"></line>
+        <g mask="url(#lg-mask)"><polygon class="logo-shine" points="0,-10 24,-10 4,130 -20,130" fill="url(#lg-shine)"></polygon></g>
+      </svg>
+
+      <p class="eyebrow reveal" style="--d:.08s">Private<span class="sep" aria-hidden="true">·</span>On Call</p>
+      <h1 class="name reveal" style="--d:.16s" data-bind="firstName">Your driver</h1>
+      <p class="lede reveal" style="--d:.24s" data-tpl="Your personal driver in {city}">Your personal driver</p>
+      <div class="rule reveal" style="--d:.3s" aria-hidden="true"></div>
+      <p class="tagline reveal" style="--d:.36s">Same driver. Every time.</p>
+
+      <div class="actions reveal" style="--d:.46s">
+        <a class="btn btn-gold" href="#book">
+          Request a ride
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="btn btn-outline" href="#book" data-sms hidden>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8.5 8.5 0 0 1-12.3 7.6L3.5 21l1.4-4.9A8.5 8.5 0 1 1 21 12z"/></svg>
+          <span data-tpl="Text {firstName}">Text your driver</span>
+        </a>
+        <button class="btn btn-ghost" type="button" data-vcf>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.6"/><path d="M2.8 20c.6-3.3 3.1-5.4 6.2-5.4s5.6 2.1 6.2 5.4M19 8v6M16 11h6"/></svg>
+          <span data-tpl="Save {firstName} to contacts">Save to contacts</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <section class="section" aria-labelledby="services-h">
+    <div class="wrap">
+      <p class="kicker reveal">On call for</p>
+      <h2 id="services-h" class="reveal" style="--d:.06s">Wherever the day takes you</h2>
+      <ul class="chips reveal" style="--d:.12s" data-services aria-label="Services"></ul>
+      <ul class="trust reveal" style="--d:.18s" data-trust></ul>
+    </div>
+  </section>
+
+  <section class="section" id="book" aria-labelledby="book-h">
+    <div class="wrap">
+      <p class="kicker reveal">Book ahead</p>
+      <h2 id="book-h" class="reveal" style="--d:.06s">Request your next ride</h2>
+      <p class="sub reveal" style="--d:.1s" data-tpl="Tell {firstName} where and when. You'll get a text to confirm the price before anything is booked.">Tell your driver where and when. You'll get a text to confirm the price before anything is booked.</p>
+
+      <ol class="steps reveal" style="--d:.14s">
+        <li><span class="steps__n" aria-hidden="true">1</span><div><strong>Send your request</strong><span>Pickup, drop-off, date and time.</span></div></li>
+        <li><span class="steps__n" aria-hidden="true">2</span><div><strong data-tpl="{firstName} texts you back">Your driver texts you back</strong><span>Your price and pickup time, by text.</span></div></li>
+        <li><span class="steps__n" aria-hidden="true">3</span><div><strong>Reply to confirm</strong><span>Nothing is booked until you do.</span></div></li>
+      </ol>
+
+      <div class="card reveal" style="--d:.18s">
+        <form name="ride-request" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thanks.html">
+          <input type="hidden" name="form-name" value="ride-request">
+          <input type="hidden" name="driver" value="">
+          <p class="hp" aria-hidden="true">
+            <label>Leave this field empty <input name="bot-field" tabindex="-1" autocomplete="off"></label>
+          </p>
+
+          <div class="field">
+            <label for="f-name">Your name</label>
+            <input id="f-name" name="name" type="text" autocomplete="name" autocapitalize="words" placeholder="First and last name" required>
+          </div>
+
+          <div class="field">
+            <label for="f-mobile">Mobile</label>
+            <input id="f-mobile" name="mobile" type="tel" inputmode="tel" autocomplete="tel" placeholder="Your mobile number" pattern="[0-9+\(\)\-\.\s]{10,20}" title="Enter a mobile number, including area code" aria-describedby="f-mobile-hint" required>
+            <p class="hint" id="f-mobile-hint" data-tpl="{firstName} will text this number to confirm.">Your driver will text this number to confirm.</p>
+          </div>
+
+          <div class="field">
+            <label for="f-pickup">Pickup</label>
+            <input id="f-pickup" name="pickup" type="text" autocomplete="street-address" placeholder="Address, hotel or terminal" required>
+          </div>
+
+          <div class="field">
+            <label for="f-dropoff">Drop-off</label>
+            <input id="f-dropoff" name="dropoff" type="text" autocomplete="off" placeholder="Address, venue or airport" required>
+          </div>
+
+          <div class="row2">
+            <div class="field">
+              <label for="f-date">Date</label>
+              <input id="f-date" name="date" type="date" required>
+            </div>
+            <div class="field">
+              <label for="f-time">Pickup time</label>
+              <input id="f-time" name="time" type="time" step="300" required>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="f-passengers">Passengers</label>
+            <select id="f-passengers" name="passengers" required data-passengers>
+              <option value="1" selected>1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="f-notes">Notes <span class="opt">(optional)</span></label>
+            <textarea id="f-notes" name="notes" rows="3" placeholder="Flight number, luggage, extra stops, return trip"></textarea>
+          </div>
+
+          <button class="btn btn-gold" type="submit" data-submit>
+            <span data-submit-label>Send request</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+          <p class="fineprint">No payment now. Nothing is booked until you confirm by text.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">Booking pages by IMagin · Want one? <a href="https://imaginhq.com" rel="noopener">imaginhq.com</a></div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

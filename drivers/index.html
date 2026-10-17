@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Driver QR Partner Program · IMagin</title>
+<meta name="description" content="See what you earn bringing drivers into the Personal Driver QR program.">
+<meta property="og:title" content="Driver QR Partner Program">
+<meta property="og:description" content="Slide to see what 10, 50 or 100 drivers earn you.">
+<meta name="theme-color" content="#0a0b0d">
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230a0b0d'/%3E%3Ccircle cx='32' cy='32' r='20' fill='none' stroke='%23d9b45a' stroke-width='4'/%3E%3Cpath d='M14 30h36' stroke='%23d9b45a' stroke-width='4'/%3E%3Cpath d='M32 30l-9 18h18z' fill='%23d9b45a'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0b0d; --panel:#121418; --panel2:#171a1f; --line:#2a2e35;
+  --gold:#d9b45a; --gold2:#f3d98f; --gold-dim:#8a7438; --ink:#f6f1e6; --muted:#a6a39b;
+  --green:#7fd6a3;
+  --serif:"DM Serif Display",Georgia,serif; --sans:Inter,system-ui,-apple-system,sans-serif; --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+body{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:max(20px,env(safe-area-inset-top,0px)) 48px;
+  background:radial-gradient(120% 60% at 50% -10%,#2a2412 0%,transparent 60%),var(--bg)}
+.wrap{max-width:30rem;margin:0 auto;display:grid;gap:22px}
+/* logo */
+.logo{width:92px;height:92px;margin:6px auto 0;display:block;filter:drop-shadow(0 0 18px rgba(217,180,90,.35))}
+.logo .ring{stroke:url(#g);stroke-width:7;fill:none}
+.logo .road-line{stroke:#0a0b0d;stroke-width:4;stroke-dasharray:7 7;animation:drive 1.2s linear infinite}
+@keyframes drive{to{stroke-dashoffset:-14}}
+.shine{animation:shine 4s ease-in-out infinite}
+@keyframes shine{0%,100%{opacity:.0}50%{opacity:.55}}
+.eyebrow{font:600 12px/1 var(--sans);letter-spacing:.28em;text-transform:uppercase;color:var(--gold);text-align:center}
+h1{font-family:var(--serif);font-weight:400;font-size:clamp(34px,10vw,46px);line-height:1.02;text-align:center;margin:8px 0 0}
+h1 em{font-style:normal;background:linear-gradient(90deg,var(--gold),var(--gold2),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent;background-size:200% 100%;animation:sheen 5s linear infinite}
+@keyframes sheen{to{background-position:200% 0}}
+.sub{color:var(--muted);text-align:center;font-size:16px;line-height:1.5;margin:0}
+.card{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:22px;padding:20px}
+.hero-num{text-align:center}
+.hero-num .lbl{font-size:13px;color:var(--muted);font-weight:600;letter-spacing:.04em}
+.big{font-family:var(--mono);font-size:clamp(44px,14vw,64px);line-height:1;color:var(--gold2);margin:6px 0 4px;text-shadow:0 0 30px rgba(217,180,90,.25)}
+.hero-num .per{color:var(--muted);font-size:14px}
+.slider-row{display:grid;gap:12px;margin-top:6px}
+.drivers{display:flex;align-items:baseline;justify-content:space-between}
+.drivers b{font-family:var(--mono);font-size:28px;color:var(--ink)}
+.drivers span{color:var(--muted);font-size:14px}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:44px;background:transparent}
+input[type=range]::-webkit-slider-runnable-track{height:10px;border-radius:99px;background:linear-gradient(90deg,var(--gold) var(--p,10%),#2a2e35 var(--p,10%))}
+input[type=range]::-moz-range-track{height:10px;border-radius:99px;background:#2a2e35}
+input[type=range]::-moz-range-progress{height:10px;border-radius:99px;background:var(--gold)}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:30px;height:30px;margin-top:-10px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#fff3cf,var(--gold));border:3px solid #0a0b0d;box-shadow:0 0 0 2px var(--gold),0 6px 18px rgba(0,0,0,.5)}
+input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;background:var(--gold);border:3px solid #0a0b0d}
+.chips{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.chip{min-height:44px;padding:0 18px;border-radius:99px;border:1px solid var(--line);background:#0f1114;color:var(--ink);font:600 15px var(--sans);cursor:pointer}
+.chip[aria-pressed=true]{border-color:var(--gold);color:var(--gold2);box-shadow:inset 0 0 0 1px var(--gold)}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.mini{background:#0f1114;border:1px solid var(--line);border-radius:16px;padding:14px}
+.mini .k{font-size:12px;color:var(--muted);font-weight:600;letter-spacing:.03em}
+.mini .v{font-family:var(--mono);font-size:24px;margin-top:6px;color:var(--ink)}
+.mini .v.g{color:var(--green)}
+.pro-row{display:grid;gap:6px;margin-top:4px}
+.pro-row label{display:flex;justify-content:space-between;font-size:14px;color:var(--muted)}
+.pro-row label b{color:var(--ink);font-family:var(--mono)}
+h2{font-family:var(--serif);font-weight:400;font-size:26px;margin:0 0 4px}
+.chart{display:flex;align-items:flex-end;gap:5px;height:150px;margin-top:14px;padding-top:6px;border-bottom:1px solid var(--line)}
+.bar{flex:1;background:linear-gradient(180deg,var(--gold2),var(--gold-dim));border-radius:6px 6px 0 0;min-height:3px;transition:height .5s cubic-bezier(.2,.8,.2,1)}
+.months{display:flex;gap:5px;margin-top:6px}
+.months span{flex:1;text-align:center;font-size:10px;color:var(--muted)}
+.how{display:grid;gap:12px;margin:0;padding:0;list-style:none}
+.how li{display:grid;grid-template-columns:36px 1fr;gap:12px;align-items:start}
+.how .n{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--gold);color:var(--gold2);font-family:var(--mono);font-size:15px}
+.how b{display:block;font-size:16px}
+.how small{color:var(--muted);font-size:14px;line-height:1.45}
+.plans{display:grid;gap:10px}
+.plan{display:flex;justify-content:space-between;gap:12px;align-items:center;background:#0f1114;border:1px solid var(--line);border-radius:16px;padding:14px 16px}
+.plan b{font-size:16px}.plan small{display:block;color:var(--muted);font-size:13px;margin-top:2px}
+.plan .p{font-family:var(--mono);font-size:20px;color:var(--gold2);white-space:nowrap}
+.note{font-size:12px;color:var(--muted);line-height:1.5;text-align:center}
+.foot{text-align:center;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-dim)}
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <svg class="logo" viewBox="0 0 100 100" aria-hidden="true">
+    <defs><linearGradient id="g" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="100" y2="100"><stop offset="0" stop-color="#f3d98f"/><stop offset="1" stop-color="#b8923e"/></linearGradient></defs>
+    <circle class="ring" cx="50" cy="50" r="42"/>
+    <path d="M10 46h80" stroke="url(#g)" stroke-width="6"/>
+    <circle cx="50" cy="44" r="8" fill="url(#g)"/>
+    <path d="M44 46L28 86Q50 92 72 86L56 46z" fill="url(#g)"/>
+    <path class="road-line" d="M50 52V88"/>
+    <circle class="shine" cx="50" cy="50" r="42" fill="none" stroke="#fff" stroke-width="2" opacity="0"/>
+  </svg>
+
+  <header>
+    <div class="eyebrow">Driver QR · Partner program</div>
+    <h1>Every driver you bring<br><em>pays you monthly.</em></h1>
+    <p class="sub" style="margin-top:12px">Slide to see what the Personal Driver QR program pays you, Sean.</p>
+  </header>
+
+  <section class="card reveal" aria-labelledby="calc">
+    <div class="hero-num">
+      <div class="lbl" id="calc">YOUR FIRST YEAR</div>
+      <div class="big" id="year" aria-live="polite">$0</div>
+      <div class="per"><span id="permo">$0</span>/month recurring + <span id="setup">$0</span> in setup fees</div>
+    </div>
+    <div class="slider-row">
+      <div class="drivers"><span>Drivers signed up</span><b id="dcount">10</b></div>
+      <input id="drivers" type="range" min="1" max="200" value="10" aria-label="Number of drivers">
+      <div class="chips" role="group" aria-label="Quick picks">
+        <button class="chip" data-n="10" aria-pressed="true">10</button>
+        <button class="chip" data-n="25" aria-pressed="false">25</button>
+        <button class="chip" data-n="50" aria-pressed="false">50</button>
+        <button class="chip" data-n="100" aria-pressed="false">100</button>
+      </div>
+      <div class="pro-row">
+        <label for="pro">Drivers who add the AI assistant <b id="propct">50%</b></label>
+        <input id="pro" type="range" min="0" max="100" step="10" value="50" aria-label="Percent of drivers on the monthly plan">
+      </div>
+    </div>
+    <div class="split" style="margin-top:14px">
+      <div class="mini"><div class="k">YOUR CUT</div><div class="v">20%</div></div>
+      <div class="mini"><div class="k">AFTER 3 YEARS</div><div class="v g" id="three">$0</div></div>
+    </div>
+    <div class="chart" id="chart" aria-hidden="true"></div>
+    <div class="months" aria-hidden="true"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span></div>
+    <p class="note" style="margin-top:10px">Months 1–12, assuming you add the same number of drivers evenly over the year and they stay. Illustration, not a promise.</p>
+  </section>
+
+  <section class="card reveal">
+    <h2>What drivers get</h2>
+    <div class="plans" style="margin-top:10px">
+      <div class="plan"><div><b>Starter</b><small>Their own booking page + print-ready QR card</small></div><div class="p">$99 once</div></div>
+      <div class="plan"><div><b>Pro</b><small>+ AI assistant that answers &amp; books rides 24/7. First month free.</small></div><div class="p">$29/mo</div></div>
+    </div>
+  </section>
+
+  <section class="card reveal">
+    <h2>How it works</h2>
+    <ol class="how" style="margin-top:12px">
+      <li><span class="n">1</span><div><b>You meet drivers</b><small>At the chargers, the airport lot, wherever they wait.</small></div></li>
+      <li><span class="n">2</span><div><b>IMagin builds their page + QR</b><small>Done in a day. Riders scan, book the same driver again.</small></div></li>
+      <li><span class="n">3</span><div><b>You get 20%</b><small>Of every setup and every month they stay. Tracked per driver.</small></div></li>
+    </ol>
+  </section>
+
+  <p class="foot">IMagin · Pompano Beach</p>
+</main>
+<script>
+(function(){
+  var SETUP=99, MONTHLY=29, CUT=0.20;
+  var d=document.getElementById('drivers'), p=document.getElementById('pro');
+  var el={year:document.getElementById('year'),permo:document.getElementById('permo'),setup:document.getElementById('setup'),dcount:document.getElementById('dcount'),propct:document.getElementById('propct'),three:document.getElementById('three'),chart:document.getElementById('chart')};
+  var chips=[].slice.call(document.querySelectorAll('.chip'));
+  for(var i=0;i<12;i++){var b=document.createElement('div');b.className='bar';el.chart.appendChild(b);}
+  var bars=[].slice.call(el.chart.children);
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var shown={year:0};
+  function money(n){return '$'+Math.round(n).toLocaleString('en-US');}
+  function tween(key,node,to){
+    if(reduce){node.textContent=money(to);shown[key]=to;return;}
+    var from=shown[key]||0,start=null;
+    cancelAnimationFrame(node._raf);
+    function step(t){if(!start)start=t;var k=Math.min(1,(t-start)/650);var e=1-Math.pow(1-k,3);node.textContent=money(from+(to-from)*e);if(k<1)node._raf=requestAnimationFrame(step);else shown[key]=to;}
+    node._raf=requestAnimationFrame(step);
+  }
+  function calc(){
+    var n=+d.value, pro=+p.value/100;
+    d.style.setProperty('--p',((n-1)/199*100)+'%');
+    p.style.setProperty('--p',p.value+'%');
+    el.dcount.textContent=n; el.propct.textContent=p.value+'%';
+    chips.forEach(function(c){c.setAttribute('aria-pressed',String(+c.dataset.n===n));});
+    var setupCut=n*SETUP*CUT;
+    var monthlyCut=n*pro*MONTHLY*CUT;           // once everyone is on board
+    // Year 1: drivers added evenly; each Pro driver's first month is free
+    var perMonth=[], total=setupCut;
+    for(var m=1;m<=12;m++){
+      var paying=Math.max(0,n*(m-1)/12)*pro;    // added last month or earlier (first month free)
+      var v=paying*MONTHLY*CUT + (n/12)*SETUP*CUT;
+      perMonth.push(v); total+= paying*MONTHLY*CUT;
+    }
+    var threeYears=total + monthlyCut*24;
+    tween('year',el.year,total);
+    el.permo.textContent=money(monthlyCut);
+    el.setup.textContent=money(setupCut);
+    tween('three',el.three,threeYears);
+    var max=Math.max.apply(null,perMonth)||1;
+    bars.forEach(function(b,i){b.style.height=(perMonth[i]/max*100)+'%';});
+  }
+  d.addEventListener('input',calc); p.addEventListener('input',calc);
+  chips.forEach(function(c){c.addEventListener('click',function(){d.value=c.dataset.n;calc();});});
+  calc();
+  var io=('IntersectionObserver' in window)?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.15}):null;
+  [].forEach.call(document.querySelectorAll('.reveal'),function(r){io?io.observe(r):r.classList.add('in');});
+})();
+</script>
+</body>
+</html>

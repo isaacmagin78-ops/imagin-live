@@ -1,0 +1,925 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Senior Sprint: the College Checklist | IMagin</title>
+<meta name="description" content="Class of 2027: many Early Decision and Early Action deadlines land November 1. 59 tasks in 11 categories, one plan for parent and student. $49 once, 14-day no-questions refund.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#FBFAF7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0A0D14" media="(prefers-color-scheme: dark)">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='15' fill='%230F1B2D'/%3E%3Cpath d='M18 33.5l9 9L46.5 22' fill='none' stroke='%23FF6B35' stroke-width='7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="IMagin">
+<meta property="og:title" content="Senior Sprint: the College Checklist">
+<meta property="og:description" content="Class of 2027: Nov 1 is close. 59 tasks in 11 categories, one plan for parent and student. $49 once, 14-day no-questions refund.">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Senior Sprint: the College Checklist">
+<meta name="twitter:description" content="Class of 2027: Nov 1 is close. 59 tasks, 11 categories, one plan for parent and student. $49 once.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&family=Geist:wght@400..700&family=Geist+Mono:wght@500;600&display=swap">
+
+<style>
+/* ------------------------------------------------------------------
+   Tokens. Light is the default; dark mirrors it below.
+   Palette: deep ink + a closed amber -> ember -> coral run, with aqua
+   as the single cool counterpoint (DESIGN-DIRECTION.md).
+------------------------------------------------------------------- */
+:root{
+  --bg:#FBFAF7;
+  --surface:#FFFFFF;
+  --surface-2:#F4F2ED;
+  --line:#E7E3DB;
+  --line-2:#D8D2C6;
+  --ink:#0F1B2D;
+  --ink-2:#465063;
+  --ink-3:#5C6577;
+  --accent:#FF6B35;
+  --accent-ink:#B23B10;
+  --accent-soft:#FFEDE3;
+  --grad-text:linear-gradient(100deg,#E0560F 0%,#D3392A 55%,#C2244E 100%);
+  --btn:linear-gradient(135deg,#FF8A3D 0%,#FF6B35 45%,#FF5A55 100%);
+  --btn-ink:#1A0B05;
+  --aqua:#0B8AA0;
+  --aqua-ink:#086A7B;
+  --aqua-soft:#DFF3F6;
+  --band:#0F1B2D;
+  --band-ink:#F4F6FA;
+  --band-ink-2:#B9C2D2;
+  --own-p-bg:#EEF0FB; --own-p:#3D4C9E;
+  --own-s-bg:#FFF0E3; --own-s:#9A4A0B;
+  --own-b-bg:#E3F4F6; --own-b:#086A7B;
+  --glow-1:rgba(255,107,53,.16);
+  --glow-2:rgba(51,199,235,.12);
+  --shadow:0 1px 2px rgba(15,27,45,.05), 0 18px 40px -22px rgba(15,27,45,.22);
+  --shadow-lg:0 1px 2px rgba(15,27,45,.06), 0 40px 80px -40px rgba(15,27,45,.38);
+  --display:"Bricolage Grotesque","SF Pro Display",-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
+  --sans:"Geist","SF Pro Text",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  --mono:"Geist Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  --r:18px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0A0D14;
+    --surface:#111722;
+    --surface-2:#171E2C;
+    --line:#232C3E;
+    --line-2:#323D54;
+    --ink:#F2F4F8;
+    --ink-2:#AEB7C6;
+    --ink-3:#97A1B2;
+    --accent:#FF7A45;
+    --accent-ink:#FF9466;
+    --accent-soft:rgba(255,122,69,.13);
+    --grad-text:linear-gradient(100deg,#FFA45E 0%,#FF6B35 50%,#FF5C7C 100%);
+    --btn:linear-gradient(135deg,#FF9447 0%,#FF6B35 45%,#FF5A55 100%);
+    --btn-ink:#160904;
+    --aqua:#45C9DF;
+    --aqua-ink:#74DAEB;
+    --aqua-soft:rgba(69,201,223,.13);
+    --band:#141B28;
+    --band-ink:#F2F4F8;
+    --band-ink-2:#AEB7C6;
+    --own-p-bg:rgba(140,155,255,.14); --own-p:#AEB8FF;
+    --own-s-bg:rgba(255,160,90,.14); --own-s:#FFB27A;
+    --own-b-bg:rgba(69,201,223,.14); --own-b:#7ADCEC;
+    --glow-1:rgba(255,107,53,.20);
+    --glow-2:rgba(51,199,235,.12);
+    --shadow:0 1px 0 rgba(255,255,255,.04), 0 24px 48px -28px rgba(0,0,0,.9);
+    --shadow-lg:0 1px 0 rgba(255,255,255,.05), 0 48px 90px -40px rgba(0,0,0,.95);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0A0D14; --surface:#111722; --surface-2:#171E2C; --line:#232C3E; --line-2:#323D54;
+  --ink:#F2F4F8; --ink-2:#AEB7C6; --ink-3:#97A1B2;
+  --accent:#FF7A45; --accent-ink:#FF9466; --accent-soft:rgba(255,122,69,.13);
+  --grad-text:linear-gradient(100deg,#FFA45E 0%,#FF6B35 50%,#FF5C7C 100%);
+  --btn:linear-gradient(135deg,#FF9447 0%,#FF6B35 45%,#FF5A55 100%); --btn-ink:#160904;
+  --aqua:#45C9DF; --aqua-ink:#74DAEB; --aqua-soft:rgba(69,201,223,.13);
+  --band:#141B28; --band-ink:#F2F4F8; --band-ink-2:#AEB7C6;
+  --own-p-bg:rgba(140,155,255,.14); --own-p:#AEB8FF;
+  --own-s-bg:rgba(255,160,90,.14); --own-s:#FFB27A;
+  --own-b-bg:rgba(69,201,223,.14); --own-b:#7ADCEC;
+  --glow-1:rgba(255,107,53,.20); --glow-2:rgba(51,199,235,.12);
+  --shadow:0 1px 0 rgba(255,255,255,.04), 0 24px 48px -28px rgba(0,0,0,.9);
+  --shadow-lg:0 1px 0 rgba(255,255,255,.05), 0 48px 90px -40px rgba(0,0,0,.95);
+}
+
+/* ---------------- base ---------------- */
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:var(--sans);font-size:17px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+  overflow-x:hidden;
+}
+img,svg{display:block;max-width:100%}
+a{color:var(--accent-ink);text-underline-offset:3px}
+h1,h2,h3{font-family:var(--display);margin:0;text-wrap:balance;color:var(--ink)}
+p{margin:0}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+@media (min-width:760px){.wrap{padding:0 36px}}
+.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:var(--bg);padding:10px 14px;border-radius:10px;z-index:99}
+.skip:focus{left:12px}
+:focus-visible{outline:2.5px solid var(--accent);outline-offset:3px;border-radius:6px}
+.vh{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---------------- header ---------------- */
+.top{
+  position:sticky;top:0;z-index:30;
+  background:color-mix(in srgb,var(--bg) 84%,transparent);
+  -webkit-backdrop-filter:saturate(180%) blur(18px);backdrop-filter:saturate(180%) blur(18px);
+  border-bottom:1px solid var(--line);
+}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;height:58px}
+.brand{display:flex;align-items:baseline;gap:10px;text-decoration:none;color:var(--ink);min-width:0}
+.brand b{font-family:var(--display);font-weight:800;font-size:21px;letter-spacing:-.03em}
+.brand span{font-size:13px;color:var(--ink-3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.top-cta{
+  flex:none;display:inline-flex;align-items:center;gap:6px;
+  font-size:14px;font-weight:600;color:var(--ink);text-decoration:none;
+  padding:8px 14px;border:1px solid var(--line-2);border-radius:999px;background:var(--surface);
+}
+.top-cta:hover{border-color:var(--ink)}
+
+/* ---------------- shared type ---------------- */
+.eyebrow{
+  display:inline-block;font-family:var(--mono);font-size:12px;font-weight:600;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--accent-ink);margin-bottom:14px;
+}
+h2{font-weight:800;font-size:clamp(2rem,8.4vw,3.3rem);line-height:1.02;letter-spacing:-.035em}
+.lead{font-size:clamp(1.06rem,4.4vw,1.25rem);color:var(--ink-2);margin-top:16px;max-width:38rem}
+section{padding:76px 0}
+@media (min-width:900px){section{padding:112px 0}}
+.rule{border-top:1px solid var(--line)}
+
+/* ---------------- buy block (used 3x) ---------------- */
+.buy{margin-top:28px;max-width:420px}
+.btn{
+  display:flex;align-items:center;justify-content:center;gap:10px;width:100%;
+  min-height:58px;padding:16px 24px;border-radius:16px;
+  background:var(--btn);color:var(--btn-ink);text-decoration:none;
+  font-family:var(--sans);font-weight:700;font-size:17px;letter-spacing:-.01em;
+  box-shadow:0 1px 0 rgba(255,255,255,.35) inset, 0 14px 30px -14px rgba(255,90,60,.65);
+  transition:transform .2s ease, box-shadow .2s ease, filter .2s ease;
+}
+.btn svg{width:18px;height:18px;flex:none;transition:transform .2s ease}
+.btn:hover{transform:translateY(-1px);filter:saturate(1.08)}
+.btn:hover svg{transform:translateX(3px)}
+.btn:active{transform:translateY(0)}
+.refund{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  margin-top:12px;font-size:15px;font-weight:600;color:var(--ink);
+}
+.refund svg{width:17px;height:17px;flex:none;color:var(--aqua)}
+.buy-note{margin-top:4px;text-align:center;font-size:13px;color:var(--ink-3)}
+
+/* ---------------- hero ---------------- */
+.hero{position:relative;padding:40px 0 72px;overflow:hidden}
+.hero::before{
+  content:"";position:absolute;inset:-20% -30% auto -30%;height:120%;z-index:-1;pointer-events:none;
+  background:
+    radial-gradient(48% 38% at 88% 8%,var(--glow-1),transparent 70%),
+    radial-gradient(40% 32% at 6% 26%,var(--glow-2),transparent 70%);
+}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:48px;align-items:center}
+@media (min-width:960px){
+  .hero{padding:84px 0 112px}
+  .hero-grid{grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:64px}
+}
+.badge{
+  display:inline-flex;align-items:center;gap:9px;
+  padding:7px 13px 7px 10px;border-radius:999px;
+  background:var(--surface);border:1px solid var(--line-2);
+  font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2);
+}
+.badge i{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px var(--accent-soft)}
+h1{
+  margin-top:22px;font-weight:800;
+  font-size:clamp(2.75rem,12.4vw,5.4rem);line-height:.94;letter-spacing:-.045em;
+}
+h1 .hot{
+  color:var(--accent-ink);
+  background:var(--grad-text);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+}
+.hero .lead{margin-top:20px}
+.hero .lead strong{color:var(--ink);font-weight:600}
+.stats{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;
+  margin-top:28px;max-width:460px;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--line);
+}
+.stat{background:var(--surface);padding:13px 12px 12px}
+.stat b{display:block;font-family:var(--display);font-weight:800;font-size:22px;letter-spacing:-.03em;line-height:1.1}
+.stat span{display:block;margin-top:3px;font-size:12.5px;line-height:1.35;color:var(--ink-3)}
+
+/* ---------------- product mock ---------------- */
+.mock-wrap{position:relative;max-width:440px;width:100%;margin:0 auto}
+.mock{
+  background:var(--surface);border:1px solid var(--line-2);border-radius:28px;
+  box-shadow:var(--shadow-lg);overflow:hidden;
+}
+.m-top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;padding:18px 18px 12px}
+.m-title b{display:block;font-family:var(--display);font-weight:800;font-size:17px;letter-spacing:-.02em;line-height:1.1}
+.m-title span{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin-top:3px}
+.m-who{display:flex;border:1px solid var(--line-2);border-radius:10px;overflow:hidden;flex:none}
+.m-who span{padding:6px 11px;font-size:12.5px;font-weight:600;color:var(--ink-3)}
+.m-who .on{background:var(--ink);color:var(--bg)}
+.m-actions{display:flex;gap:6px;padding:0 18px 14px}
+.m-actions span{font-size:12px;font-weight:600;color:var(--ink-2);border:1px solid var(--line-2);border-radius:8px;padding:4px 10px}
+.m-next{display:flex;align-items:center;gap:16px;padding:16px 18px;background:var(--surface-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.ring{position:relative;flex:none;width:76px;height:76px}
+.ring svg{width:76px;height:76px}
+.ring .pct{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:19px;letter-spacing:-.03em}
+.m-next .lab{font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-ink)}
+.m-next .nt{font-weight:650;font-size:15px;line-height:1.3;margin-top:2px}
+.m-next .ns{font-size:12.5px;color:var(--ink-3);margin-top:3px}
+.m-tabs{display:flex;gap:20px;padding:0 18px;border-bottom:1px solid var(--line)}
+.m-tabs span{padding:12px 0 10px;font-size:13.5px;font-weight:600;color:var(--ink-3);border-bottom:2px solid transparent;margin-bottom:-1px}
+.m-tabs .on{color:var(--ink);border-bottom-color:var(--ink)}
+.m-pills{
+  display:flex;gap:7px;padding:12px 18px;overflow:hidden;white-space:nowrap;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 18px,#000 calc(100% - 36px),transparent);
+          mask-image:linear-gradient(90deg,transparent 0,#000 18px,#000 calc(100% - 36px),transparent);
+}
+.m-pills span{flex:none;font-size:12.5px;font-weight:600;color:var(--ink-2);border:1px solid var(--line-2);border-radius:999px;padding:5px 11px}
+.m-pills span em{font-style:normal;opacity:.55;margin-left:4px;font-weight:500}
+.m-pills .on{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.m-list{padding:4px 14px 18px;position:relative}
+.m-grp{font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);padding:6px 4px 8px}
+.m-task{display:flex;gap:11px;align-items:flex-start;padding:11px 12px;border:1px solid var(--line);border-radius:13px;background:var(--surface);margin-bottom:7px}
+.m-tick{flex:none;width:18px;height:18px;margin-top:1px;border:1.6px solid var(--ink-3);border-radius:5px;position:relative}
+.m-task.done .m-tick{background:var(--aqua);border-color:var(--aqua)}
+.m-task.done .m-tick::after{content:"";position:absolute;left:5px;top:1.5px;width:4.5px;height:9px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(43deg)}
+.m-body{min-width:0;flex:1}
+.m-ttl{font-size:14px;font-weight:600;line-height:1.35}
+.m-task.done .m-ttl{color:var(--ink-3);text-decoration:line-through;text-decoration-color:var(--line-2)}
+.m-meta{display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px;margin-top:5px;font-size:12px;color:var(--ink-3)}
+.m-sel{border:1px solid var(--line-2);border-radius:7px;padding:1px 7px;font-size:11.5px;color:var(--ink-2)}
+.m-fade{position:absolute;left:0;right:0;bottom:0;height:70px;background:linear-gradient(to bottom,transparent,var(--surface) 85%);pointer-events:none}
+.own{display:inline-block;font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;border-radius:6px;padding:2px 7px;line-height:1.5}
+.own-p{background:var(--own-p-bg);color:var(--own-p)}
+.own-s{background:var(--own-s-bg);color:var(--own-s)}
+.own-b{background:var(--own-b-bg);color:var(--own-b)}
+.mock-cap{margin-top:14px;text-align:center;font-size:13px;color:var(--ink-3)}
+.mock-chip{
+  position:absolute;top:-12px;left:22px;z-index:2;
+  font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  background:var(--ink);color:var(--bg);padding:5px 10px;border-radius:999px;
+}
+
+/* ---------------- sprint timeline ---------------- */
+.sprint{margin-top:40px;display:grid;grid-template-columns:minmax(0,1fr);gap:16px}
+@media (min-width:960px){.sprint{grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}}
+.when-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:22px 20px 20px;box-shadow:var(--shadow)}
+.when-head{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.date{font-family:var(--mono);font-size:12.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
+.state{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:3px 9px;border-radius:999px}
+.state.open{background:var(--aqua-soft);color:var(--aqua-ink)}
+.state.soon{background:var(--accent-soft);color:var(--accent-ink)}
+.state.before{background:var(--surface-2);color:var(--ink-2);border:1px solid var(--line)}
+.when-card h3{font-weight:700;font-size:22px;letter-spacing:-.025em;line-height:1.15;margin-top:14px}
+.when-card ul{list-style:none;margin:16px 0 0;padding:0;border-top:1px solid var(--line)}
+.when-card li{display:flex;gap:11px;padding:11px 0;border-bottom:1px solid var(--line);font-size:15.5px;line-height:1.4}
+.when-card li:last-child{border-bottom:none;padding-bottom:0}
+.when-card li::before{content:"";flex:none;width:16px;height:16px;margin-top:2px;border:1.5px solid var(--line-2);border-radius:5px}
+.footnote{margin-top:22px;font-size:14px;color:var(--ink-3);max-width:44rem}
+
+/* ---------------- mid band ---------------- */
+.band{
+  background:var(--band);color:var(--band-ink);border-radius:28px;
+  padding:40px 22px;position:relative;overflow:hidden;
+}
+.band::before{
+  content:"";position:absolute;inset:auto -20% -60% 30%;height:120%;pointer-events:none;
+  background:radial-gradient(50% 50% at 50% 50%,rgba(255,107,53,.28),transparent 70%);
+}
+.band > *{position:relative}
+.band h2{color:var(--band-ink)}
+.band p{color:var(--band-ink-2);margin-top:14px;font-size:17px;max-width:34rem}
+.band .refund{color:var(--band-ink)}
+.band .refund svg{color:#5FD3E6}
+.band .buy-note{color:var(--band-ink-2)}
+@media (min-width:860px){
+  .band{padding:64px 56px;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:48px;align-items:center}
+  .band .buy{margin-top:0;justify-self:end;width:100%}
+}
+:root[data-theme="dark"] .band{border:1px solid var(--line)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .band{border:1px solid var(--line)}}
+
+/* ---------------- catalog ---------------- */
+.cat-grid{margin-top:40px;display:grid;grid-template-columns:minmax(0,1fr);gap:10px}
+@media (min-width:900px){.cat-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;align-items:start}}
+.cat{background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.cat[open]{box-shadow:var(--shadow);border-color:var(--line-2)}
+.cat summary{
+  list-style:none;cursor:pointer;display:grid;grid-template-columns:auto 1fr auto auto;align-items:center;gap:12px;
+  padding:16px 16px 16px 18px;min-height:64px;
+}
+.cat summary::-webkit-details-marker{display:none}
+.cat-idx{font-family:var(--mono);font-size:12px;font-weight:600;color:var(--ink-3)}
+.cat-name{min-width:0}
+.cat-name b{display:block;font-family:var(--display);font-weight:700;font-size:18.5px;letter-spacing:-.02em;line-height:1.2}
+.cat-name span{display:block;font-size:13.5px;color:var(--ink-3);line-height:1.35;margin-top:2px}
+.cat-count{font-family:var(--mono);font-size:12px;font-weight:600;color:var(--ink-2);white-space:nowrap;text-align:right}
+.cat-count .now{display:block;margin-bottom:3px;color:var(--accent-ink);letter-spacing:.08em}
+.chev{width:26px;height:26px;border-radius:50%;border:1px solid var(--line-2);display:grid;place-items:center;transition:transform .25s ease}
+.chev::before{content:"";width:7px;height:7px;border:solid var(--ink-2);border-width:0 1.6px 1.6px 0;transform:translateY(-2px) rotate(45deg)}
+.cat[open] .chev{transform:rotate(180deg)}
+.cat ol{list-style:none;margin:0;padding:0 18px 12px;border-top:1px solid var(--line)}
+.cat li{display:flex;flex-direction:column;gap:5px;padding:12px 0;border-bottom:1px solid var(--line)}
+.cat li:last-child{border-bottom:none}
+.cat li .ct{font-size:15.5px;font-weight:500;line-height:1.4}
+.cat li .cm{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-size:13px;color:var(--ink-3)}
+.legend{display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:20px;font-size:14px;color:var(--ink-3)}
+.legend span{display:inline-flex;align-items:center;gap:7px}
+.legend .dotnow{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.08em;color:var(--accent-ink)}
+
+/* ---------------- tools row ---------------- */
+.tools{margin-top:56px;display:grid;grid-template-columns:minmax(0,1fr);gap:16px}
+@media (min-width:900px){.tools{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}}
+.tool{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:22px 20px;box-shadow:var(--shadow)}
+.tool h3{font-weight:700;font-size:21px;letter-spacing:-.02em}
+.tool > p{color:var(--ink-2);font-size:15.5px;margin-top:6px}
+.mini{margin-top:18px;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--surface-2)}
+.mini table{width:100%;border-collapse:collapse;font-size:13.5px}
+.mini th{font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);text-align:left;padding:10px 12px;border-bottom:1px solid var(--line)}
+.mini th:last-child,.mini td:last-child{text-align:right}
+.mini td{padding:9px 12px;border-bottom:1px solid var(--line);color:var(--ink)}
+.mini tr:last-child td{border-bottom:none}
+.mini .tot td{font-weight:700;background:var(--surface)}
+.mini .num{font-family:var(--mono);font-size:13px}
+.docrow{padding:11px 12px;border-bottom:1px solid var(--line)}
+.docrow:last-child{border-bottom:none}
+.docrow b{display:block;font-size:13.5px;font-weight:600;margin-bottom:7px}
+.seg{display:flex;width:max-content;max-width:100%;border:1px solid var(--line-2);border-radius:999px;overflow:hidden;background:var(--surface)}
+.seg span{padding:4px 9px;font-size:11.5px;font-weight:600;color:var(--ink-3);white-space:nowrap}
+.seg .on{background:var(--ink);color:var(--bg)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.chip{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:500;color:var(--ink-2);background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:8px 14px}
+.chip svg{width:16px;height:16px;color:var(--aqua)}
+
+/* ---------------- steps ---------------- */
+.steps{list-style:none;margin:40px 0 0;padding:0;display:grid;grid-template-columns:minmax(0,1fr);gap:14px}
+@media (min-width:900px){.steps{grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}}
+.steps li{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:24px 20px}
+.steps .n{font-family:var(--display);font-weight:800;font-size:44px;line-height:1;letter-spacing:-.05em;color:transparent;-webkit-text-stroke:1.4px var(--accent)}
+.steps h3{font-weight:700;font-size:21px;letter-spacing:-.02em;margin-top:14px}
+.steps p{color:var(--ink-2);font-size:15.5px;margin-top:6px}
+
+/* ---------------- audience ---------------- */
+.aud{margin-top:40px;display:grid;grid-template-columns:minmax(0,1fr);gap:14px}
+@media (min-width:900px){.aud{grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}}
+.aud > div{border-top:2px solid var(--ink);padding-top:18px}
+.aud h3{font-weight:700;font-size:21px;letter-spacing:-.02em;line-height:1.2}
+.aud p{color:var(--ink-2);font-size:15.5px;margin-top:8px}
+.notfor{margin-top:36px;padding:20px;border-radius:var(--r);background:var(--surface-2);border:1px solid var(--line);font-size:15.5px;color:var(--ink-2)}
+.notfor strong{color:var(--ink)}
+
+/* ---------------- faq ---------------- */
+.faq{margin-top:36px;border-top:1px solid var(--line);max-width:52rem}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{
+  list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding:20px 0;font-weight:600;font-size:17.5px;line-height:1.35;
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary .chev{flex:none}
+.faq details[open] .chev{transform:rotate(180deg)}
+.faq .a{padding:0 0 22px;color:var(--ink-2);font-size:16px;max-width:44rem}
+.faq .a p + p{margin-top:10px}
+.faq .a strong{color:var(--ink)}
+
+/* ---------------- pricing ---------------- */
+.price{
+  margin-top:40px;max-width:480px;background:var(--surface);border:1px solid var(--line-2);
+  border-radius:28px;box-shadow:var(--shadow-lg);overflow:hidden;
+}
+.price-top{padding:26px 22px 22px;border-bottom:1px solid var(--line)}
+.price-top .pn{font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
+.amt{display:flex;align-items:baseline;gap:10px;margin-top:10px}
+.amt b{font-family:var(--display);font-weight:800;font-size:64px;line-height:.9;letter-spacing:-.05em}
+.amt span{font-size:15px;color:var(--ink-2)}
+.incl{list-style:none;margin:0;padding:18px 22px 4px}
+.incl li{display:flex;gap:12px;padding:8px 0;font-size:15.5px;line-height:1.45}
+.incl svg{flex:none;width:18px;height:18px;margin-top:2px;color:var(--aqua)}
+.price .buy{margin:16px 22px 24px;max-width:none}
+
+/* ---------------- form ---------------- */
+.ask{display:grid;grid-template-columns:minmax(0,1fr);gap:36px}
+@media (min-width:900px){.ask{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:64px;align-items:start}}
+form{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:22px 20px;box-shadow:var(--shadow)}
+.field{display:block;margin-bottom:16px}
+.field label{display:block;font-size:14px;font-weight:600;margin-bottom:7px}
+.field input,.field textarea{
+  width:100%;font:inherit;font-size:16px;color:var(--ink);background:var(--bg);
+  border:1px solid var(--line-2);border-radius:12px;padding:13px 14px;
+  transition:border-color .15s ease, box-shadow .15s ease;
+}
+.field textarea{min-height:120px;resize:vertical;line-height:1.5}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 4px var(--accent-soft)}
+.hp{position:absolute!important;left:-9999px!important;width:1px;height:1px;overflow:hidden}
+.send{
+  width:100%;min-height:52px;border:none;border-radius:14px;cursor:pointer;
+  background:var(--ink);color:var(--bg);font:inherit;font-weight:700;font-size:16px;
+}
+.send:hover{filter:brightness(1.15)}
+.form-note{margin-top:12px;font-size:13px;color:var(--ink-3);text-align:center}
+
+/* ---------------- fine print + footer ---------------- */
+.fine summary{
+  list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;
+  font-family:var(--display);font-weight:700;font-size:20px;letter-spacing:-.02em;padding:4px 0;
+}
+.fine summary::-webkit-details-marker{display:none}
+.fine[open] .chev{transform:rotate(180deg)}
+.fine h3{font-family:var(--sans);font-size:15px;font-weight:700;margin:22px 0 6px}
+.fine p{font-size:15px;color:var(--ink-2);max-width:46rem}
+.fine p + p{margin-top:8px}
+footer{border-top:1px solid var(--line);padding:32px 0 calc(40px + env(safe-area-inset-bottom));font-size:14px;color:var(--ink-3)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-between}
+footer nav{display:flex;gap:18px}
+footer a{color:var(--ink-2)}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{transition:none!important;animation:none!important}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#main" aria-label="IMagin, College Checklist">
+      <b>IMagin</b><span>College Checklist</span>
+    </a>
+    <a class="top-cta" href="#get">Get it · $49</a>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ============ HERO ============ -->
+<div class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="badge"><i aria-hidden="true"></i>Senior Sprint · the College Checklist</span>
+      <h1>Class of 2027: <span class="hot">Nov&nbsp;1</span> is close.</h1>
+      <p class="lead">If your senior is applying Early Decision or Early Action, many deadlines land on <strong>November 1, about two weeks from now</strong>. The FAFSA has been open since October 1. Senior Sprint puts every step that&rsquo;s left on <strong>one plan for parent and student</strong>, so nothing slips through the gap between you.</p>
+
+      <div class="stats" role="list">
+        <div class="stat" role="listitem"><b>2 wks</b><span>to Nov&nbsp;1 <span style="white-space:nowrap">ED&thinsp;/&thinsp;EA</span></span></div>
+        <div class="stat" role="listitem"><b>Open</b><span>FAFSA, since Oct&nbsp;1</span></div>
+        <div class="stat" role="listitem"><b>59</b><span>tasks in 11 categories</span></div>
+      </div>
+
+      <div class="buy">
+        <a class="btn" href="https://buy.stripe.com/00w6oH1z16lHcwS9y2g7e02">Get the checklist · $49 <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h11m-4.5-5L15 10l-4.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <p class="refund"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 2.5l6 2.2v4.6c0 3.9-2.6 6.9-6 8.2-3.4-1.3-6-4.3-6-8.2V4.7l6-2.2z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M7.2 10.1l2 2 3.8-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>14-day no-questions refund</p>
+        <p class="buy-note">One payment. No subscription. Secure checkout by Stripe.</p>
+      </div>
+    </div>
+
+    <!-- Product mock: drawn in HTML/CSS from the app's real task list and layout. Not a screenshot. -->
+    <figure class="mock-wrap" style="margin:0">
+      <span class="mock-chip">Senior year · Parent view</span>
+      <div class="mock" role="img" aria-label="Illustration of the College Checklist app in Parent view: 46 percent done, 27 of 59 tasks; next up, send official scores to each school; the Financial aid category open with six tasks.">
+        <div class="m-top">
+          <div class="m-title"><b>College Checklist</b><span>IMagin</span></div>
+          <div class="m-who"><span class="on">Parent</span><span>Student</span></div>
+        </div>
+        <div class="m-actions"><span>Export</span><span>Reset</span></div>
+        <div class="m-next">
+          <div class="ring">
+            <svg viewBox="0 0 92 92" aria-hidden="true">
+              <circle cx="46" cy="46" r="40" fill="none" stroke="var(--line)" stroke-width="9"/>
+              <circle cx="46" cy="46" r="40" fill="none" stroke="var(--aqua)" stroke-width="9" stroke-linecap="round" stroke-dasharray="251.3" stroke-dashoffset="135.7" transform="rotate(-90 46 46)"/>
+            </svg>
+            <span class="pct">46%</span>
+          </div>
+          <div>
+            <div class="lab">Next up</div>
+            <div class="nt">Send official scores to each school</div>
+            <div class="ns">Testing · With applications · 27 of 59 done</div>
+          </div>
+        </div>
+        <div class="m-tabs"><span class="on">Tasks</span><span>Budget</span><span>Documents</span></div>
+        <div class="m-pills"><span>Recommendations<em>5</em></span><span class="on">Financial aid<em>6</em></span><span>Scholarships<em>4</em></span><span>Applications<em>6</em></span><span>Decisions<em>5</em></span></div>
+        <div class="m-list">
+          <div class="m-grp">Financial aid</div>
+          <div class="m-task done"><span class="m-tick"></span><div class="m-body"><div class="m-ttl">Create the FSA ID (parent and student, separately)</div><div class="m-meta"><span class="own own-b">Both</span><span>Before October 1</span></div></div></div>
+          <div class="m-task"><span class="m-tick"></span><div class="m-body"><div class="m-ttl">Submit the FAFSA</div><div class="m-meta"><span class="own own-p">Parent</span><span>October 1 or as soon as it opens</span><span class="m-sel">Parent ▾</span></div></div></div>
+          <div class="m-task"><span class="m-tick"></span><div class="m-body"><div class="m-ttl">Submit the CSS Profile if any school requires it</div><div class="m-meta"><span class="own own-p">Parent</span><span>October–November</span></div></div></div>
+          <div class="m-task done"><span class="m-tick"></span><div class="m-body"><div class="m-ttl">Run each school&rsquo;s net price calculator</div><div class="m-meta"><span class="own own-p">Parent</span><span>Before applying</span></div></div></div>
+          <div class="m-task"><span class="m-tick"></span><div class="m-body"><div class="m-ttl">Compare award letters side by side, not one at a time</div><div class="m-meta"><span class="own own-b">Both</span><span>March–April</span></div></div></div>
+          <div class="m-fade"></div>
+        </div>
+      </div>
+      <figcaption class="mock-cap">Illustration of the app, drawn from its real task list. Not a screenshot.</figcaption>
+    </figure>
+  </div>
+</div>
+
+<!-- ============ THE NEXT TWO WEEKS ============ -->
+<section class="rule" id="sprint" aria-labelledby="sprint-h">
+  <div class="wrap">
+    <span class="eyebrow">The next two weeks</span>
+    <h2 id="sprint-h">What has to happen before November&nbsp;1.</h2>
+    <p class="lead">Eleven steps from the checklist, in the order the calendar asks for them. Some are yours, some are your senior&rsquo;s, and a few belong to people at school who need lead time.</p>
+
+    <div class="sprint">
+      <div class="when-card">
+        <div class="when-head"><span class="date">Since Oct 1</span><span class="state open">Open now</span></div>
+        <h3>The FAFSA is open.</h3>
+        <ul>
+          <li>Create the FSA ID (parent and student, separately)</li>
+          <li>Submit the FAFSA</li>
+          <li>Submit the CSS Profile if any school requires it</li>
+        </ul>
+      </div>
+      <div class="when-card">
+        <div class="when-head"><span class="date">This week</span><span class="state before">Needs lead time</span></div>
+        <h3>The pieces other people send.</h3>
+        <ul>
+          <li>Request the counselor recommendation</li>
+          <li>Give each teacher your résumé and the deadlines</li>
+          <li>Request official transcripts be sent</li>
+          <li>Send official scores to each school</li>
+        </ul>
+      </div>
+      <div class="when-card">
+        <div class="when-head"><span class="date">By Nov 1</span><span class="state soon">Many ED / EA</span></div>
+        <h3>The applications themselves.</h3>
+        <ul>
+          <li>Decide on Early Decision or Early Action</li>
+          <li>Proofread every essay for the wrong school name</li>
+          <li>Pay fees or file a fee waiver</li>
+          <li>Submit, then confirm each portal shows it received</li>
+        </ul>
+      </div>
+    </div>
+    <p class="footnote">Deadlines differ by school and by program. Confirm every date on each school&rsquo;s own site; &ldquo;Confirm every deadline in writing&rdquo; is a task on the list for exactly that reason.</p>
+  </div>
+</section>
+
+<!-- ============ MID CTA ============ -->
+<section style="padding-top:0" aria-label="Get the checklist">
+  <div class="wrap">
+    <div class="band">
+      <div>
+        <h2>Two weeks is enough when the list is already written.</h2>
+        <p>Open it tonight, split the tasks between parent and student, and see exactly what&rsquo;s left before November&nbsp;1.</p>
+      </div>
+      <div class="buy">
+        <a class="btn" href="https://buy.stripe.com/00w6oH1z16lHcwS9y2g7e02">Get the checklist · $49 <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h11m-4.5-5L15 10l-4.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <p class="refund"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 2.5l6 2.2v4.6c0 3.9-2.6 6.9-6 8.2-3.4-1.3-6-4.3-6-8.2V4.7l6-2.2z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M7.2 10.1l2 2 3.8-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>14-day no-questions refund</p>
+        <p class="buy-note">One payment. No subscription.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHAT'S INSIDE ============ -->
+<section class="rule" id="inside" aria-labelledby="inside-h">
+  <div class="wrap">
+    <span class="eyebrow">What&rsquo;s inside</span>
+    <h2 id="inside-h">59 tasks. 11 categories. Already written.</h2>
+    <p class="lead">Every task is one plain sentence with an owner (parent, student, or both) and a timing note. Tap a category to see its full list; this is the exact list you get.</p>
+    <div class="legend">
+      <span><span class="dotnow">NOW</span> = work due this fall for seniors</span>
+      <span><span class="own own-p">Parent</span><span class="own own-s">Student</span><span class="own own-b">Both</span> default owner, changeable</span>
+    </div>
+
+    <div class="cat-grid">
+      <details class="cat">
+        <summary><span class="cat-idx">01</span><span class="cat-name"><b>Foundation</b><span>The groundwork from the early years. Seniors: check off what&rsquo;s done.</span></span><span class="cat-count">5 tasks</span><span class="chev" aria-hidden="true"></span></summary>
+        <ol>
+          <li><span class="ct">Set a target GPA and a plan to hit it</span><span class="cm"><span class="own own-s">Student</span><span>Freshman–junior</span></span></li>
+          <li><span class="ct">Map out four years of course selection</span><span class="cm"><span class="own own-b">Both</span><span>Freshman</span></span></li>
+          <li><span class="ct">Choose 2–3 activities and stay with them</span><span class="cm"><span class="own own-s">Student</span><span>Freshman–sophomore</span></span></li>
+          <li><span class="ct">Start a résumé of activities, awards, and hours</span><span class="cm"><span class="own own-s">Student</span><span>Ongoing</span></span></li>
+          <li><span class="ct">Talk honestly about what the family can afford</span><span class="cm"><span class="own own-b">Both</span><span>Sophomore</span></span></li>
+        </ol>
+      </details>
+      <details class="cat">
+        <summary><span class="cat-idx">02</span><span class="cat-name"><b>Testing</b><span>From the PSAT to sending official scores.</span></span><span class="cat-count"><span class="now">NOW</span>7 tasks</span><span class="chev" aria-hidden="true"></span></summary>
+        <ol>
+          <li><span class="ct">Take the PSAT</span><span class="cm"><span class="own own-s">Student</span><span>October, junior year</span></span></li>
+          <li><span class="ct">Decide: SAT, ACT, or both</span><span class="cm"><span class="own own-b">Both</span><span>Fall, junior year</span></span></li>
+          <li><span class="ct">Take a timed practice test at home</span><span class="cm"><span class="own own-s">Student</span><span>Fall, junior year</span></span></li>
+          <li><span class="ct">Register for the SAT or ACT</span><span class="cm"><span class="own own-s">Student</span><span>Winter, junior year</span></span></li>
+          <li><span class="ct">Sit for the first official test</span><span class="cm"><span class="own own-s">Student</span><span>Spring, junior year</span></span></li>
+          <li><span class="ct">Retake if the score is below target</span><span class="cm"><span class="own own-s">Student</span><span>Summer or Fall</span></span></li>
+          <li><span class="ct">Send official scores to each school</span><span class="cm"><span class="own own-s">Student</span><span>With applications</span></span></li>
+        </ol>
+      </details>
+      <details class="cat">
+        <summary><span class="cat-idx">03</span><span class="cat-name"><b>College list</b><span>What matters, 8&ndash;12 schools, reach, target and likely.</span></span><span class="cat-count">5 tasks</span><span class="chev" aria-hidden="true"></span></summary>
+        <ol>
+          <li><span class="ct">Write down what actually matters: size, distance, cost, major</span><span class="cm"><span class="own own-s">Student</span><span>In junior year</span></span></li>
+          <li><span class="ct">Build a list of 8–12 schools</span><span class="cm"><span class="own own-b">Both</span><span>Spring, junior year</span></span></li>
+          <li><span class="ct">Split the list: reach, target, and likely</span><span class="cm"><span class="own own-b">Both</span><span>Spring, junior year</span></span></li>
+          <li><span class="ct">Check each school's admission requirements</span><span class="cm"><span class="own own-p">Parent</span><span>Summer</span></span></li>
+          <li><span class="ct">Confirm every deadline in writing</span><span class="cm"><span class="own own-p">Parent</span><span>Summer</span></span></li>
+        </ol>
+      </details>
+      <details class="cat">
+        <summary><span class="cat-idx">04</span><span class="cat-name"><b>Visits</b><span>Tours that actually teach you something.</span></span><span class="cat-count">4 tasks</span><span class="chev" aria-hidden="true"></span></summary>
+        <ol>
+          <li><span class="ct">Tour two nearby campuses to calibrate taste</span><span class="cm"><span class="own own-b">Both</span><span>In junior year</span></span></li>
+          <li><span class="ct">Book official tours and info sessions</span><span class="cm"><span class="own own-p">Parent</span><span>Summer or fall break</span></span></li>
+          <li><span class="ct">Ask one current student a real question on each visit</span><span class="cm"><span class="own own-s">Student</span><span>Each visit</span></span></li>
+          <li><span class="ct">Write notes the same day, before they blur</span><span class="cm"><span class="own own-s">Student</span><span>Each visit</span></span></li>
+        </ol>
+      </details>
+      <details class="cat">
+        <summary><span class="cat-idx">05</span><span class="cat-name"><b>Essays</b><span>Topics, drafts, readers, supplementals, proofreading.</span></span><span class="cat-count"><span class="now">NOW</span>6 tasks</span><span class="chev" aria-hidden="true"></span></summary>
+        <ol>
+          <li><span class="ct">Brainstorm 3 possible essay topics</span><span class="cm"><span class="own own-s">Student</span><span>Summer before senior</span></span></li>
+          <li><span class="ct">Draft the Common App personal essay</span><span class="cm"><span class="own own-s">Student</span><span>July–August</span></span></li>
+          <li><span class="ct">Get one adult and one peer to read it</span><span class="cm"><span class="own own-s">Student</span><span>August</span></span></li>
+          <li><span class="ct">Revise it at least twice</span><span class="cm"><span class="own own-s">Student</span><span>August–September</span></span></li>
+          <li><span class="ct">Write every supplemental essay</span><span class="cm"><span class="own own-s">Student</span><span>September–November</span></span></li>
+          <li><span class="ct">Proofread every essay for the wrong school name</span><span class="cm"><span class="own own-s">Student</span><span>Before submitting</span></span></li>
+        </ol>
+      </details>
+      <details class="cat">
+        <summary><span class="cat-idx">06</span><span class="cat-name"><b>Recommendations</b><span>Who to ask, how to ask, and the thank-you.</span></span><span class="cat-count"><span class="now">NOW</span>5 tasks</span><span class="chev" aria-hidden="true"></span></summary>
+        <ol>
+          <li><span class="ct">Pick two teachers who actually know you</span><span class="cm"><span class="own own-s">Student</span><span>Spring, junior year</span></span></li>
+          <li><span class="ct">Ask them in person, early</span><span class="cm"><span class="own own-s">Student</span><span>Spring or early fall</span></span></li>
+          <li><span class="ct">Give each one your résumé and the deadlines</span><span class="cm"><span class="own own-s">Student</span><span>At the ask</span></span></li>
+          <li><span class="ct">Request the counselor recommendation</span><span class="cm"><span class="own own-s">Student</span><span>Early fall</span></span></li>
+          <li><span class="ct">Send a thank-you note</span><span class="cm"><span class="own own-s">Student</span><span>After submission</span></span></li>
+        </ol>
+      </details>
+      <details class="cat">
+        <summary><span class="cat-idx">07</span><span class="cat-name"><b>Financial aid</b><span>FSA ID, FAFSA, CSS Profile, award letters, appeals.</span></span><span class="cat-count"><span class="now">NOW</span>6 tasks</span><span class="chev" aria-hidden="true"></span></summary>
+        <ol>
+          <li><span class="ct">Create the FSA ID (parent and student, separately)</span><span class="cm"><span class="own own-b">Both</span><span>Before October 1</span></span></li>
+          <li><span class="ct">Submit the FAFSA</span><span class="cm"><span class="own own-p">Parent</span><span>October 1 or as soon as it opens</span></span></li>
+          <li><span class="ct">Submit the CSS Profile if any school requires it</span><span class="cm"><span class="own own-p">Parent</span><span>October–November</span></span></li>
+          <li><span class="ct">Run each school's net price calculator</span><span class="cm"><span class="own own-p">Parent</span><span>Before applying</span></span></li>
+          <li><span class="ct">Compare award letters side by side, not one at a time</span><span class="cm"><span class="own own-b">Both</span><span>March–April</span></span></li>
+          <li><span class="ct">Appeal an award if the numbers don't work</span><span class="cm"><span class="own own-p">Parent</span><span>April</span></span></li>
+        </ol>
+      </details>
+      <details class="cat">
+        <summary><span class="cat-idx">08</span><span class="cat-name"><b>Scholarships</b><span>Local first, five or more, every deadline tracked.</span></span><span class="cat-count">4 tasks</span><span class="chev" aria-hidden="true"></span></summary>
+        <ol>
+          <li><span class="ct">Search local scholarships first — less competition</span><span class="cm"><span class="own own-s">Student</span><span>Junior–senior</span></span></li>
+          <li><span class="ct">Ask the counselor for the school's own list</span><span class="cm"><span class="own own-s">Student</span><span>Fall, senior year</span></span></li>
+          <li><span class="ct">Apply to at least five</span><span class="cm"><span class="own own-s">Student</span><span>Fall–Spring</span></span></li>
+          <li><span class="ct">Track every deadline and what each one needs</span><span class="cm"><span class="own own-s">Student</span><span>Ongoing</span></span></li>
+        </ol>
+      </details>
+      <details class="cat">
+        <summary><span class="cat-idx">09</span><span class="cat-name"><b>Applications</b><span>Common App account to confirmed-received.</span></span><span class="cat-count"><span class="now">NOW</span>6 tasks</span><span class="chev" aria-hidden="true"></span></summary>
+        <ol>
+          <li><span class="ct">Create the Common App account</span><span class="cm"><span class="own own-s">Student</span><span>August, senior year</span></span></li>
+          <li><span class="ct">Decide on Early Decision or Early Action</span><span class="cm"><span class="own own-b">Both</span><span>September</span></span></li>
+          <li><span class="ct">Request official transcripts be sent</span><span class="cm"><span class="own own-s">Student</span><span>October</span></span></li>
+          <li><span class="ct">Complete each application</span><span class="cm"><span class="own own-s">Student</span><span>October–December</span></span></li>
+          <li><span class="ct">Pay fees or file a fee waiver</span><span class="cm"><span class="own own-p">Parent</span><span>With each application</span></span></li>
+          <li><span class="ct">Submit — then confirm each portal shows it received</span><span class="cm"><span class="own own-s">Student</span><span>By each deadline</span></span></li>
+        </ol>
+      </details>
+      <details class="cat">
+        <summary><span class="cat-idx">10</span><span class="cat-name"><b>Decisions</b><span>Portals, admitted-students days, deposit by May 1.</span></span><span class="cat-count">5 tasks</span><span class="chev" aria-hidden="true"></span></summary>
+        <ol>
+          <li><span class="ct">Check every portal for missing items</span><span class="cm"><span class="own own-s">Student</span><span>December–February</span></span></li>
+          <li><span class="ct">Attend an admitted-students day</span><span class="cm"><span class="own own-b">Both</span><span>March–April</span></span></li>
+          <li><span class="ct">Compare total four-year cost, not first-year sticker</span><span class="cm"><span class="own own-b">Both</span><span>April</span></span></li>
+          <li><span class="ct">Commit and pay the deposit</span><span class="cm"><span class="own own-b">Both</span><span>By May 1</span></span></li>
+          <li><span class="ct">Decline the other offers</span><span class="cm"><span class="own own-s">Student</span><span>By May 1</span></span></li>
+        </ol>
+      </details>
+      <details class="cat">
+        <summary><span class="cat-idx">11</span><span class="cat-name"><b>Move-in</b><span>Housing, orientation, health records, packing.</span></span><span class="cat-count">6 tasks</span><span class="chev" aria-hidden="true"></span></summary>
+        <ol>
+          <li><span class="ct">Complete housing and roommate forms</span><span class="cm"><span class="own own-s">Student</span><span>May–June</span></span></li>
+          <li><span class="ct">Sign up for orientation and register for classes</span><span class="cm"><span class="own own-s">Student</span><span>Summer</span></span></li>
+          <li><span class="ct">Send the final transcript</span><span class="cm"><span class="own own-s">Student</span><span>June</span></span></li>
+          <li><span class="ct">Submit health records and immunizations</span><span class="cm"><span class="own own-p">Parent</span><span>Summer</span></span></li>
+          <li><span class="ct">Set up the tuition payment plan</span><span class="cm"><span class="own own-p">Parent</span><span>Summer</span></span></li>
+          <li><span class="ct">Build the packing list</span><span class="cm"><span class="own own-b">Both</span><span>August</span></span></li>
+        </ol>
+      </details>
+    </div>
+
+    <div class="tools">
+      <div class="tool">
+        <h3>Budget planner</h3>
+        <p>Ten line items with starting estimates you overwrite, plus a column for what you actually spent.</p>
+        <div class="mini" role="img" aria-label="Illustration of the budget planner showing four of ten line items and a total estimate of 3,958 dollars.">
+          <table>
+            <thead><tr><th>Item</th><th>Estimated</th></tr></thead>
+            <tbody>
+              <tr><td>SAT / ACT registration</td><td class="num">$68</td></tr>
+              <tr><td>Application fees (8 schools)</td><td class="num">$600</td></tr>
+              <tr><td>Score reports</td><td class="num">$90</td></tr>
+              <tr><td>Enrollment deposit</td><td class="num">$500</td></tr>
+              <tr class="tot"><td>Total estimated · 10 items</td><td class="num">$3,958</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="tool">
+        <h3>Document tracker</h3>
+        <p>Eleven documents, from the official transcript to immunization records, each marked Not started, Requested, Sent, or Received.</p>
+        <div class="mini" role="img" aria-label="Illustration of the document tracker: official transcript sent, teacher recommendation requested, FAFSA confirmation not started.">
+          <div class="docrow"><b>Official transcript</b><div class="seg"><span>Not started</span><span>Requested</span><span class="on">Sent</span><span>Received</span></div></div>
+          <div class="docrow"><b>Teacher recommendation #1</b><div class="seg"><span>Not started</span><span class="on">Requested</span><span>Sent</span><span>Received</span></div></div>
+          <div class="docrow"><b>FAFSA submission confirmation</b><div class="seg"><span class="on">Not started</span><span>Requested</span><span>Sent</span><span>Received</span></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="chips">
+      <span class="chip"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="3" stroke="currentColor" stroke-width="1.6"/><circle cx="14" cy="8" r="2.4" stroke="currentColor" stroke-width="1.6"/><path d="M2 17c.6-3 2.6-4.6 5-4.6s4.4 1.6 5 4.6M12 12.6c2.6-.4 4.6 1 5.2 4.4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>Parent and Student views</span>
+      <span class="chip"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="1.6"/><path d="M10 3a7 7 0 017 7h-7z" fill="currentColor"/></svg>Progress ring + &ldquo;Next up&rdquo;</span>
+      <span class="chip"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 3v9m-4-4l4 4 4-4M4 15h12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Export a copy to share</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section class="rule" id="how" aria-labelledby="how-h">
+  <div class="wrap">
+    <span class="eyebrow">How it works</span>
+    <h2 id="how-h">Three steps, then you&rsquo;re working.</h2>
+    <ol class="steps">
+      <li><span class="n" aria-hidden="true">01</span><h3>Pay once.</h3><p>$49 through Stripe&rsquo;s secure checkout. No account to create and no subscription.</p></li>
+      <li><span class="n" aria-hidden="true">02</span><h3>Get your link and code.</h3><p>Your access link and code appear on the confirmation page and arrive by email. Keep that email.</p></li>
+      <li><span class="n" aria-hidden="true">03</span><h3>Sit down together.</h3><p>Open it on the device you&rsquo;ll keep as the family plan, pick Parent or Student view, assign each task, and start checking. Export a copy whenever someone else needs it.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ WHO IT'S FOR ============ -->
+<section class="rule" id="who" aria-labelledby="who-h">
+  <div class="wrap">
+    <span class="eyebrow">Who it&rsquo;s for</span>
+    <h2 id="who-h">Built for the family, not the counselor&rsquo;s office.</h2>
+    <div class="aud">
+      <div>
+        <h3>Parents of a Class of 2027 senior</h3>
+        <p>You want to see what&rsquo;s left without asking &ldquo;did you do it yet?&rdquo; five times a day. The checklist shows who owns each step and what comes next.</p>
+      </div>
+      <div>
+        <h3>First-generation families</h3>
+        <p>No assumed knowledge. FSA ID, CSS Profile, net price calculator, fee waiver: each one is a plain step with a timing note, so you&rsquo;re never guessing what a term means or when it&rsquo;s due.</p>
+      </div>
+      <div>
+        <h3>Seniors who want one list</h3>
+        <p>Instead of twelve tabs, three portals and a sticky note. Check it off, watch the ring fill, and see the next step without anyone asking.</p>
+      </div>
+    </div>
+    <p class="notfor"><strong>What it isn&rsquo;t:</strong> an admissions counselor, an essay editor, or a promise of admission, scholarships or aid. It&rsquo;s the list that keeps your family from missing a step. Made by IMagin in South Florida.</p>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="rule" id="faq" aria-labelledby="faq-h">
+  <div class="wrap">
+    <span class="eyebrow">Questions, answered straight</span>
+    <h2 id="faq-h">Before you buy.</h2>
+    <div class="faq">
+      <details>
+        <summary>Does it sync between my phone and my senior&rsquo;s phone?<span class="chev" aria-hidden="true"></span></summary>
+        <div class="a">
+          <p><strong>No, and we&rsquo;d rather tell you now.</strong> The checklist saves in the browser on the one device where you use it. Most families pick one shared device (a laptop on the kitchen table works well) and treat it as the plan.</p>
+          <p>To share progress, tap <strong>Export</strong>: it downloads a plain-text copy you can text, email, or print. One plan, export to share.</p>
+        </div>
+      </details>
+      <details>
+        <summary>What happens right after I pay?<span class="chev" aria-hidden="true"></span></summary>
+        <div class="a">
+          <p>Stripe processes the payment. You get your <strong>access link and code</strong> on the confirmation page and by email. Open the link, enter the code, and your checklist is ready.</p>
+          <p>If anything doesn&rsquo;t arrive, send a question through the form below with the email you paid with.</p>
+        </div>
+      </details>
+      <details>
+        <summary>What if it isn&rsquo;t right for us?<span class="chev" aria-hidden="true"></span></summary>
+        <div class="a"><p>Ask within 14 days for a full refund, no questions. Use the form below with the email you paid with. Refunds go back to the original card, typically within 5&ndash;10 business days.</p></div>
+      </details>
+      <details>
+        <summary>We&rsquo;re already halfway through applications. Is it too late?<span class="chev" aria-hidden="true"></span></summary>
+        <div class="a"><p>No. Check off what&rsquo;s done and the progress ring shows what&rsquo;s left; &ldquo;Next up&rdquo; always shows the first unchecked step. The point of the next two weeks is to find the gap before November&nbsp;1, not after.</p></div>
+      </details>
+      <details>
+        <summary>Some tasks are for younger students. Do we still need them?<span class="chev" aria-hidden="true"></span></summary>
+        <div class="a"><p>The list covers the whole road, from course planning to move-in. Seniors can check off the early Foundation and Testing steps in a minute and focus on what&rsquo;s marked Now. The Decisions and Move-in steps carry you through spring and summer.</p></div>
+      </details>
+      <details>
+        <summary>Is this admissions advice?<span class="chev" aria-hidden="true"></span></summary>
+        <div class="a"><p>No. It&rsquo;s an organizing tool. It doesn&rsquo;t guarantee admission, scholarships, or financial aid, and deadlines differ by school, so confirm every date on each school&rsquo;s own site.</p></div>
+      </details>
+      <details>
+        <summary>Where is our information stored?<span class="chev" aria-hidden="true"></span></summary>
+        <div class="a">
+          <p>On your device, in your browser. Your checklist is never sent to our servers. Card payments go through Stripe; we never see your card number.</p>
+          <p>One caution: clearing your browser&rsquo;s site data erases the checklist, so export a copy now and then.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Is it a subscription?<span class="chev" aria-hidden="true"></span></summary>
+        <div class="a"><p>No. $49 once. Nothing renews.</p></div>
+      </details>
+      <details>
+        <summary>Does it work on a phone?<span class="chev" aria-hidden="true"></span></summary>
+        <div class="a"><p>Yes. It runs in any modern browser on a phone, tablet, or computer. Just remember it saves to the device you use it on.</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRICING / FINAL CTA ============ -->
+<section class="rule" id="get" aria-labelledby="get-h">
+  <div class="wrap">
+    <span class="eyebrow">One price</span>
+    <h2 id="get-h">One price. Everything included.</h2>
+    <div class="price">
+      <div class="price-top">
+        <div class="pn">Senior Sprint: the College Checklist</div>
+        <div class="amt"><b>$49</b><span>one time</span></div>
+      </div>
+      <ul class="incl">
+        <li><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4.5 10.5l3.5 3.5 7.5-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>59 tasks in 11 categories, each with an owner and a timing note</li>
+        <li><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4.5 10.5l3.5 3.5 7.5-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Parent and Student views of the same plan</li>
+        <li><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4.5 10.5l3.5 3.5 7.5-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Budget planner with ten starting estimates</li>
+        <li><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4.5 10.5l3.5 3.5 7.5-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Document tracker: requested, sent, received</li>
+        <li><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4.5 10.5l3.5 3.5 7.5-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Saves on your device; export a copy to share or print</li>
+      </ul>
+      <div class="buy">
+        <a class="btn" href="https://buy.stripe.com/00w6oH1z16lHcwS9y2g7e02">Get the checklist · $49 <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h11m-4.5-5L15 10l-4.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <p class="refund"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 2.5l6 2.2v4.6c0 3.9-2.6 6.9-6 8.2-3.4-1.3-6-4.3-6-8.2V4.7l6-2.2z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M7.2 10.1l2 2 3.8-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>14-day no-questions refund</p>
+        <p class="buy-note">Secure checkout by Stripe. Access link and code right after payment.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ QUESTIONS FORM ============ -->
+<section class="rule" id="ask" aria-labelledby="ask-h">
+  <div class="wrap ask">
+    <div>
+      <span class="eyebrow">Ask a question</span>
+      <h2 id="ask-h">Not sure yet? Ask.</h2>
+      <p class="lead">A real person reads every question and replies by email. Already bought? Use this form for refunds or access help, and include the email you paid with.</p>
+    </div>
+    <form name="college-questions" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thanks.html">
+      <input type="hidden" name="form-name" value="college-questions">
+      <p class="hp" aria-hidden="true"><label>Leave this empty: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+      <div class="field">
+        <label for="q-name">Your name</label>
+        <input id="q-name" name="name" type="text" autocomplete="name" required>
+      </div>
+      <div class="field">
+        <label for="q-email">Email</label>
+        <input id="q-email" name="email" type="email" autocomplete="email" inputmode="email" required>
+      </div>
+      <div class="field">
+        <label for="q-question">Your question</label>
+        <textarea id="q-question" name="question" rows="4" required></textarea>
+      </div>
+      <button class="send" type="submit">Send question</button>
+      <p class="form-note">We use your email only to answer you.</p>
+    </form>
+  </div>
+</section>
+
+<!-- ============ FINE PRINT ============ -->
+<section class="rule" id="fine-print" style="padding:56px 0">
+  <div class="wrap">
+    <details class="fine">
+      <summary>Terms, privacy &amp; refunds<span class="chev" aria-hidden="true"></span></summary>
+      <h3>Terms</h3>
+      <p>Senior Sprint: the College Checklist is a digital planning tool sold by IMagin. Your purchase is a personal license to use it for your own family. Please don&rsquo;t resell or redistribute it. Features may be added or changed over time.</p>
+      <p>It is an organizing tool, not admissions advice, financial advice, or a guarantee of any admission, scholarship, or financial-aid outcome.</p>
+      <h3>Privacy</h3>
+      <p>We collect only what we need to sell and support the product: your email address and payment confirmation. Card payments are processed by Stripe; we never see or store your full card number. Your checklist data is stored in your own browser on your device, not on our servers. We never sell your information. To have it deleted, send a request through the question form.</p>
+      <h3>Refunds</h3>
+      <p>If it isn&rsquo;t right for you, ask within 14 days of purchase through the question form and we&rsquo;ll refund you in full, no questions. Refunds return to the original card, typically within 5&ndash;10 business days.</p>
+      <h3>Delivery</h3>
+      <p>This is a digital product. Your access link and code are delivered on the confirmation page and by email right after payment. Nothing ships.</p>
+    </details>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; 2026 IMagin · Senior Sprint: the College Checklist</span>
+    <nav aria-label="Footer"><a href="#ask">Questions</a><a href="#fine-print">Terms &amp; privacy</a></nav>
+  </div>
+</footer>
+
+</body>
+</html>

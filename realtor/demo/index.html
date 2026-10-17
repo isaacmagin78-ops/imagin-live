@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Private Tour · Sample Residence · IMagin</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0e1a2b">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0e1a2b;--ink:#f5f0e6;--gold:#c9a35f;--muted:#b9b3a6;--line:rgba(255,255,255,.12);color-scheme:dark}
+*{box-sizing:border-box}html,body{margin:0;background:var(--navy);color:var(--ink);font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+.agent{background:var(--gold);color:var(--navy);font-size:13px;font-weight:600;text-align:center;padding:10px max(16px,env(safe-area-inset-left));line-height:1.4}
+.wrap{max-width:34rem;margin:0 auto;padding:22px max(16px,env(safe-area-inset-right)) 48px max(16px,env(safe-area-inset-left));display:grid;gap:20px}
+.eye{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold)}
+h1{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;font-size:40px;line-height:1.05;margin:6px 0 0}
+.sub{color:var(--muted);margin:0;font-size:15px}
+.film{position:relative;border-radius:18px;overflow:hidden;border:1px solid var(--line);aspect-ratio:9/16;max-height:72vh;background:#000}
+.film video{width:100%;height:100%;object-fit:cover;display:block}
+.snd{position:absolute;left:50%;bottom:16px;transform:translateX(-50%);min-height:44px;padding:0 20px;border-radius:99px;border:0;background:rgba(14,26,43,.75);color:var(--ink);font:600 14px Inter;backdrop-filter:blur(8px);cursor:pointer}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;text-align:center}
+.facts div{border:1px solid var(--line);border-radius:12px;padding:12px 4px}.facts b{display:block;font-family:"Cormorant Garamond",serif;font-size:24px}.facts small{color:var(--muted);font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+form{display:grid;gap:12px;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:18px;padding:20px}
+form h2{font-family:"Cormorant Garamond",serif;font-weight:600;font-size:28px;margin:0}
+label{display:grid;gap:6px;font-size:13px;color:var(--muted)}
+input,select{min-height:48px;border-radius:12px;border:1px solid var(--line);background:#0a1422;color:var(--ink);font:16px Inter;padding:0 14px}
+button[type=submit]{min-height:52px;border:0;border-radius:99px;background:var(--gold);color:var(--navy);font:700 15px Inter;letter-spacing:.06em;cursor:pointer}
+.fine{font-size:12px;color:var(--muted);text-align:center;margin:0}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head>
+<body>
+<div class="agent">AGENT DEMO: this is what a buyer sees after scanning your sign. Fill the form and the lead goes straight to the agent.</div>
+<main class="wrap">
+  <div><div class="eye">Sample residence · Fort Lauderdale</div><h1>Your private tour</h1><p class="sub">Waterfront · Deep-water dock · Sunset views</p></div>
+  <div class="film"><video id="v" src="../media/listing-film-vo.mp4" poster="../media/listing-film.jpg" autoplay muted loop playsinline></video><button class="snd" id="snd" type="button">🔊 Tap for sound</button></div>
+  <div class="facts"><div><b>5</b><small>Beds</small></div><div><b>6</b><small>Baths</small></div><div><b>120'</b><small>Water</small></div></div>
+  <form name="showing-request" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/demo/thanks.html">
+    <input type="hidden" name="form-name" value="showing-request">
+    <p hidden><label>Don't fill this out: <input name="bot-field"></label></p>
+    <h2>Get the price &amp; a private showing</h2>
+    <label>Name<input name="name" autocomplete="name" required></label>
+    <label>Mobile<input name="mobile" type="tel" autocomplete="tel" required></label>
+    <label>Email<input name="email" type="email" autocomplete="email"></label>
+    <label>When would you like to see it?<select name="when"><option>This week</option><option>Next week</option><option>Just send me the price</option></select></label>
+    <button type="submit">Send me the details</button>
+    <p class="fine">Sample listing for demonstration. Your info goes to IMagin only.</p>
+  </form>
+  <p class="fine">Tours by IMagin · <a href="/" style="color:var(--gold)">See how it works for agents</a></p>
+</main>
+<script>
+var v=document.getElementById('v'),b=document.getElementById('snd');
+b.addEventListener('click',function(){v.muted=!v.muted;if(!v.muted){v.currentTime=0;v.play();}b.textContent=v.muted?'🔊 Tap for sound':'🔇 Mute';});
+</script>
+</body></html>

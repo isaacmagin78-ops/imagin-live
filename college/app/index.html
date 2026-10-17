@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>College Checklist · IMagin</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#1B2440">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%231B2440'/%3E%3Cpath d='M18 33l9 9 19-20' fill='none' stroke='%23C9D46B' stroke-width='7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1B2440;
+  --ink-2:#4B5478;
+  --ink-3:#8a93a5;
+  --paper:#EDE0C0;
+  --panel:#FBF9F4;
+  --rule:#C9B98E;
+  --mark:#C9D46B;
+  --go:#3F6B4A;
+  --go-soft:#E4EDE3;
+  --warn:#B23A2E;
+  --shadow:0 1px 0 var(--rule), 0 20px 40px -32px rgba(27,36,64,.45);
+  --r:4px;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,system-ui,sans-serif;font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:Anton,Georgia,serif;font-weight:400;text-transform:uppercase;line-height:1.12;letter-spacing:.01em;margin:0}
+button{font-family:inherit;font-size:inherit;cursor:pointer}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+
+#gate{position:fixed;inset:0;background:var(--paper);z-index:100;display:flex;align-items:center;justify-content:center;padding:24px}
+#gate .box{background:var(--panel);border:1px solid var(--rule);border-radius:var(--r);box-shadow:var(--shadow);padding:36px 32px;max-width:400px;width:100%}
+#gate h1{font-size:28px;margin-bottom:8px}
+#gate p{color:var(--ink-2);font-size:15px;margin:0 0 22px}
+#code{width:100%;padding:13px 14px;border:1.5px solid var(--rule);border-radius:var(--r);font-size:16px;font-family:inherit;letter-spacing:.08em;text-transform:uppercase;background:#fff}
+#code:focus{outline:none;border-color:var(--ink)}
+#gateErr{color:var(--warn);font-size:14px;margin-top:10px;min-height:20px}
+#gate .help{font-size:14px;color:var(--ink-2);margin:18px 0 0;padding-top:16px;border-top:1px solid var(--rule)}
+#gate .help + .help{border-top:none;padding-top:0;margin-top:8px}
+#gate a,.welcome a,footer a{color:var(--ink);text-underline-offset:2px}
+.welcome{background:var(--go-soft);border:1px solid #b9cfb8;border-radius:var(--r);padding:18px 20px;margin:22px 0 0;display:flex;gap:16px;align-items:flex-start;justify-content:space-between;flex-wrap:wrap}
+.welcome[hidden]{display:none}
+.welcome h2{font-size:22px;margin-bottom:6px;color:var(--go)}
+.welcome p{margin:0 0 6px;font-size:15px;color:var(--ink)}
+.welcome p:last-child{margin-bottom:0}
+.welcome .txt{flex:1;min-width:220px}
+.codechip{font-family:'IBM Plex Mono',monospace;font-weight:700;letter-spacing:.08em;background:#fff;border:1px solid var(--rule);border-radius:3px;padding:1px 7px}
+.btn{background:var(--ink);color:#fff;border:none;border-radius:var(--r);padding:13px 24px;font-weight:600}
+.btn:hover{background:#000}
+.btn:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,button:focus-visible{outline:3px solid var(--go);outline-offset:2px}
+.btn.wide{width:100%;margin-top:16px}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--rule);font-weight:600}
+.btn.ghost:hover{background:#fff;border-color:var(--ink)}
+.btn.sm{padding:8px 14px;font-size:14px}
+
+header{border-bottom:1px solid var(--rule);background:var(--paper);position:sticky;top:0;z-index:20}
+.bar{display:flex;align-items:center;justify-content:space-between;padding-top:16px;padding-bottom:16px;gap:12px;flex-wrap:wrap}
+.logo{font-family:Anton,serif;font-weight:400;font-size:19px;white-space:nowrap;text-transform:uppercase}
+.logo small{display:block;font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}
+.who{display:flex;border:1.5px solid var(--rule);border-radius:var(--r);overflow:hidden;background:#fff}
+.who button{border:none;background:transparent;padding:9px 18px;font-size:14px;font-weight:600;color:var(--ink-2)}
+.who button[aria-pressed="true"]{background:var(--ink);color:#fff}
+.tools{display:flex;gap:8px}
+
+.status{padding:34px 0 26px;border-bottom:1px solid var(--rule)}
+.statusgrid{display:grid;grid-template-columns:1fr 300px;gap:40px;align-items:center}
+@media(max-width:800px){.statusgrid{grid-template-columns:1fr;gap:22px}}
+.status h1{font-size:clamp(26px,4vw,38px);margin-bottom:6px}
+.status h1 em{font-style:normal;background:linear-gradient(180deg,transparent 60%,var(--mark) 60%,var(--mark) 93%,transparent 93%)}
+.status .why{color:var(--ink-2);font-size:16px;margin:0}
+.ring{display:flex;align-items:center;gap:18px;justify-content:flex-end}
+@media(max-width:800px){.ring{justify-content:flex-start}}
+.ring svg{flex:0 0 92px}
+.ring .pct{font-family:Anton,serif;font-weight:400;font-size:34px;line-height:1}
+.ring .lbl{font-size:13px;color:var(--ink-2)}
+
+.cats{display:flex;gap:8px;overflow-x:auto;padding:16px 0;border-bottom:1px solid var(--rule);scrollbar-width:none}
+.cats::-webkit-scrollbar{display:none}
+.pill{white-space:nowrap;border:1.5px solid var(--rule);background:#fff;border-radius:100px;padding:7px 15px;font-size:14px;font-weight:600;color:var(--ink-2)}
+.pill[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+.pill .n{opacity:.55;margin-left:5px;font-weight:500}
+
+.views{display:flex;gap:22px;border-bottom:1px solid var(--rule);margin-top:2px}
+.views button{background:none;border:none;padding:15px 0;font-weight:600;font-size:15px;color:var(--ink-3);border-bottom:2px solid transparent;margin-bottom:-1px}
+.views button[aria-pressed="true"]{color:var(--ink);border-bottom-color:var(--ink)}
+
+main{padding:26px 0 90px}
+.panel{display:none}
+.panel.on{display:block}
+
+.grp{margin-bottom:26px}
+.grp h3{font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);font-family:'IBM Plex Mono',monospace;margin-bottom:10px}
+.task{display:flex;gap:13px;align-items:flex-start;background:var(--panel);border:1px solid var(--rule);border-radius:var(--r);padding:14px 16px;margin-bottom:8px}
+.task:hover{border-color:#a89968}
+.tick{flex:0 0 20px;width:20px;height:20px;border:1.6px solid var(--ink);border-radius:3px;background:#fff;margin-top:2px;padding:0;position:relative}
+.task.done .tick{background:var(--go);border-color:var(--go)}
+.task.done .tick::after{content:"";position:absolute;left:6px;top:2px;width:5px;height:11px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(43deg)}
+.tbody{flex:1;min-width:0}
+.ttl{font-weight:600;font-size:15px}
+.task.done .ttl{color:var(--ink-3);text-decoration:line-through}
+.tmeta{font-size:13px;color:var(--ink-2);margin-top:3px;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.tag{background:var(--go-soft);color:var(--go);border-radius:3px;padding:1px 7px;font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+.tag.p{background:#f0eef8;color:#5b4b9e}
+.tag.s{background:#fdf1e3;color:#a4600f}
+.own{border:1px solid var(--rule);border-radius:3px;background:#fff;font-size:12px;padding:3px 6px;color:var(--ink-2);font-family:inherit}
+
+table{width:100%;border-collapse:collapse;background:var(--panel);border:1px solid var(--rule);border-radius:var(--r);overflow:hidden}
+th{text-align:left;font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3);padding:12px 16px;border-bottom:1px solid var(--rule);background:#f2ead2}
+td{padding:12px 16px;border-bottom:1px solid var(--rule);font-size:15px}
+tr:last-child td{border-bottom:none}
+td input{border:1px solid transparent;background:transparent;padding:6px 8px;border-radius:3px;font-family:inherit;font-size:15px;width:110px;color:var(--ink)}
+td input:hover{border-color:var(--rule);background:#fff}
+td input:focus{outline:none;border-color:var(--ink);background:#fff}
+.total{display:flex;justify-content:space-between;align-items:baseline;margin-top:16px;padding:16px 18px;background:var(--ink);color:#fff;border-radius:var(--r)}
+.total .n{font-family:Anton,serif;font-weight:400;font-size:30px}
+.hint{color:var(--ink-2);font-size:14px;margin:0 0 18px}
+h2.sec{font-size:24px;margin-bottom:4px}
+
+.doc{display:flex;align-items:center;gap:12px;background:var(--panel);border:1px solid var(--rule);border-radius:var(--r);padding:13px 16px;margin-bottom:8px;flex-wrap:wrap}
+.doc .dn{font-weight:600;font-size:15px;flex:1;min-width:150px}
+.seg{display:flex;border:1.5px solid var(--rule);border-radius:100px;overflow:hidden}
+.seg button{border:none;background:#fff;padding:5px 12px;font-size:12px;font-weight:600;color:var(--ink-3)}
+.seg button[aria-pressed="true"]{background:var(--ink);color:#fff}
+footer{border-top:1px solid var(--rule);padding:22px 0 40px;font-size:13px;color:var(--ink-3)}
+footer a{color:var(--ink-2)}
+</style>
+</head>
+<body>
+
+<div id="gate">
+  <div class="box">
+    <h1>College Checklist</h1>
+    <p>Enter your access code to open your checklist.</p>
+    <label for="code" class="sr" style="position:absolute;left:-9999px">Access code</label>
+    <input id="code" placeholder="ACCESS CODE" autocomplete="off" autocapitalize="characters" spellcheck="false">
+    <div id="gateErr" role="alert"></div>
+    <button class="btn wide" id="enter">Open my checklist</button>
+    <p class="help">Just paid? Your checklist opens on its own right after checkout, and this browser remembers it.</p>
+    <p class="help">Lost your code? Use the <a data-sales href="https://college-checklist.vercel.app/#contact">question form at the sales page</a>.</p>
+  </div>
+</div>
+
+<div id="app" hidden>
+<header>
+  <div class="wrap bar">
+    <div class="logo">College Checklist<small>IMagin</small></div>
+    <div class="who" role="group" aria-label="View as">
+      <button id="wParent" aria-pressed="true">Parent</button>
+      <button id="wStudent" aria-pressed="false">Student</button>
+    </div>
+    <div class="tools">
+      <button class="btn ghost sm" id="export">Export</button>
+      <button class="btn ghost sm" id="reset">Reset</button>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="welcome" id="welcome" hidden>
+    <div class="txt">
+      <h2>You're in. Thank you.</h2>
+      <p>This browser will remember you, so you can bookmark this page and come back any time.</p>
+      <p>Opening it on a different phone or computer? Use access code <span class="codechip" id="welcomeCode"></span>. Write it down now.</p>
+      <p>Your plan saves on this device only. To share it with your student or counselor, tap <strong>Export</strong>.</p>
+    </div>
+    <button class="btn ghost sm" id="welcomeOk">Got it</button>
+  </div>
+</div>
+
+<section class="status">
+  <div class="wrap statusgrid">
+    <div>
+      <h1 id="headline">Next up: <em id="nextTask">—</em></h1>
+      <p class="why" id="subline"></p>
+    </div>
+    <div class="ring">
+      <svg width="92" height="92" viewBox="0 0 92 92" aria-hidden="true">
+        <circle cx="46" cy="46" r="40" fill="none" stroke="#e2dccd" stroke-width="9"/>
+        <circle id="arc" cx="46" cy="46" r="40" fill="none" stroke="#1f7a5c" stroke-width="9"
+                stroke-linecap="round" stroke-dasharray="251.3" stroke-dashoffset="251.3"
+                transform="rotate(-90 46 46)" style="transition:stroke-dashoffset .6s ease"/>
+      </svg>
+      <div>
+        <div class="pct"><span id="pctN">0</span>%</div>
+        <div class="lbl"><span id="doneN">0</span> of <span id="allN">0</span> done</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="cats" id="cats"></div>
+  <div class="views" role="group">
+    <button id="vTasks" aria-pressed="true">Tasks</button>
+    <button id="vBudget" aria-pressed="false">Budget</button>
+    <button id="vDocs" aria-pressed="false">Documents</button>
+  </div>
+</div>
+
+<main class="wrap">
+  <div class="panel on" id="pTasks"></div>
+
+  <div class="panel" id="pBudget">
+    <h2 class="sec">Budget</h2>
+    <p class="hint">Fill in what you actually expect to spend. Everything is saved on this device.</p>
+    <table>
+      <thead><tr><th>Item</th><th>Estimated</th><th>Actual</th></tr></thead>
+      <tbody id="bRows"></tbody>
+    </table>
+    <div class="total"><span>Total estimated</span><span class="n" id="bTotal">$0</span></div>
+  </div>
+
+  <div class="panel" id="pDocs">
+    <h2 class="sec">Documents</h2>
+    <p class="hint">Track what's been requested, sent, and received.</p>
+    <div id="dRows"></div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    College Checklist · IMagin<br>
+    Your plan is stored on this device only and is never sent to a server. One plan per device: use Export to share a copy.<br>
+    Opening it somewhere else? Your access code is <span class="codechip" id="footCode"></span>.
+    Questions? Use the <a data-sales href="https://college-checklist.vercel.app/#contact">question form at the sales page</a>.
+  </div>
+</footer>
+</div>
+
+<script>
+/*
+  ACCESS — why this block exists.
+  A buyer who just paid must land inside the checklist, every time, on the first try.
+  Two ways in:
+    1. Stripe redirects to  /?paid=1  after checkout (set as the payment link's
+       after-payment URL). That unlocks this browser immediately.
+    2. The access code below, for someone coming back on a new phone or computer.
+  Either way the unlock is remembered in localStorage, so a refresh never re-locks.
+  This is a SOFT gate: anyone who knows /?paid=1 or reads this source gets in.
+  Accepted on purpose for a $49 checklist; a real gate needs a server check.
+*/
+const CODE       = "IMAGIN2026";            // ACCESS CODE: change here only
+const SALES_URL  = "https://college-checklist.vercel.app/#contact"; // SALES PAGE SWAP POINT: question form
+const KEY        = "cc.v1";                 // saved plan (unchanged, so existing buyers keep their data)
+const UNLOCK_KEY = "cc.unlocked";           // remembered unlock
+
+const TASKS = [
+  ["Foundation","Set a target GPA and a plan to hit it","student","Freshman–Junior"],
+  ["Foundation","Map out four years of course selection","both","Freshman"],
+  ["Foundation","Choose 2–3 activities and stay with them","student","Freshman–Sophomore"],
+  ["Foundation","Start a résumé of activities, awards, and hours","student","Ongoing"],
+  ["Foundation","Talk honestly about what the family can afford","both","Sophomore"],
+
+  ["Testing","Take the PSAT","student","October, Junior year"],
+  ["Testing","Decide: SAT, ACT, or both","both","Fall, Junior year"],
+  ["Testing","Take a timed practice test at home","student","Fall, Junior year"],
+  ["Testing","Register for the SAT or ACT","student","Winter, Junior year"],
+  ["Testing","Sit for the first official test","student","Spring, Junior year"],
+  ["Testing","Retake if the score is below target","student","Summer or Fall"],
+  ["Testing","Send official scores to each school","student","With applications"],
+
+  ["College list","Write down what actually matters: size, distance, cost, major","student","Junior year"],
+  ["College list","Build a list of 8–12 schools","both","Spring, Junior year"],
+  ["College list","Split the list: reach, target, and likely","both","Spring, Junior year"],
+  ["College list","Check each school's admission requirements","parent","Summer"],
+  ["College list","Confirm every deadline in writing","parent","Summer"],
+
+  ["Visits","Tour two nearby campuses to calibrate taste","both","Junior year"],
+  ["Visits","Book official tours and info sessions","parent","Summer or fall break"],
+  ["Visits","Ask one current student a real question on each visit","student","Each visit"],
+  ["Visits","Write notes the same day, before they blur","student","Each visit"],
+
+  ["Essays","Brainstorm 3 possible essay topics","student","Summer before Senior"],
+  ["Essays","Draft the Common App personal essay","student","July–August"],
+  ["Essays","Get one adult and one peer to read it","student","August"],
+  ["Essays","Revise it at least twice","student","August–September"],
+  ["Essays","Write every supplemental essay","student","September–November"],
+  ["Essays","Proofread every essay for the wrong school name","student","Before submitting"],
+
+  ["Recommendations","Pick two teachers who actually know you","student","Spring, Junior year"],
+  ["Recommendations","Ask them in person, early","student","Spring or early fall"],
+  ["Recommendations","Give each one your résumé and the deadlines","student","At the ask"],
+  ["Recommendations","Request the counselor recommendation","student","Early fall"],
+  ["Recommendations","Send a thank-you note","student","After submission"],
+
+  ["Financial aid","Create the FSA ID (parent and student, separately)","both","Before October 1"],
+  ["Financial aid","Submit the FAFSA","parent","October 1 or as soon as it opens"],
+  ["Financial aid","Submit the CSS Profile if any school requires it","parent","October–November"],
+  ["Financial aid","Run each school's net price calculator","parent","Before applying"],
+  ["Financial aid","Compare award letters side by side, not one at a time","both","March–April"],
+  ["Financial aid","Appeal an award if the numbers don't work","parent","April"],
+
+  ["Scholarships","Search local scholarships first — less competition","student","Junior–Senior"],
+  ["Scholarships","Ask the counselor for the school's own list","student","Fall, Senior year"],
+  ["Scholarships","Apply to at least five","student","Fall–Spring"],
+  ["Scholarships","Track every deadline and what each one needs","student","Ongoing"],
+
+  ["Applications","Create the Common App account","student","August, Senior year"],
+  ["Applications","Decide on Early Decision or Early Action","both","September"],
+  ["Applications","Request official transcripts be sent","student","October"],
+  ["Applications","Complete each application","student","October–December"],
+  ["Applications","Pay fees or file a fee waiver","parent","With each application"],
+  ["Applications","Submit — then confirm each portal shows it received","student","By each deadline"],
+
+  ["Decisions","Check every portal for missing items","student","December–February"],
+  ["Decisions","Attend an admitted-students day","both","March–April"],
+  ["Decisions","Compare total four-year cost, not first-year sticker","both","April"],
+  ["Decisions","Commit and pay the deposit","both","By May 1"],
+  ["Decisions","Decline the other offers","student","By May 1"],
+
+  ["Move-in","Complete housing and roommate forms","student","May–June"],
+  ["Move-in","Sign up for orientation and register for classes","student","Summer"],
+  ["Move-in","Send the final transcript","student","June"],
+  ["Move-in","Submit health records and immunizations","parent","Summer"],
+  ["Move-in","Set up the tuition payment plan","parent","Summer"],
+  ["Move-in","Build the packing list","both","August"]
+];
+
+const BUDGET = [
+  ["SAT / ACT registration",68],["Test prep",200],["Application fees (8 schools)",600],
+  ["Score reports",90],["Campus visits: travel",800],["Campus visits: lodging & food",500],
+  ["Enrollment deposit",500],["Housing deposit",300],["Orientation",200],["Move-in supplies",700]
+];
+
+const DOCS = ["Official transcript","Test scores (SAT/ACT)","Teacher recommendation #1","Teacher recommendation #2",
+  "Counselor recommendation","FAFSA submission confirmation","CSS Profile (if required)","Activity résumé",
+  "Personal essay (final)","Immunization records","Final transcript"];
+
+const DOC_STATES = ["Not started","Requested","Sent","Received"];
+
+const blankState = () => ({ done:{}, owner:{}, est:{}, act:{}, docs:{}, who:"parent", cat:"All" });
+let S = blankState();
+try{
+  const raw = localStorage.getItem(KEY);
+  if(raw){
+    const saved = JSON.parse(raw);
+    if(saved && typeof saved === "object") S = Object.assign(S, saved);
+  }
+}catch(e){}
+// A damaged save must never blank the app: repair any field that isn't the right shape.
+["done","owner","est","act","docs"].forEach(k=>{ if(!S[k] || typeof S[k] !== "object") S[k] = {}; });
+if(S.who !== "parent" && S.who !== "student") S.who = "parent";
+const save = () => { try{ localStorage.setItem(KEY, JSON.stringify(S)); }catch(e){} };
+const $ = id => document.getElementById(id);
+
+const CATS = ["All", ...[...new Set(TASKS.map(t=>t[0]))]];
+if(!CATS.includes(S.cat)) S.cat = "All";
+
+const visible = () => TASKS.map((t,i)=>({t,i}))
+  .filter(({t}) => S.cat==="All" || t[0]===S.cat)
+  .filter(({t,i}) => { const o = S.owner[i] || t[2]; return o==="both" || o===S.who; });
+
+function render(){
+  $("wParent").setAttribute("aria-pressed", S.who==="parent");
+  $("wStudent").setAttribute("aria-pressed", S.who==="student");
+  $("cats").innerHTML = "";
+  CATS.forEach(c=>{
+    const n = c==="All" ? TASKS.length : TASKS.filter(t=>t[0]===c).length;
+    const b = document.createElement("button");
+    b.className="pill"; b.setAttribute("aria-pressed", S.cat===c);
+    b.innerHTML = c + '<span class="n">' + n + '</span>';
+    b.onclick = ()=>{ S.cat=c; save(); render(); };
+    $("cats").appendChild(b);
+  });
+
+  const rows = visible();
+  const host = $("pTasks"); host.innerHTML="";
+  if(!rows.length){
+    host.innerHTML = '<p class="hint">Nothing here for this view. Switch to the other person, or pick another category.</p>';
+  }
+  const groups = {};
+  rows.forEach(r => (groups[r.t[0]] = groups[r.t[0]] || []).push(r));
+  Object.keys(groups).forEach(g=>{
+    const wrap = document.createElement("div"); wrap.className="grp";
+    wrap.innerHTML = "<h3>"+g+"</h3>";
+    groups[g].forEach(({t,i})=>{
+      const owner = S.owner[i] || t[2];
+      const el = document.createElement("div");
+      el.className = "task" + (S.done[i] ? " done" : "");
+      const tagClass = owner==="parent" ? "p" : owner==="student" ? "s" : "";
+      el.innerHTML =
+        '<button class="tick" aria-label="Mark done" aria-pressed="'+(!!S.done[i])+'"></button>'+
+        '<div class="tbody"><div class="ttl"></div>'+
+        '<div class="tmeta"><span class="tag '+tagClass+'">'+owner+'</span><span>'+t[3]+'</span>'+
+        '<select class="own"><option value="both">Both</option><option value="parent">Parent</option><option value="student">Student</option></select>'+
+        '</div></div>';
+      el.querySelector(".ttl").textContent = t[1];
+      el.querySelector(".tick").onclick = ()=>{ S.done[i] = !S.done[i]; save(); render(); };
+      const sel = el.querySelector(".own"); sel.value = owner;
+      sel.onchange = e => { S.owner[i] = e.target.value; save(); render(); };
+      wrap.appendChild(el);
+    });
+    host.appendChild(wrap);
+  });
+
+  const all = TASKS.length, done = TASKS.filter((_,i)=>S.done[i]).length;
+  const pct = all ? Math.round(done/all*100) : 0;
+  $("pctN").textContent = pct; $("doneN").textContent = done; $("allN").textContent = all;
+  $("arc").style.strokeDashoffset = 251.3 * (1 - pct/100);
+
+  const next = TASKS.findIndex((_,i)=>!S.done[i]);
+  if(next === -1){
+    $("headline").innerHTML = 'You\'re <em>done</em>.';
+    $("subline").textContent = "Every task on the list is checked off. Go enjoy the summer.";
+  } else {
+    $("nextTask").textContent = TASKS[next][1];
+    $("subline").textContent = TASKS[next][0] + " · " + TASKS[next][3];
+  }
+
+  const br = $("bRows"); br.innerHTML="";
+  let tot = 0;
+  BUDGET.forEach(([name,def],i)=>{
+    const est = S.est[i] !== undefined ? S.est[i] : def;
+    tot += Number(est)||0;
+    const tr = document.createElement("tr");
+    tr.innerHTML = "<td></td>"+
+      '<td>$<input inputmode="numeric" value="'+est+'" data-k="est" data-i="'+i+'"></td>'+
+      '<td>$<input inputmode="numeric" value="'+(S.act[i]||"")+'" placeholder="—" data-k="act" data-i="'+i+'"></td>';
+    tr.children[0].textContent = name;
+    br.appendChild(tr);
+  });
+  br.querySelectorAll("input").forEach(inp=>{
+    inp.onchange = e=>{
+      const v = e.target.value.replace(/[^0-9.]/g,"");
+      S[e.target.dataset.k][e.target.dataset.i] = v; save(); render();
+    };
+  });
+  $("bTotal").textContent = "$" + tot.toLocaleString();
+
+  const dr = $("dRows"); dr.innerHTML="";
+  DOCS.forEach((d,i)=>{
+    const cur = S.docs[i] || "Not started";
+    const el = document.createElement("div"); el.className="doc";
+    el.innerHTML = '<span class="dn"></span><div class="seg"></div>';
+    el.querySelector(".dn").textContent = d;
+    const seg = el.querySelector(".seg");
+    DOC_STATES.forEach(st=>{
+      const b=document.createElement("button");
+      b.textContent=st; b.setAttribute("aria-pressed", cur===st);
+      b.onclick=()=>{ S.docs[i]=st; save(); render(); };
+      seg.appendChild(b);
+    });
+    dr.appendChild(el);
+  });
+}
+
+$("wParent").onclick  = ()=>{ S.who="parent";  $("wParent").setAttribute("aria-pressed",true);  $("wStudent").setAttribute("aria-pressed",false); save(); render(); };
+$("wStudent").onclick = ()=>{ S.who="student"; $("wStudent").setAttribute("aria-pressed",true); $("wParent").setAttribute("aria-pressed",false);  save(); render(); };
+
+const panels = {vTasks:"pTasks", vBudget:"pBudget", vDocs:"pDocs"};
+Object.keys(panels).forEach(v=>{
+  $(v).onclick = ()=>{
+    Object.keys(panels).forEach(k=>{
+      $(k).setAttribute("aria-pressed", k===v);
+      $(panels[k]).classList.toggle("on", k===v);
+    });
+  };
+});
+
+$("reset").onclick = ()=>{
+  if(confirm("Clear every check, owner, budget number, and document status? This can't be undone.")){
+    S = { done:{}, owner:{}, est:{}, act:{}, docs:{}, who:S.who, cat:"All" }; save(); render();
+  }
+};
+
+$("export").onclick = ()=>{
+  const lines = ["COLLEGE CHECKLIST — " + new Date().toLocaleDateString(), ""];
+  let cat = "";
+  TASKS.forEach((t,i)=>{
+    if(t[0]!==cat){ cat=t[0]; lines.push("", cat.toUpperCase()); }
+    const owner = S.owner[i] || t[2];
+    lines.push((S.done[i] ? "[x] " : "[ ] ") + t[1] + "  (" + owner + " · " + t[3] + ")");
+  });
+  lines.push("", "BUDGET");
+  let tot=0;
+  BUDGET.forEach(([n,d],i)=>{ const e=S.est[i]!==undefined?S.est[i]:d; tot+=Number(e)||0;
+    lines.push(n + " — est $" + e + (S.act[i] ? "  actual $"+S.act[i] : "")); });
+  lines.push("", "DOCUMENTS");
+  DOCS.forEach((d,i)=> lines.push(d + " — " + (S.docs[i]||"Not started")));
+  lines.push("", "College Checklist · IMagin");
+  const blob = new Blob([lines.join("\n")], {type:"text/plain"});
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "college-checklist.txt";
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  // Revoking right away cancels the download in some browsers; give it a moment.
+  setTimeout(()=>URL.revokeObjectURL(a.href), 4000);
+};
+
+/* ---------- Unlock. Runs LAST, after every constant, render() and handler above
+   exist. (The old version called render() from here at the top of the script,
+   before CATS was defined, so a refresh threw and left a blank page.) ---------- */
+function readUnlock(){
+  try{ if(localStorage.getItem(UNLOCK_KEY) === "1") return true; }catch(e){}
+  try{ if(sessionStorage.getItem("cc.ok") === "1") return true; }catch(e){} // older sessions
+  return false;
+}
+function rememberUnlock(){
+  let ok = false;
+  try{ localStorage.setItem(UNLOCK_KEY, "1"); ok = localStorage.getItem(UNLOCK_KEY) === "1"; }catch(e){}
+  try{ sessionStorage.setItem("cc.ok", "1"); }catch(e){}
+  return ok;
+}
+function unlock(){
+  const gate = $("gate");
+  if(gate) gate.remove();
+  $("app").hidden = false;
+  render();
+}
+
+document.querySelectorAll("a[data-sales]").forEach(a => { a.href = SALES_URL; });
+$("welcomeCode").textContent = CODE;
+$("footCode").textContent = CODE;
+$("welcomeOk").onclick = () => { $("welcome").hidden = true; };
+
+$("enter").addEventListener("click", tryCode);
+$("code").addEventListener("keydown", e=>{ if(e.key==="Enter") tryCode(); });
+function tryCode(){
+  const typed = $("code").value.replace(/[\s-]+/g, "").toUpperCase();
+  if(typed === CODE){
+    rememberUnlock(); unlock();
+  } else {
+    $("gateErr").textContent = "That code isn't right. Check for a typo, or use the question form at the sales page.";
+  }
+}
+
+let paid = false;
+try{ paid = new URLSearchParams(location.search).get("paid") === "1"; }catch(e){}
+
+if(paid){
+  const stored = rememberUnlock();
+  unlock();
+  $("welcome").hidden = false;
+  // Drop ?paid=1 from the address bar once the unlock is safely stored, so a
+  // bookmark or a shared link doesn't carry it. If storage is blocked (some
+  // private windows), keep it so a refresh still works.
+  if(stored){
+    try{
+      const u = new URL(location.href);
+      u.searchParams.delete("paid");
+      history.replaceState(null, "", u.pathname + u.search + u.hash);
+    }catch(e){}
+  }
+} else if(readUnlock()){
+  unlock();
+} else {
+  try{ $("code").focus(); }catch(e){}
+}
+</script>
+</body>
+</html>
