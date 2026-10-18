@@ -873,7 +873,7 @@ footer a{color:var(--ink-2)}
       <h2 id="ask-h">Not sure yet? Ask.</h2>
       <p class="lead">A real person reads every question and replies by email. Already bought? Use this form for refunds or access help, and include the email you paid with.</p>
     </div>
-    <form name="college-questions" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thanks.html">
+    <form data-lead="college-question" data-next="thanks.html" name="college-questions" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thanks.html">
       <input type="hidden" name="form-name" value="college-questions">
       <p class="hp" aria-hidden="true"><label>Leave this empty: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
       <div class="field">
@@ -921,5 +921,6 @@ footer a{color:var(--ink-2)}
   </div>
 </footer>
 
+<script src="../lead.js"></script>
 </body>
 </html>

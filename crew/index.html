@@ -668,7 +668,7 @@ body{padding-bottom:calc(92px + env(safe-area-inset-bottom,0px))}
       </div>
 
       <div class="form-card">
-        <form name="crew" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thanks.html">
+        <form data-lead="crew" data-next="thanks.html" name="crew" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thanks.html">
           <input type="hidden" name="form-name" value="crew">
           <p hidden><label>Don't fill: <input name="bot-field"></label></p>
 
@@ -877,5 +877,6 @@ body{padding-bottom:calc(92px + env(safe-area-inset-bottom,0px))}
   check();
 })();
 </script>
+<script src="../lead.js"></script>
 </body>
 </html>

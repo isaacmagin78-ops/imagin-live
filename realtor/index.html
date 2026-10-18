@@ -272,7 +272,7 @@ hv.addEventListener('ended',()=>{hv.controls=false;hv.parentNode.classList.remov
 // buyer-experience demo: unlocks the tour locally, sends nothing
 const d=document.getElementById('demo'),v=document.getElementById('wv');
 d.addEventListener('submit',e=>{e.preventDefault();const n=document.getElementById('nm').value.trim(),p=document.getElementById('ph').value.replace(/\D/g,'');
-const er=document.getElementById('er');if(!n||p.length<10){er.style.display='block';return}er.style.display='none';
+const er=document.getElementById('er');if(!n||p.length<10){er.style.display='block';return}er.style.display='none';if(window.sendLead)sendLead({source:'realtor-private-tour',name:n,phone:p});
 document.getElementById('lk').classList.add('off');document.getElementById('ok').style.display='block';v.muted=true;v.controls=true;v.play().catch(()=>{});
 if(innerWidth<880)v.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'center'})});
 // booking form
@@ -282,7 +282,7 @@ const f=document.getElementById('start');
 f.addEventListener('submit',e=>{e.preventDefault();const g=id=>document.getElementById(id).value.trim();
 const n=g('bn'),em=g('be'),ber=document.getElementById('ber');if(!n||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)){ber.style.display='block';return}ber.style.display='none';
 const lead={name:n,brokerage:g('bb'),email:em,phone:g('bp').replace(/\D/g,''),package:g('bk'),listing:g('bl'),company:g('hp')};
-if(!lead.company)fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(Object.assign({'form-name':'book-call',source:location.host},lead)).toString()}).catch(()=>{});
+if(!lead.company&&window.sendLead)sendLead(Object.assign({source:'realtor-book-call'},lead));
 fetch('/api/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(lead)}).catch(()=>{});
 document.getElementById('bgo').disabled=true;document.getElementById('bok').style.display='block'});
 // hide the floating button while the booking section is on screen
@@ -290,4 +290,5 @@ const fab=document.getElementById('fab'),bk=document.getElementById('book');
 if('IntersectionObserver'in window)new IntersectionObserver(es=>es.forEach(x=>fab.classList.toggle('hide',x.isIntersecting)),{threshold:.15}).observe(bk);
 const io='IntersectionObserver'in window?new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}}),{threshold:.12}):null;
 document.querySelectorAll('.fade').forEach(el=>io?io.observe(el):el.classList.add('in'));
-</script></body></html>
+</script><script src="../lead.js"></script>
+</body></html>

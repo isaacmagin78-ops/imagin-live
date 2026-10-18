@@ -33,7 +33,7 @@ button[type=submit]{min-height:52px;border:0;border-radius:99px;background:var(-
   <div><div class="eye">Sample residence · Fort Lauderdale</div><h1>Your private tour</h1><p class="sub">Waterfront · Deep-water dock · Sunset views</p></div>
   <div class="film"><video id="v" src="../media/listing-film-vo.mp4" poster="../media/listing-film.jpg" autoplay muted loop playsinline></video><button class="snd" id="snd" type="button">🔊 Tap for sound</button></div>
   <div class="facts"><div><b>5</b><small>Beds</small></div><div><b>6</b><small>Baths</small></div><div><b>120'</b><small>Water</small></div></div>
-  <form name="showing-request" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="thanks.html">
+  <form data-lead="realtor-demo-showing" data-next="thanks.html" name="showing-request" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="thanks.html">
     <input type="hidden" name="form-name" value="showing-request">
     <p hidden><label>Don't fill this out: <input name="bot-field"></label></p>
     <h2>Get the price &amp; a private showing</h2>
@@ -50,4 +50,5 @@ button[type=submit]{min-height:52px;border:0;border-radius:99px;background:var(-
 var v=document.getElementById('v'),b=document.getElementById('snd');
 b.addEventListener('click',function(){v.muted=!v.muted;if(!v.muted){v.currentTime=0;v.play();}b.textContent=v.muted?'🔊 Tap for sound':'🔇 Mute';});
 </script>
+<script src="../../lead.js"></script>
 </body></html>
