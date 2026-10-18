@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ike · IMagin</title>
+<meta name="description" content="I put people and businesses on camera. Creators, hosts and local businesses in South Florida: tell me what you're into.">
+<meta name="theme-color" content="#0A1220">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Ike · IMagin">
+<meta property="og:description" content="I put people and businesses on camera. Tell me what you're into.">
+<meta property="og:image" content="https://i.ytimg.com/vi/HxnqFcbj0tU/oardefault.jpg">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%2312D6C5'/%3E%3Cstop offset='.55' stop-color='%23FF6B57'/%3E%3Cstop offset='1' stop-color='%23FFC93C'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath fill='url(%23g)' d='M32 3S9 28 9 42a23 23 0 0 0 46 0C55 28 32 3 32 3z'/%3E%3Crect x='28' y='31' width='8' height='20' rx='4' fill='%230B1B33'/%3E%3Ccircle cx='32' cy='24' r='4.6' fill='%230B1B33'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="image" href="https://i.ytimg.com/vi/HxnqFcbj0tU/oardefault.jpg">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800&display=swap">
+<style>
+/* Night-out card: dark glass, IMagin aqua→coral→sun gradient as the single loud element. */
+:root{
+  --bg:#0A1220; --bg-2:#101B2E; --line:rgba(255,255,255,.10); --line-2:rgba(255,255,255,.18);
+  --fg:#F4F7FB; --fg-2:#B6C2D4; --fg-3:#7F8DA3;
+  --aqua:#12D6C5; --coral:#FF6B57; --sun:#FFC93C;
+  --grad:linear-gradient(110deg,var(--aqua),var(--coral) 55%,var(--sun));
+  --display:"Unbounded","Arial Black",system-ui,sans-serif;
+  --body:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --r:22px;
+  color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;background:var(--bg)}
+body{margin:0;min-height:100vh;color:var(--fg);font:400 16px/1.5 var(--body);-webkit-font-smoothing:antialiased;
+  background:radial-gradient(80% 50% at 10% -5%,rgba(18,214,197,.22),transparent 60%),
+             radial-gradient(70% 45% at 105% 10%,rgba(255,107,87,.20),transparent 60%),
+             radial-gradient(60% 40% at 50% 110%,rgba(255,201,60,.12),transparent 60%),var(--bg);
+  overflow-x:hidden}
+.wrap{max-width:560px;margin:0 auto;padding-left:max(18px,env(safe-area-inset-left));padding-right:max(18px,env(safe-area-inset-right));padding-block:max(18px,env(safe-area-inset-top)) 56px}
+a{color:inherit}
+button,input,textarea{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--aqua);outline-offset:3px;border-radius:12px}
+
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:26px}
+.brand{display:flex;align-items:center;gap:10px;font:700 15px/1 var(--display);letter-spacing:-.01em;text-decoration:none}
+.brand svg{width:28px;height:28px}
+.place{font:600 11px/1 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--fg-3)}
+
+h1{font:800 clamp(34px,10vw,52px)/1.0 var(--display);letter-spacing:-.04em;margin:0 0 12px;text-wrap:balance}
+h1 .g{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lede{font-size:18px;line-height:1.45;color:var(--fg-2);margin:0 0 22px;max-width:30em}
+
+/* proof: the Short */
+.proof{display:grid;grid-template-columns:132px 1fr;gap:16px;align-items:center;padding:12px;border:1px solid var(--line);border-radius:var(--r);background:rgba(255,255,255,.04);text-decoration:none;margin-bottom:30px}
+.thumb{position:relative;aspect-ratio:9/16;max-width:100%;border-radius:14px;overflow:hidden;background:#000}
+.thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.thumb::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.55))}
+.play{position:absolute;left:50%;top:50%;width:46px;height:46px;margin:-23px 0 0 -23px;border-radius:50%;background:rgba(255,255,255,.92);display:grid;place-items:center;z-index:1;box-shadow:0 8px 24px rgba(0,0,0,.4)}
+.play svg{width:18px;height:18px;margin-left:3px}
+.proof b{display:block;font:700 15px/1.25 var(--display);letter-spacing:-.01em;margin-bottom:6px}
+.proof p{margin:0 0 10px;color:var(--fg-2);font-size:14px;line-height:1.45}
+.proof .tag{display:inline-block;font:600 11px/1 var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--fg-3);border:1px solid var(--line-2);border-radius:999px;padding:6px 9px}
+.proof .watch{display:inline-flex;align-items:center;gap:6px;font-weight:700;font-size:14px;color:var(--aqua);margin-left:8px}
+
+.more-me{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:-18px 0 30px}
+.more-me a{position:relative;aspect-ratio:9/14;border-radius:14px;overflow:hidden;background:#000;text-decoration:none;border:1px solid var(--line)}
+.more-me img{width:100%;height:100%;object-fit:cover;display:block;opacity:.9}
+.more-me span{position:absolute;left:8px;bottom:8px;font:600 11px/1 var(--body);letter-spacing:.06em;text-transform:uppercase;background:rgba(0,0,0,.6);padding:5px 7px;border-radius:999px}
+.more-me .ch{display:grid;place-content:center;text-align:center;background:linear-gradient(160deg,rgba(18,214,197,.25),rgba(255,107,87,.25))}
+.more-me .ch b{font:800 16px/1 var(--display)}
+.more-me .ch span{position:static;background:none;margin-top:8px;color:var(--fg-2)}
+/* form */
+.card{border:1px solid var(--line);border-radius:26px;background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.025));padding:22px 18px;box-shadow:0 40px 80px -40px rgba(0,0,0,.7)}
+.q{font:700 20px/1.2 var(--display);letter-spacing:-.02em;margin:0 0 14px}
+.paths{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 0 22px;padding:0;border:0}
+.paths legend{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.path{position:relative}
+.path input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.path label{display:flex;flex-direction:column;gap:6px;min-height:100%;padding:14px 12px;border:1px solid var(--line-2);border-radius:16px;background:rgba(255,255,255,.03);cursor:pointer;transition:border-color .15s,background .15s,transform .15s}
+.path .e{font-size:22px;line-height:1}
+.path .t{font-weight:700;font-size:15px;line-height:1.2}
+.path .s{font-size:12.5px;line-height:1.35;color:var(--fg-3)}
+.path input:checked + label{border-color:transparent;background:linear-gradient(var(--bg-2),var(--bg-2)) padding-box,var(--grad) border-box;border:2px solid transparent;padding:13px 11px}
+.path input:focus-visible + label{outline:3px solid var(--aqua);outline-offset:2px}
+.path label:active{transform:scale(.98)}
+
+.more{display:none;margin:-8px 0 20px;padding:14px;border-radius:16px;background:rgba(18,214,197,.07);border:1px solid rgba(18,214,197,.25);font-size:14px;line-height:1.5;color:var(--fg-2)}
+.more strong{color:var(--fg)}
+.more.on{display:block}
+
+.f{display:grid;gap:14px}
+.fld{display:grid;gap:6px;min-width:0}
+.fld label{font-weight:600;font-size:14px;color:var(--fg-2)}
+.fld .opt{color:var(--fg-3);font-weight:400}
+.fld input[type=text],.fld input[type=tel],.fld input[type=email],.fld textarea{width:100%;border:1px solid var(--line-2);border-radius:14px;background:rgba(0,0,0,.25);padding:14px 14px;font-size:17px;outline:none;transition:border-color .15s}
+.fld textarea{min-height:92px;resize:vertical}
+.fld input:focus,.fld textarea:focus{border-color:var(--aqua)}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.talent-only{display:none}
+.is-talent .talent-only{display:grid}
+
+.photos{display:grid;gap:10px}
+.drop{display:flex;align-items:center;gap:12px;padding:14px;border:1.5px dashed var(--line-2);border-radius:16px;cursor:pointer;color:var(--fg-2);font-size:15px}
+.drop svg{flex:none;width:26px;height:26px;color:var(--aqua)}
+.drop input{position:absolute;width:1px;height:1px;opacity:0}
+.thumbs{display:flex;gap:8px;flex-wrap:wrap}
+.thumbs div{position:relative;width:64px;height:64px;border-radius:12px;overflow:hidden;background:#000}
+.thumbs img{width:100%;height:100%;object-fit:cover}
+.thumbs button{position:absolute;top:2px;right:2px;width:22px;height:22px;border-radius:50%;border:0;background:rgba(0,0,0,.7);color:#fff;font-size:14px;line-height:22px;padding:0;cursor:pointer}
+
+.check{display:flex;gap:10px;align-items:flex-start;font-size:14px;line-height:1.45;color:var(--fg-2)}
+.check input{width:22px;height:22px;flex:none;margin:1px 0 0;accent-color:var(--aqua)}
+
+.send{margin-top:6px;width:100%;border:0;border-radius:16px;padding:17px 18px;font:800 17px/1 var(--display);letter-spacing:-.01em;color:#0A1220;background:var(--grad);cursor:pointer;box-shadow:0 18px 40px -18px rgba(255,107,87,.8);transition:transform .15s,filter .15s}
+.send:active{transform:scale(.985)}
+.send[disabled]{filter:saturate(.4) brightness(.8);cursor:progress}
+.err{display:none;color:#FF9C8F;font-size:14px;margin:0}
+.err.on{display:block}
+.fine{font-size:12.5px;line-height:1.5;color:var(--fg-3);margin:12px 0 0;text-align:center}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+
+.foot{margin-top:26px;text-align:center;font-size:13px;color:var(--fg-3)}
+.foot a{color:var(--fg-2)}
+@media (max-width:370px){.paths{grid-template-columns:1fr}.proof{grid-template-columns:104px 1fr}.row2{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="../studio/" aria-label="IMagin studio">
+      <svg viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#12D6C5"/><stop offset=".55" stop-color="#FF6B57"/><stop offset="1" stop-color="#FFC93C"/></linearGradient></defs><path fill="url(#lg)" d="M32 3S9 28 9 42a23 23 0 0 0 46 0C55 28 32 3 32 3z"/><rect x="28" y="31" width="8" height="20" rx="4" fill="#0A1220"/><circle cx="32" cy="24" r="4.6" fill="#0A1220"/></svg>
+      IMagin
+    </a>
+    <span class="place">South Florida</span>
+  </header>
+
+  <h1>Hey, I'm Ike.<br><span class="g">I put people on camera.</span></h1>
+  <p class="lede">Creators, hosts and local businesses. Short videos, your own page, and a QR code like the one you just scanned.</p>
+
+  <a class="proof" href="https://www.youtube.com/shorts/HxnqFcbj0tU" target="_blank" rel="noopener">
+    <div class="thumb">
+      <img src="https://i.ytimg.com/vi/HxnqFcbj0tU/oardefault.jpg" alt="Ike on camera in a Short" width="113" height="200">
+      <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z" fill="#0A1220"/></svg></span>
+    </div>
+    <div>
+      <b>This is what I make.</b>
+      <p>A Short of me as a spokesperson. Now picture you, or your business, in it.</p>
+      <span class="tag">AI-assisted</span><span class="watch">Watch ›</span>
+    </div>
+  </a>
+
+  <div class="more-me" aria-label="More Shorts of Ike">
+    <a href="https://www.youtube.com/shorts/n9OLM2C3_Xo" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/n9OLM2C3_Xo/oardefault.jpg" alt="Short: Need help finding your dream home?" loading="lazy"><span>Real estate</span></a>
+    <a href="https://www.youtube.com/shorts/gLynRr5od5M" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/gLynRr5od5M/oardefault.jpg" alt="Short: make ChatGPT your employee" loading="lazy"><span>AI tips</span></a>
+    <a href="https://www.youtube.com/channel/UCnJry2ihF3Xu9JamV6vBtIg/shorts" target="_blank" rel="noopener" class="ch"><b>+ Tyson</b><span>The channel</span></a>
+  </div>
+
+  <form class="card" id="hi" novalidate>
+    <p class="q">What are you into?</p>
+    <fieldset class="paths">
+      <legend>What are you into?</legend>
+      <div class="path"><input type="radio" name="what" id="p-talent" value="talent" required><label for="p-talent"><span class="e" aria-hidden="true">🎬</span><span class="t">Be on camera</span><span class="s">Creator, host, model</span></label></div>
+      <div class="path"><input type="radio" name="what" id="p-biz" value="business"><label for="p-biz"><span class="e" aria-hidden="true">🏪</span><span class="t">My business</span><span class="s">Shorts, page, QR</span></label></div>
+      <div class="path"><input type="radio" name="what" id="p-crew" value="crew"><label for="p-crew"><span class="e" aria-hidden="true">📱</span><span class="t">Join the crew</span><span class="s">Social, intern, barter</span></label></div>
+      <div class="path"><input type="radio" name="what" id="p-hi" value="hi"><label for="p-hi"><span class="e" aria-hidden="true">👋</span><span class="t">Just saying hi</span><span class="s">Stay in touch</span></label></div>
+    </fieldset>
+
+    <div class="more" id="more-talent"><strong>On-camera talent:</strong> hosting Tyson's LIVEs, walks with Tyson, and starring in Shorts for local businesses. Picked by skill: comfortable on camera, great with people. Paid gigs are agreed up front, one at a time.</div>
+    <div class="more" id="more-business"><strong>For your business:</strong> 11-second Shorts, your own landing page and a QR code that brings customers to it. You see the price before any work starts.</div>
+    <div class="more" id="more-crew"><strong>The crew:</strong> help run social media for Tyson's Time and IMagin. Learn hands-on, or barter: you help with our socials, IMagin builds your side hustle's page.</div>
+
+    <div class="f">
+      <div class="row2">
+        <div class="fld"><label for="name">First name</label><input type="text" id="name" name="name" autocomplete="given-name" required></div>
+        <div class="fld"><label for="phone">Phone</label><input type="tel" id="phone" name="phone" autocomplete="tel" inputmode="tel" placeholder="So I can text you"></div>
+      </div>
+      <div class="fld"><label for="social">Instagram or TikTok <span class="opt">(optional)</span></label><input type="text" id="social" name="social" autocapitalize="none" autocomplete="off" placeholder="@yourhandle"></div>
+      <div class="fld"><label for="email">Email <span class="opt">(optional)</span></label><input type="email" id="email" name="email" autocomplete="email" inputmode="email"></div>
+      <div class="fld"><label for="note">Tell me a little <span class="opt">(optional)</span></label><textarea id="note" name="note" placeholder="What you do, what you want to make, your business name…"></textarea></div>
+
+      <div class="fld photos">
+        <label for="pics">Photos <span class="opt">(optional, up to 3)</span></label>
+        <label class="drop" for="pics">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="5" width="18" height="15" rx="3"/><circle cx="12" cy="12.5" r="3.5"/><path d="M8 5l1.5-2h5L16 5"/></svg>
+          <span id="drop-t">Add a photo of you or your work</span>
+          <input type="file" id="pics" accept="image/*" multiple>
+        </label>
+        <div class="thumbs" id="thumbs"></div>
+      </div>
+
+      <label class="check talent-only"><input type="checkbox" id="adult" name="adult" value="yes"><span>I'm 18 or older.</span></label>
+      <label class="check"><input type="checkbox" id="ok" name="consent" value="yes" required><span>Ike can text me about this. My photos stay private and are never posted without my OK.</span></label>
+
+      <div class="hp" aria-hidden="true"><label>Company<input type="text" name="company" tabindex="-1" autocomplete="off"></label></div>
+
+      <p class="err" id="err" role="alert"></p>
+      <button class="send" type="submit" id="send">Send to Ike</button>
+    </div>
+    <p class="fine">Goes straight to Ike. No spam, no list.</p>
+  </form>
+
+  <p class="foot">Want the full picture? <a href="../studio/">IMagin Studio</a> · <a href="../crew/">Join the crew</a></p>
+</div>
+
+<script src="../lead.js"></script>
+<script>
+(function(){
+  var URL_BASE = "https://dzaxjebkbxifgxzmehrl.supabase.co/storage/v1/object/lead-photos/hi/";
+  var KEY = "sb_publishable_ZysYM01FnC9mKGx2Ki9s4g_HTe8YsB4";
+  var form = document.getElementById("hi");
+  var files = [];
+  var thumbs = document.getElementById("thumbs");
+  var err = document.getElementById("err");
+  var btn = document.getElementById("send");
+
+  function showMore(v){
+    ["talent","business","crew"].forEach(function(k){
+      document.getElementById("more-"+k).classList.toggle("on", k===v);
+    });
+    form.classList.toggle("is-talent", v==="talent");
+    document.getElementById("drop-t").textContent = v==="talent" ? "Add a recent photo of you" : (v==="business" ? "Add a photo of your work or place" : "Add a photo of you or your work");
+  }
+  form.addEventListener("change", function(e){ if(e.target.name==="what") showMore(e.target.value); });
+
+  document.getElementById("pics").addEventListener("change", function(e){
+    Array.prototype.slice.call(e.target.files||[]).forEach(function(f){ if(files.length<3 && /^image\//.test(f.type||"image/")) files.push(f); });
+    e.target.value = "";
+    draw();
+  });
+  function draw(){
+    thumbs.innerHTML = "";
+    files.forEach(function(f,i){
+      var d=document.createElement("div"), im=document.createElement("img"), b=document.createElement("button");
+      im.alt="Photo "+(i+1); try{ im.src=URL.createObjectURL(f); }catch(x){}
+      b.type="button"; b.setAttribute("aria-label","Remove photo "+(i+1)); b.textContent="×";
+      b.onclick=function(){ files.splice(i,1); draw(); };
+      d.appendChild(im); d.appendChild(b); thumbs.appendChild(d);
+    });
+  }
+
+  // Shrink to a JPEG under ~1600px so iPhone photos (HEIC, 4–8 MB) upload fast on bar Wi-Fi.
+  function toJpeg(f){
+    return new Promise(function(res){
+      var img = new Image(), u;
+      try{ u = URL.createObjectURL(f); }catch(x){ return res(f); }
+      img.onload = function(){
+        var m = 1600, w = img.naturalWidth, h = img.naturalHeight, s = Math.min(1, m/Math.max(w,h));
+        var c = document.createElement("canvas"); c.width = Math.round(w*s); c.height = Math.round(h*s);
+        c.getContext("2d").drawImage(img,0,0,c.width,c.height);
+        c.toBlob(function(b){ URL.revokeObjectURL(u); res(b||f); }, "image/jpeg", 0.85);
+      };
+      img.onerror = function(){ URL.revokeObjectURL(u); res(f); };
+      img.src = u;
+    });
+  }
+  function uid(){ return (Date.now().toString(36)+Math.random().toString(36).slice(2,8)); }
+  function upload(f, id, i){
+    return toJpeg(f).then(function(b){
+      var ext = (b.type==="image/jpeg") ? "jpg" : ((f.name||"").split(".").pop()||"img").toLowerCase().slice(0,5);
+      var path = id + "-" + (i+1) + "." + ext;
+      return fetch(URL_BASE + path, { method:"POST", headers:{ apikey:KEY, "Content-Type": b.type||"image/jpeg" }, body:b })
+        .then(function(r){ return r.ok ? ("hi/"+path) : null; }).catch(function(){ return null; });
+    });
+  }
+
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    err.classList.remove("on");
+    if (form.company.value) return;
+    var what = (form.querySelector('input[name=what]:checked')||{}).value;
+    var name = form.name.value.trim(), phone = form.phone.value.trim(), social = form.social.value.trim(), email = form.email.value.trim();
+    var problem = !what ? "Pick what you're into first." :
+                  !name ? "Add your first name." :
+                  !(phone || social || email) ? "Add a phone, handle or email so Ike can reach you." :
+                  (what==="talent" && !form.adult.checked) ? "On-camera talent has to be 18 or older." :
+                  !form.consent.checked ? "Tick the box so Ike can text you." : "";
+    if (problem){ err.textContent = problem; err.classList.add("on"); return; }
+    btn.disabled = true; btn.textContent = files.length ? "Sending photos…" : "Sending…";
+    var id = uid();
+    Promise.all(files.map(function(f,i){ return upload(f,id,i); })).then(function(paths){
+      var lead = { source:"hi-"+what, what:what, name:name, phone:phone, social:social, email:email,
+                   note:form.note.value.trim(), adult:form.adult.checked?"yes":"", consent:"yes",
+                   photos:paths.filter(Boolean), photo_count:files.length, ref:id };
+      return window.sendLead(lead);
+    }).then(function(){
+      try{ sessionStorage.setItem("hi_name", name); sessionStorage.setItem("hi_what", what); }catch(x){}
+      location.href = "thanks.html";
+    });
+  }, true);
+})();
+</script>
+</body>
+</html>
