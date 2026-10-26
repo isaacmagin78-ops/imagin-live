@@ -1,0 +1,457 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Wildlife Center">
+<meta name="theme-color" content="#1C1610">
+<title>Wildlife Center</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icons/icon-180.png">
+<link rel="icon" href="icons/icon-192.png">
+<style>
+:root{
+  --cream:#F6F0E4; --cream2:#EFE6D3; --ink:#1C1610; --muted:#5E5140;
+  --brass:#A07C3A; --brass-d:#7A5A22; --forest:#23302A;
+  --serif: ui-serif, "New York", "Iowan Old Style", Georgia, "Times New Roman", serif;
+  --sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;height:100%;background:var(--ink);color:var(--cream);font-family:var(--serif);overflow:hidden;-webkit-user-select:none;user-select:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+.screen{position:fixed;inset:0;display:none}
+.screen.on{display:block}
+
+/* ---------- photo stage with slow motion ---------- */
+.ph{position:absolute;inset:0;overflow:hidden;background:#0d0a07}
+.ph img{position:absolute;inset:-4%;width:108%;height:108%;object-fit:cover;opacity:0;transition:opacity 1.4s ease;transform-origin:50% 50%}
+.ph img.vis{opacity:1;animation:kb 26s ease-in-out infinite alternate}
+@keyframes kb{from{transform:scale(1) translate(0,0)}to{transform:scale(1.07) translate(-1.2%,-1%)}}
+@media (prefers-reduced-motion:reduce){.ph img.vis{animation:none}}
+.shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,9,6,.55) 0%,rgba(12,9,6,0) 18%,rgba(12,9,6,0) 30%,rgba(12,9,6,.72) 52%,rgba(12,9,6,.9) 70%,rgba(12,9,6,.96) 100%);pointer-events:none}
+#ex h2,.cap,.num,h1,.sub{text-shadow:0 2px 14px rgba(0,0,0,.55)}
+
+/* ---------- top bar ---------- */
+.top{position:absolute;left:0;right:0;top:0;display:flex;justify-content:space-between;align-items:center;padding:calc(env(safe-area-inset-top) + 18px) 28px 0;z-index:5;gap:16px}
+.pill{min-height:72px;padding:0 30px;border-radius:40px;background:rgba(246,240,228,.94);color:var(--ink);font-family:var(--sans);font-weight:600;font-size:26px;display:inline-flex;align-items:center;gap:12px;box-shadow:0 4px 18px rgba(0,0,0,.25)}
+.pill.dark{background:rgba(28,22,16,.72);color:var(--cream);border:1.5px solid rgba(246,240,228,.45)}
+.pill svg{width:30px;height:30px}
+
+/* ---------- home ---------- */
+#home .content{position:absolute;left:0;right:0;bottom:0;padding:0 7vw calc(env(safe-area-inset-bottom) + 6vh)}
+.kicker{font-family:var(--sans);font-size:clamp(20px,2.2vw,28px);letter-spacing:.18em;text-transform:uppercase;color:#E7D3A8;margin:0 0 14px}
+h1{font-weight:500;font-size:clamp(56px,8vw,112px);line-height:1;margin:0 0 10px;letter-spacing:-.01em}
+.sub{font-size:clamp(26px,3vw,40px);color:#EADFC8;margin:0 0 5vh;font-style:italic}
+.btns{display:flex;flex-wrap:wrap;gap:20px}
+.big{min-height:96px;padding:0 44px;border-radius:52px;font-family:var(--sans);font-weight:600;font-size:clamp(26px,2.6vw,34px);display:inline-flex;align-items:center;gap:16px}
+.big.primary{background:var(--cream);color:var(--ink)}
+.big.ghost{background:rgba(28,22,16,.55);color:var(--cream);border:2px solid rgba(246,240,228,.6)}
+.big svg{width:36px;height:36px}
+.status{margin-top:3.5vh;font-family:var(--sans);font-size:22px;color:#E7D3A8;min-height:30px}
+.hint{margin-top:10px;font-family:var(--sans);font-size:20px;color:#D9CDB4;max-width:900px;line-height:1.4}
+
+/* ---------- exhibit ---------- */
+#ex .text{position:absolute;left:0;right:0;bottom:0;padding:0 6vw calc(env(safe-area-inset-bottom) + 4.5vh);z-index:3}
+.num{font-family:var(--sans);font-size:24px;letter-spacing:.14em;text-transform:uppercase;color:#E7D3A8;margin-bottom:8px}
+#ex h2{font-weight:500;font-size:clamp(54px,7vw,96px);line-height:1.02;margin:0 0 18px}
+.cap{font-size:clamp(25px,2.5vw,33px);line-height:1.42;max-width:1100px;margin:0;color:#F1E8D6}
+.cap.off{display:none}
+.row{display:flex;align-items:center;gap:22px;margin-top:3.2vh}
+.play{width:118px;height:118px;border-radius:50%;background:var(--cream);color:var(--ink);display:grid;place-items:center;flex:none;box-shadow:0 6px 24px rgba(0,0,0,.35)}
+.play svg{width:52px;height:52px}
+.play.on{background:#E7D3A8}
+.playlbl{font-family:var(--sans);font-size:28px;font-weight:600}
+.nav{width:104px;height:104px;border-radius:50%;background:rgba(28,22,16,.6);border:2px solid rgba(246,240,228,.6);display:grid;place-items:center;flex:none}
+.nav svg{width:48px;height:48px}
+.row .spacer{flex:1}
+.prog{position:absolute;left:6vw;right:6vw;bottom:calc(env(safe-area-inset-bottom) + 14px);height:5px;border-radius:3px;background:rgba(246,240,228,.2);z-index:4;overflow:hidden}
+.prog i{display:block;height:100%;width:0;background:#E7D3A8}
+
+/* ---------- show mode ---------- */
+#ex.show .row{display:none}
+#ex.show .top{opacity:0;transition:opacity .4s;pointer-events:none}
+#ex.show.ctl .top{opacity:1;pointer-events:auto}
+.endcard{position:absolute;inset:0;display:none;place-items:center;text-align:center;z-index:3;padding:6vw}
+.endcard.on{display:grid}
+.endcard h3{font-weight:500;font-size:clamp(52px,7vw,96px);margin:0 0 12px}
+.endcard p{font-size:clamp(26px,3vw,40px);font-style:italic;color:#EADFC8;margin:0}
+
+/* ---------- map ---------- */
+#map{background:var(--cream);color:var(--ink)}
+#map .wrap{position:absolute;inset:0;display:flex;flex-direction:column;padding:calc(env(safe-area-inset-top) + 110px) 3vw calc(env(safe-area-inset-bottom) + 3vh)}
+#map h2{font-weight:500;font-size:clamp(44px,5.4vw,72px);margin:0 0 4px;text-align:center}
+#map .sub2{text-align:center;font-family:var(--sans);font-size:22px;color:var(--muted);margin:0 0 1.5vh}
+.mapbox{position:relative;flex:1;min-height:0}
+.mapin{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);aspect-ratio:1600/820;width:100%;max-height:100%}
+@supports (aspect-ratio:1){.mapin{width:min(100%, calc((100vh - 260px) * 1.951))}}
+.mapin img{width:100%;height:100%;display:block}
+.pin{position:absolute;transform:translate(-50%,-50%);display:flex;align-items:center;gap:10px}
+.pin .dot{width:56px;height:56px;border-radius:50%;background:var(--forest);border:4px solid var(--cream);box-shadow:0 0 0 3px var(--brass),0 6px 16px rgba(0,0,0,.3);flex:none;animation:pulse 2.6s ease-in-out infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 10px rgba(160,124,58,.25),0 6px 16px rgba(0,0,0,.3)}}
+.pin .lbl{background:var(--ink);color:var(--cream);font-family:var(--sans);font-weight:600;font-size:clamp(17px,1.7vw,23px);padding:10px 16px;border-radius:14px;white-space:nowrap}
+.pin.left{flex-direction:row-reverse}
+#map .top .pill{background:var(--ink);color:var(--cream)}
+
+/* ---------- install banner ---------- */
+.toast{position:fixed;left:50%;bottom:calc(env(safe-area-inset-bottom) + 24px);transform:translateX(-50%);background:var(--cream);color:var(--ink);font-family:var(--sans);font-size:20px;padding:16px 24px;border-radius:18px;z-index:20;display:none;max-width:92vw;box-shadow:0 8px 30px rgba(0,0,0,.4)}
+.toast.on{display:block}
+</style>
+</head>
+<body>
+
+<!-- HOME -->
+<section id="home" class="screen on">
+  <div class="ph"><img id="homeImg" class="vis" alt="" src="img/01.jpg" style="object-position:50% 32%"></div>
+  <div class="shade"></div>
+  <div class="top">
+    <span></span>
+    <button class="pill" id="langBtn1" aria-label="Language"></button>
+  </div>
+  <div class="content">
+    <p class="kicker" data-t="kicker"></p>
+    <h1 data-t="title"></h1>
+    <p class="sub" data-t="subtitle"></p>
+    <div class="btns">
+      <button class="big primary" id="startBtn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg><span data-t="begin"></span></button>
+      <button class="big ghost" id="showBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="12" rx="2"/><path d="M8 21h8M12 17v4"/></svg><span data-t="show"></span></button>
+      <button class="big ghost" id="mapBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></svg><span data-t="map"></span></button>
+    </div>
+    <div class="status" id="status"></div>
+    <div class="hint" id="hint"></div>
+  </div>
+</section>
+
+<!-- EXHIBIT / SHOW -->
+<section id="ex" class="screen">
+  <div class="ph" id="exPh"><img alt=""><img alt=""></div>
+  <div class="shade"></div>
+  <div class="endcard" id="endcard"><div><h3 data-t="title"></h3><p data-t="subtitle"></p></div></div>
+  <div class="top">
+    <button class="pill" id="homeBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/></svg><span data-t="home"></span></button>
+    <div style="display:flex;gap:14px">
+      <button class="pill dark" id="pauseBtn" style="display:none"></button>
+      <button class="pill dark" id="ccBtn" aria-label="Captions">Aa</button>
+      <button class="pill" id="langBtn2" aria-label="Language"></button>
+    </div>
+  </div>
+  <div class="text">
+    <div class="num" id="exNum"></div>
+    <h2 id="exTitle"></h2>
+    <p class="cap" id="exCap"></p>
+    <div class="row">
+      <button class="play" id="playBtn" aria-label="Listen"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
+      <span class="playlbl" id="playLbl"></span>
+      <span class="spacer"></span>
+      <button class="nav prev" id="prevBtn" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M15 5l-7 7 7 7"/></svg></button>
+      <button class="nav next" id="nextBtn" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M9 5l7 7-7 7"/></svg></button>
+    </div>
+  </div>
+  <div class="prog"><i id="progBar"></i></div>
+</section>
+
+<!-- MAP -->
+<section id="map" class="screen">
+  <div class="top">
+    <button class="pill" id="homeBtn2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/></svg><span data-t="home"></span></button>
+    <button class="pill" id="langBtn3" aria-label="Language"></button>
+  </div>
+  <div class="wrap">
+    <h2 data-t="mapTitle"></h2>
+    <p class="sub2" data-t="mapSub"></p>
+    <div class="mapbox"><div class="mapin" id="mapin"><img src="world.svg" alt=""></div></div>
+  </div>
+</section>
+
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+'use strict';
+var VERSION = 'wc-plane-v1';
+
+var T = {
+  en:{kicker:'Private edition', title:'The Wildlife Center', subtitle:'at Legends Ranch · Bitely, Michigan',
+      begin:'Begin the tour', show:'Show mode', map:'The map', home:'Home', listen:'Listen', stop:'Stop',
+      pause:'Pause', resume:'Resume', lang:'Español', of:'of',
+      mapTitle:'Where the stories come from', mapSub:'Tap a place to hear its story',
+      ready:'✓ Ready for the flight. Everything is saved on this iPad.',
+      saving:'Saving for offline use… ', offline:'Offline. Some pieces are not saved yet; connect to Wi‑Fi once to finish.',
+      install:'To keep this on the iPad for the flight: tap the Share button, then “Add to Home Screen”, then open it from the new icon while on Wi‑Fi.'},
+  es:{kicker:'Edición privada', title:'El Wildlife Center', subtitle:'en Legends Ranch · Bitely, Michigan',
+      begin:'Comenzar el recorrido', show:'Modo presentación', map:'El mapa', home:'Inicio', listen:'Escuchar', stop:'Detener',
+      pause:'Pausa', resume:'Seguir', lang:'English', of:'de',
+      mapTitle:'De dónde vienen las historias', mapSub:'Toque un lugar para escuchar su historia',
+      ready:'✓ Listo para el vuelo. Todo está guardado en este iPad.',
+      saving:'Guardando para usar sin conexión… ', offline:'Sin conexión. Faltan algunas piezas; conéctese al Wi‑Fi una vez para terminar.',
+      install:'Para tenerlo en el iPad durante el vuelo: toque Compartir, luego “Agregar a pantalla de inicio”, y ábralo desde el nuevo ícono con Wi‑Fi.'}
+};
+
+var EX = [
+ {img:'01',pos:'50% 32%',t:{en:'Welcome',es:'Bienvenidos'},
+  c:{en:'Welcome to the Wildlife Center at Legends Ranch, in Bitely, Michigan. Under one roof stand more than three thousand animals from around the world. It is a lifetime of hunting, family, and conservation, gathered in one place so that the next generation can learn from it.',
+     es:'Bienvenidos al Wildlife Center de Legends Ranch, en Bitely, Michigan. Bajo un mismo techo hay más de tres mil animales de todo el mundo. Es toda una vida de caza, familia y conservación, reunida en un solo lugar para que las nuevas generaciones aprendan de ella.'}},
+ {img:'02',pos:'50% 50%',t:{en:'The Main Hall',es:'El Gran Salón'},
+  c:{en:'Walk in under the chandeliers, and the whole collection opens up before you. Twenty-four thousand square feet, filled from wall to wall with animals from every corner of the world. Every one of them has a story.',
+     es:'Al entrar bajo las lámparas de araña, toda la colección se abre ante usted. Veinticuatro mil pies cuadrados, llenos de pared a pared con animales de todos los rincones del mundo. Cada uno tiene su historia.'}},
+ {img:'03',pos:'50% 55%',t:{en:'Africa',es:'África'},
+  c:{en:'Africa changed everything. Arthur Gutierrez Sr.’s first trip there drew him into Safari Club International, the organization that defends hunters and funds wildlife conservation around the world. Here, a crocodile lies in front of a giraffe, a hippo, and the plains game of the savanna.',
+     es:'África lo cambió todo. El primer viaje de Arturo Gutiérrez a África lo llevó a Safari Club International, la organización que defiende a los cazadores y financia la conservación de la vida silvestre en todo el mundo. Aquí, un cocodrilo descansa frente a una jirafa, un hipopótamo y los animales de la sabana.'}},
+ {img:'04',pos:'50% 40%',t:{en:'The Africa Wall',es:'La Pared de África'},
+  c:{en:'The Africa wall brings a whole continent into a single view: the antelope of the open plains, the horned giants of the bush, and the animals that have taught generations of hunters patience, and respect.',
+     es:'La pared de África reúne a todo un continente en una sola vista: los antílopes de las llanuras abiertas, los gigantes con cuernos de la sabana, y los animales que han enseñado a generaciones de cazadores la paciencia y el respeto.'}},
+ {img:'05',pos:'40% 50%',t:{en:'The Cape Buffalo',es:'El Búfalo del Cabo'},
+  c:{en:'The Cape buffalo. It can weigh close to a ton, and hunters speak of it with more respect than almost any animal in Africa. Because when it is wounded, it does not run. It turns, and it waits.',
+     es:'El búfalo del Cabo. Puede pesar cerca de una tonelada, y los cazadores lo respetan más que a casi cualquier otro animal de África. Porque cuando está herido, no huye. Se da la vuelta, y espera.'}},
+ {img:'06',pos:'50% 50%',t:{en:'The White Lions',es:'Los Leones Blancos'},
+  c:{en:'Three white lions, together on the hall floor. Of everything in the Center, this is the scene guests remember most. White lions are not albino. Their pale coats come from a rare gene, found in the wild lions of South Africa’s Timbavati region.',
+     es:'Tres leones blancos, juntos en el salón. De todo lo que hay en el Centro, esta es la escena que los visitantes más recuerdan. Los leones blancos no son albinos. Su pelaje claro viene de un gen poco común, presente en los leones salvajes de la región de Timbavati, en Sudáfrica.'}},
+ {img:'07',pos:'50% 42%',t:{en:'The Giraffe',es:'La Jirafa'},
+  c:{en:'The giraffe, the tallest animal on earth. A grown male can stand eighteen feet high, and its heart must pump hard enough to lift blood all the way up that neck.',
+     es:'La jirafa, el animal más alto de la Tierra. Un macho adulto puede medir más de cinco metros, y su corazón tiene que bombear con fuerza suficiente para subir la sangre por todo ese cuello.'}},
+ {img:'08',pos:'45% 40%',t:{en:'The Mountains',es:'Las Montañas'},
+  c:{en:'Wild sheep and goats, from the steepest high country in the world. To find them, a hunter climbs for days above the tree line, in thin air and hard weather. These are among the most demanding hunts there are.',
+     es:'Ovejas y cabras salvajes, de las montañas más empinadas del mundo. Para encontrarlas, el cazador sube durante días por encima de la línea de los árboles, con poco oxígeno y mal tiempo. Son de las cacerías más exigentes que existen.'}},
+ {img:'09',pos:'60% 45%',t:{en:'The Muskox',es:'El Buey Almizclero'},
+  c:{en:'The muskox, from the Arctic. It has survived since the Ice Age. When wolves come, the herd forms a circle, with the young inside, and the horns facing out.',
+     es:'El buey almizclero, del Ártico. Ha sobrevivido desde la Edad de Hielo. Cuando llegan los lobos, la manada forma un círculo, con las crías adentro, y los cuernos hacia afuera.'}},
+ {img:'10',pos:'50% 50%',t:{en:'The Whitetail Atrium',es:'El Atrio del Venado'},
+  c:{en:'Michigan is whitetail country. Under the glass atrium stands a forest scene of whitetail deer, the animal that brings more first-time hunters into the woods than any other in America.',
+     es:'Michigan es tierra de venado de cola blanca. Bajo el atrio de cristal hay un bosque con venados de cola blanca, el animal que lleva al monte a más cazadores principiantes que ningún otro en América.'}},
+ {img:'11',pos:'50% 40%',t:{en:'The Founder',es:'El Fundador'},
+  c:{en:'Arthur Gutierrez Sr. began hunting as a boy in Cuba, at his father’s side. That beginning became a legacy: more than 550 record book entries with Safari Club International, 118 in the Top Ten, 28 ranked Number One, and the World Conservation and Hunting Award in 2013. He believes that to value the hunt, you must also value the resource. That is why this collection is here: to teach.',
+     es:'Arturo Gutiérrez comenzó a cazar de niño en Cuba, al lado de su padre. Ese comienzo se convirtió en un legado: más de 550 registros en los libros de récords de Safari Club International, 118 entre los diez mejores, 28 en el primer lugar, y el Premio Mundial de Conservación y Caza en 2013. Él cree que para valorar la caza, hay que valorar también el recurso. Por eso esta colección está aquí: para enseñar.'}},
+ {img:'12',pos:'50% 45%',t:{en:'The Next Generation',es:'La Próxima Generación'},
+  c:{en:'Schools from the six neighboring counties visit for free. The Center pays every museum fee, and every bus. In 2025 alone, 61 schools and more than 3,300 students walked these halls. And every one of them went home with a Wildlife Center passport.',
+     es:'Las escuelas de los seis condados vecinos visitan gratis. El Centro paga todas las entradas, y todos los autobuses. Solo en 2025, 61 escuelas y más de 3.300 estudiantes recorrieron estos salones. Y cada uno se llevó a casa un pasaporte del Wildlife Center.'}}
+];
+
+var PINS = [
+ {k:'arctic', x:30.39,y:9.91, ex:8, side:'r', t:{en:'The Arctic · The muskox',es:'El Ártico · El buey almizclero'}},
+ {k:'michigan',x:29.73,y:24.19,ex:0, side:'r', t:{en:'Michigan · The Wildlife Center',es:'Michigan · El Wildlife Center'}},
+ {k:'cuba', x:29.76,y:37.16, ex:10, side:'l', t:{en:'Cuba · Where it began',es:'Cuba · Donde todo empezó'}},
+ {k:'africa', x:56.25,y:48.82, ex:2, side:'r', t:{en:'Africa · The first safari',es:'África · El primer safari'}},
+ {k:'timbavati',x:57.92,y:64.32,ex:5, side:'r', t:{en:'South Africa · The white lions',es:'Sudáfrica · Los leones blancos'}}
+];
+
+/* ---------- storage helpers (never fatal) ---------- */
+function getLS(k,d){try{var v=localStorage.getItem(k);return v===null?d:v}catch(e){return d}}
+function setLS(k,v){try{localStorage.setItem(k,v)}catch(e){}}
+
+var lang = getLS('wc_lang','en')==='es'?'es':'en';
+var cc = getLS('wc_cc','1')!=='0';
+var $ = function(id){return document.getElementById(id)};
+
+/* ---------- asset list (for offline) ---------- */
+var ASSETS = ['./','index.html','manifest.webmanifest','world.svg','icons/icon-180.png','icons/icon-192.png','icons/icon-512.png','img/end.jpg'];
+EX.forEach(function(e,i){
+  var n=('0'+(i+1)).slice(-2);
+  ASSETS.push('img/'+e.img+'.jpg','audio/en-'+n+'.mp3','audio/es-'+n+'.mp3');
+});
+
+/* ---------- i18n ---------- */
+function applyLang(){
+  document.documentElement.lang = lang;
+  document.querySelectorAll('[data-t]').forEach(function(el){el.textContent=T[lang][el.getAttribute('data-t')]});
+  ['langBtn1','langBtn2','langBtn3'].forEach(function(id){$(id).textContent=T[lang].lang});
+  $('playLbl').textContent = playing ? T[lang].stop : T[lang].listen;
+  $('pauseBtn').textContent = paused ? T[lang].resume : T[lang].pause;
+  drawPins();
+  if(cur>=0) paintExhibit(cur,false);
+  refreshStatus();
+}
+function toggleLang(){
+  var wasPlaying = playing;
+  stopAudio();
+  lang = lang==='en'?'es':'en'; setLS('wc_lang',lang); applyLang();
+  if(wasPlaying && cur>=0) playExhibit(cur);
+}
+['langBtn1','langBtn2','langBtn3'].forEach(function(id){$(id).addEventListener('click',toggleLang)});
+
+/* ---------- screens ---------- */
+function showScreen(id){
+  ['home','ex','map'].forEach(function(s){$(s).classList.toggle('on',s===id)});
+}
+
+/* ---------- audio (blob URLs: reliable offline on iPad) ---------- */
+var audio = new Audio(); audio.preload='auto';
+var blobUrls = {}; var playing=false; var paused=false;
+function audioUrl(i){ return 'audio/'+lang+'-'+('0'+(i+1)).slice(-2)+'.mp3'; }
+function getBlobUrl(u){
+  if(blobUrls[u]) return Promise.resolve(blobUrls[u]);
+  return fetch(u).then(function(r){ if(!r.ok) throw new Error(r.status); return r.blob(); })
+    .then(function(b){ blobUrls[u]=URL.createObjectURL(b); return blobUrls[u]; })
+    .catch(function(){ return u; });
+}
+function stopAudio(){ try{audio.pause()}catch(e){} playing=false; setPlayUI(); }
+function setPlayUI(){
+  $('playBtn').classList.toggle('on',playing);
+  $('playBtn').innerHTML = playing
+    ? '<svg viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="6" width="12" height="12" rx="1.5"/></svg>'
+    : '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>';
+  $('playLbl').textContent = playing ? T[lang].stop : T[lang].listen;
+}
+function playExhibit(i){
+  var u = audioUrl(i); var token = {}; playToken = token;
+  return getBlobUrl(u).then(function(src){
+    if(playToken!==token) return;
+    audio.src = src; audio.currentTime = 0;
+    var p = audio.play(); playing=true; paused=false; setPlayUI();
+    if(p && p.catch) p.catch(function(){ playing=false; setPlayUI(); });
+  });
+}
+var playToken = null;
+audio.addEventListener('timeupdate',function(){
+  if(audio.duration) $('progBar').style.width = (audio.currentTime/audio.duration*100)+'%';
+});
+audio.addEventListener('ended',function(){
+  playing=false; setPlayUI(); $('progBar').style.width='100%';
+  if(showMode && !paused) showTimer = setTimeout(function(){ showNext(); }, 1600);
+});
+
+/* ---------- exhibit view ---------- */
+var cur=-1; var front=0;
+function paintExhibit(i, swapImage){
+  var e = EX[i];
+  $('exNum').textContent = (i+1)+' '+T[lang].of+' '+EX.length;
+  $('exTitle').textContent = e.t[lang];
+  $('exCap').textContent = e.c[lang];
+  $('exCap').classList.toggle('off',!cc);
+  if(swapImage){
+    var imgs = $('exPh').querySelectorAll('img');
+    var next = imgs[1-front], prev = imgs[front];
+    next.style.objectPosition = e.pos;
+    next.onload = function(){ next.classList.add('vis'); prev.classList.remove('vis'); };
+    next.src = 'img/'+e.img+'.jpg';
+    if(next.complete && next.naturalWidth){ next.classList.add('vis'); prev.classList.remove('vis'); }
+    front = 1-front;
+  }
+}
+function openExhibit(i, autoplay){
+  clearTimeout(showTimer);
+  stopAudio(); $('progBar').style.width='0';
+  $('endcard').classList.remove('on');
+  cur = (i+EX.length)%EX.length;
+  showScreen('ex'); paintExhibit(cur,true);
+  if(autoplay) playExhibit(cur);
+}
+$('playBtn').addEventListener('click',function(){ if(playing) stopAudio(); else playExhibit(cur); });
+$('prevBtn').addEventListener('click',function(){ openExhibit(cur-1,false); });
+$('nextBtn').addEventListener('click',function(){ openExhibit(cur+1,false); });
+$('ccBtn').addEventListener('click',function(){ cc=!cc; setLS('wc_cc',cc?'1':'0'); $('exCap').classList.toggle('off',!cc); });
+$('exPh').addEventListener('click',function(){
+  if(showMode){ toggleCtl(); return; }
+  if(playing) stopAudio(); else playExhibit(cur);
+});
+
+/* swipe */
+var sx=null, sy=null;
+$('ex').addEventListener('touchstart',function(ev){ var t=ev.touches[0]; sx=t.clientX; sy=t.clientY; },{passive:true});
+$('ex').addEventListener('touchend',function(ev){
+  if(sx===null||showMode) return; var t=ev.changedTouches[0];
+  var dx=t.clientX-sx, dy=t.clientY-sy; sx=null;
+  if(Math.abs(dx)>80 && Math.abs(dx)>Math.abs(dy)*1.5){ openExhibit(cur+(dx<0?1:-1),false); }
+},{passive:true});
+
+/* ---------- show mode ---------- */
+var showMode=false, showTimer=null, ctlTimer=null, wakeLock=null;
+function keepAwake(){ try{ if(navigator.wakeLock) navigator.wakeLock.request('screen').then(function(w){wakeLock=w}).catch(function(){}); }catch(e){} }
+function startShow(){
+  showMode=true; paused=false; $('ex').classList.add('show'); $('pauseBtn').style.display='';
+  $('pauseBtn').textContent=T[lang].pause; keepAwake();
+  openExhibit(0,true);
+}
+function showNext(){
+  if(cur===EX.length-1){
+    stopAudio(); $('endcard').classList.add('on');
+    var imgs=$('exPh').querySelectorAll('img'), next=imgs[1-front], prev=imgs[front];
+    next.style.objectPosition='50% 50%'; next.src='img/end.jpg';
+    next.onload=function(){next.classList.add('vis');prev.classList.remove('vis')};
+    if(next.complete&&next.naturalWidth){next.classList.add('vis');prev.classList.remove('vis')}
+    front=1-front; cur=-1;
+    showTimer=setTimeout(function(){ if(showMode&&!paused) openExhibit(0,true); }, 9000);
+    return;
+  }
+  openExhibit(cur+1,true);
+}
+function toggleCtl(){
+  $('ex').classList.add('ctl'); clearTimeout(ctlTimer);
+  ctlTimer=setTimeout(function(){ $('ex').classList.remove('ctl') }, 4500);
+}
+$('pauseBtn').addEventListener('click',function(){
+  paused=!paused; $('pauseBtn').textContent = paused?T[lang].resume:T[lang].pause; toggleCtl();
+  if(paused){ clearTimeout(showTimer); try{audio.pause()}catch(e){} playing=false; setPlayUI(); }
+  else { if(cur<0){ openExhibit(0,true); } else if(audio.src && audio.currentTime>0 && !audio.ended){ audio.play(); playing=true; setPlayUI(); } else { showNext(); } }
+});
+function exitShow(){
+  showMode=false; paused=false; clearTimeout(showTimer); $('ex').classList.remove('show','ctl');
+  $('pauseBtn').style.display='none'; $('endcard').classList.remove('on');
+  try{ if(wakeLock) wakeLock.release(); }catch(e){} wakeLock=null;
+}
+
+/* ---------- home / nav ---------- */
+function goHome(){ exitShow(); stopAudio(); cur=-1; showScreen('home'); }
+$('homeBtn').addEventListener('click',goHome);
+$('homeBtn2').addEventListener('click',goHome);
+$('startBtn').addEventListener('click',function(){ exitShow(); openExhibit(0,true); });
+$('showBtn').addEventListener('click',startShow);
+$('mapBtn').addEventListener('click',function(){ exitShow(); stopAudio(); showScreen('map'); });
+
+/* ---------- map pins ---------- */
+function drawPins(){
+  var box=$('mapin'); box.querySelectorAll('.pin').forEach(function(p){p.remove()});
+  PINS.forEach(function(p){
+    var b=document.createElement('button'); b.className='pin'+(p.side==='l'?' left':'');
+    b.style.left=p.x+'%'; b.style.top=p.y+'%';
+    b.innerHTML='<span class="dot"></span><span class="lbl"></span>';
+    b.querySelector('.lbl').textContent=p.t[lang];
+    if(p.side==='l'){ b.style.transform='translate(calc(-100% + 28px),-50%)'; } else { b.style.transform='translate(-28px,-50%)'; }
+    b.addEventListener('click',function(){ openExhibit(p.ex,true); });
+    box.appendChild(b);
+  });
+}
+
+/* ---------- offline: save everything on this device ---------- */
+var savedCount=0, cacheOK=false, cacheBusy=false;
+function refreshStatus(){
+  var s=$('status');
+  if(!('caches' in window)){ s.textContent=''; return; }
+  if(cacheOK){ s.textContent=T[lang].ready; }
+  else if(!navigator.onLine){ s.textContent=T[lang].offline; }
+  else { s.textContent=T[lang].saving+savedCount+' / '+ASSETS.length; }
+  var standalone = (window.navigator.standalone===true) || (window.matchMedia && matchMedia('(display-mode: standalone)').matches);
+  var ios = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform==='MacIntel' && navigator.maxTouchPoints>1);
+  $('hint').textContent = (ios && !standalone) ? T[lang].install : '';
+}
+function saveAll(){
+  if(!('caches' in window) || cacheBusy) return; cacheBusy=true;
+  caches.open(VERSION).then(function(c){
+    var i=0;
+    function step(){
+      if(i>=ASSETS.length){ cacheOK = (savedCount===ASSETS.length); cacheBusy=false; refreshStatus(); return; }
+      var u=ASSETS[i++];
+      c.match(u).then(function(hit){
+        if(hit){ savedCount++; refreshStatus(); return step(); }
+        return c.add(u).then(function(){ savedCount++; refreshStatus(); step(); }).catch(function(){ refreshStatus(); step(); });
+      });
+    }
+    savedCount=0; step();
+  }).catch(function(){ cacheBusy=false; });
+}
+window.addEventListener('online',function(){ if(!cacheOK) saveAll(); else refreshStatus(); });
+window.addEventListener('offline',refreshStatus);
+
+if('serviceWorker' in navigator){
+  navigator.serviceWorker.register('sw.js').catch(function(){});
+}
+
+applyLang();
+setPlayUI();
+saveAll();
+})();
+</script>
+</body>
+</html>
