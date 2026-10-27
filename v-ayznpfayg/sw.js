@@ -1,5 +1,5 @@
 /* Our Journey: keeps everything on this phone so it opens without internet. */
-var VERSION = 'sa-voyage-v1';
+var VERSION = 'sa-voyage-v2';
 var CORE = [
   './', 'v.bin', 'manifest.webmanifest',
   'icons/icon-180.png', 'icons/icon-192.png', 'icons/icon-512.png',
