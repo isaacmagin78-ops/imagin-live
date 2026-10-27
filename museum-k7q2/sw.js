@@ -1,5 +1,5 @@
 /* Offline support: everything the page saved is served from this iPad first. */
-var VERSION = 'wc-plane-v1';
+var VERSION = 'wc-plane-v2';
 self.addEventListener('install', function (e) { self.skipWaiting(); });
 self.addEventListener('activate', function (e) {
   e.waitUntil(
