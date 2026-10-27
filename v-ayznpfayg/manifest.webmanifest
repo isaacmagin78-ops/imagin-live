@@ -1,0 +1,20 @@
+{
+  "name": "Our Journey",
+  "short_name": "Our Journey",
+  "display": "standalone",
+  "scope": "./",
+  "background_color": "#FCF7F1",
+  "theme_color": "#FCF7F1",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

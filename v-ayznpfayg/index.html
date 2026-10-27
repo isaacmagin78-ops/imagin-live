@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="referrer" content="no-referrer">
+<meta name="theme-color" content="#FCF7F1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Our Journey">
+<title>Our Journey</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icons/icon-180.png">
+<link rel="icon" type="image/png" href="icons/icon-192.png">
+<style>
+@font-face{font-family:"Cormorant Garamond";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/cg-400.woff2) format("woff2")}
+@font-face{font-family:"Cormorant Garamond";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/cg-500.woff2) format("woff2")}
+@font-face{font-family:"Cormorant Garamond";font-style:normal;font-weight:600;font-display:swap;src:url(fonts/cg-600.woff2) format("woff2")}
+@font-face{font-family:"Cormorant Garamond";font-style:italic;font-weight:400;font-display:swap;src:url(fonts/cg-400i.woff2) format("woff2")}
+@font-face{font-family:"Cormorant Garamond";font-style:italic;font-weight:500;font-display:swap;src:url(fonts/cg-500i.woff2) format("woff2")}
+@font-face{font-family:"Lora";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/lora-400.woff2) format("woff2")}
+@font-face{font-family:"Lora";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/lora-500.woff2) format("woff2")}
+@font-face{font-family:"Lora";font-style:italic;font-weight:400;font-display:swap;src:url(fonts/lora-400i.woff2) format("woff2")}
+html,body{margin:0;background:#FCF7F1;color:#2F2A23}
+#lk,#lk-wait{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;box-sizing:border-box;
+  background:radial-gradient(120% 90% at 50% 0%,#FFFDF8 0%,#F9ECE4 50%,#F1DCCF 100%);font-family:"Lora",Georgia,serif;text-align:center;z-index:50}
+#lk[hidden],#lk-wait[hidden]{display:none}
+#lk{overflow-y:auto;justify-content:flex-start}
+.lk-in{margin:auto 0;width:100%;display:flex;flex-direction:column;align-items:center;padding:12px 0}
+.lk-arch{width:min(44vw,200px,25vh);flex:none;aspect-ratio:3/3.6;border:1.5px solid #D9A79B;border-radius:999px 999px 22px 22px;display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(180deg,#FFF8F4,#F7E2DA);box-shadow:0 24px 50px -28px rgba(120,80,50,.45)}
+.lk-mono{font-family:"Cormorant Garamond",Georgia,serif;font-style:italic;color:#A9844C;font-size:clamp(44px,13vw,64px);line-height:1}
+.lk-mono span{font-size:.62em}
+.lk-mono small{display:block;font-style:normal;font-size:15px;letter-spacing:.4em;color:#5C5346;margin-top:14px}
+.lk-eye{margin:24px 0 6px;font-size:14px;letter-spacing:.24em;text-transform:uppercase;color:#A9844C}
+#lk h1{font-family:"Cormorant Garamond",Georgia,serif;font-weight:500;font-size:clamp(32px,9vw,44px);margin:0 0 22px;line-height:1.1}
+#lk form{width:min(100%,380px)}
+#lk label{display:block;font-size:17px;color:#5C5346;margin-bottom:10px}
+#lk input{width:100%;box-sizing:border-box;font:inherit;font-size:22px;padding:15px 18px;border:1.5px solid #C9A96E;border-radius:16px;background:#FFFDF9;color:#2F2A23;text-align:center}
+#lk input:focus{outline:3px solid rgba(169,132,76,.35);outline-offset:2px}
+#lk button{margin-top:14px;width:100%;font:inherit;font-size:21px;padding:15px;border:0;border-radius:999px;background:#A9844C;color:#fff;cursor:pointer}
+#lk button:disabled{opacity:.6}
+#lk-msg{min-height:28px;margin:14px 0 0;font-size:17px;color:#8A4B3C}
+.lk-note{margin-top:26px;font-size:15px;color:#5C5346;max-width:340px}
+#lk-wait .lk-mono{animation:lkpulse 1.6s ease-in-out infinite alternate}
+@keyframes lkpulse{from{opacity:.45}to{opacity:1}}
+@media (prefers-reduced-motion:reduce){#lk-wait .lk-mono{animation:none}}
+.shake{animation:lkshake .4s}
+@keyframes lkshake{20%,60%{transform:translateX(-8px)}40%,80%{transform:translateX(8px)}}
+</style>
+</head>
+<body>
+<div id="lk-wait"><div class="lk-mono">S <span>&amp;</span> A</div></div>
+<div id="lk" hidden><div class="lk-in">
+  <div class="lk-arch"><div class="lk-mono">S <span>&amp;</span> A<small>2026</small></div></div>
+  <div class="lk-eye">A private journal</div>
+  <h1>Welcome</h1>
+  <form id="lk-form" autocomplete="off">
+    <label for="lk-code">Please enter your family code</label>
+    <input id="lk-code" type="text" inputmode="text" autocapitalize="none" autocorrect="off" spellcheck="false" enterkeyhint="go" aria-describedby="lk-msg">
+    <button type="submit" id="lk-btn">Open</button>
+    <p id="lk-msg" role="status" aria-live="polite"></p>
+  </form>
+  <p class="lk-note">You only need the code once on this phone. After that it opens straight away, even without internet.</p>
+</div></div>
+<script>
+(function () {
+  'use strict';
+  var ITER = 310000;
+  var KEY_STORE = 'sa-voyage-key';
+  var $ = function (id) { return document.getElementById(id); };
+
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('sw.js').catch(function () {});
+  }
+
+  function norm(s) { return String(s || '').toLowerCase().replace(/[^a-z0-9]/g, ''); }
+  function b64ToBytes(b64) {
+    var bin = atob(b64), n = bin.length, out = new Uint8Array(n);
+    for (var i = 0; i < n; i++) out[i] = bin.charCodeAt(i);
+    return out;
+  }
+  function bytesToB64(bytes) {
+    var s = '';
+    for (var i = 0; i < bytes.length; i++) s += String.fromCharCode(bytes[i]);
+    return btoa(s);
+  }
+  function lsGet(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
+  function lsSet(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+  function lsDel(k) { try { localStorage.removeItem(k); } catch (e) {} }
+
+  var vaultP = null;
+  function vault() {
+    if (!vaultP) {
+      vaultP = fetch('v.bin').then(function (r) {
+        if (!r.ok) throw new Error('fetch');
+        return r.arrayBuffer();
+      }).then(function (buf) {
+        var u = new Uint8Array(buf);
+        var magic = String.fromCharCode(u[0], u[1], u[2], u[3]);
+        if (magic !== 'SAV1') throw new Error('format');
+        return { salt: u.slice(4, 20), iv: u.slice(20, 32), ct: u.slice(32) };
+      });
+      vaultP.catch(function () { vaultP = null; });
+    }
+    return vaultP;
+  }
+
+  function deriveKey(code, salt) {
+    var enc = new TextEncoder().encode(norm(code));
+    return crypto.subtle.importKey('raw', enc, 'PBKDF2', false, ['deriveKey']).then(function (base) {
+      return crypto.subtle.deriveKey({ name: 'PBKDF2', salt: salt, iterations: ITER, hash: 'SHA-256' },
+        base, { name: 'AES-GCM', length: 256 }, true, ['decrypt']);
+    });
+  }
+  function importStored(raw) {
+    return crypto.subtle.importKey('raw', b64ToBytes(raw), { name: 'AES-GCM' }, true, ['decrypt']);
+  }
+  function decrypt(key, v) {
+    return crypto.subtle.decrypt({ name: 'AES-GCM', iv: v.iv }, key, v.ct).then(function (pt) {
+      return JSON.parse(new TextDecoder().decode(pt));
+    });
+  }
+
+  function mount(data) {
+    var html = data.html;
+    Object.keys(data.assets || {}).forEach(function (path) {
+      var a = data.assets[path];
+      var url = URL.createObjectURL(new Blob([b64ToBytes(a.b64)], { type: a.type }));
+      html = html.split(path).join(url);
+    });
+    var doc = new DOMParser().parseFromString(html, 'text/html');
+    if (doc.title) document.title = doc.title;
+    Array.prototype.forEach.call(doc.head.querySelectorAll('style'), function (s) {
+      document.head.appendChild(document.importNode(s, true));
+    });
+    Array.prototype.forEach.call(doc.body.attributes, function (a) { document.body.setAttribute(a.name, a.value); });
+    var scripts = Array.prototype.slice.call(doc.body.querySelectorAll('script'));
+    scripts.forEach(function (s) { s.parentNode.removeChild(s); });
+    document.body.innerHTML = '';
+    Array.prototype.slice.call(doc.body.childNodes).forEach(function (n) {
+      document.body.appendChild(document.importNode(n, true));
+    });
+    scripts.forEach(function (s) {
+      var n = document.createElement('script');
+      n.textContent = s.textContent;
+      document.body.appendChild(n);
+    });
+    if (location.hash && /^#(code|k)=/.test(location.hash)) {
+      try { history.replaceState(null, '', location.pathname + location.search); } catch (e) {}
+    }
+  }
+
+  function showLock(msg) {
+    $('lk-wait').hidden = true;
+    $('lk').hidden = false;
+    $('lk-msg').textContent = msg || '';
+  }
+
+  function tryCode(code) {
+    return vault().then(function (v) {
+      return deriveKey(code, v.salt).then(function (key) {
+        return decrypt(key, v).then(function (data) {
+          return crypto.subtle.exportKey('raw', key).then(function (raw) {
+            lsSet(KEY_STORE, bytesToB64(new Uint8Array(raw)));
+            mount(data);
+          });
+        });
+      });
+    });
+  }
+
+  function offlineMsg() {
+    return 'Please connect to Wi-Fi once to open this for the first time.';
+  }
+
+  function start() {
+    if (!window.crypto || !crypto.subtle) { showLock('Please open this page in Safari.'); return; }
+    var hash = location.hash.match(/^#(?:code|k)=(.+)$/);
+    var stored = lsGet(KEY_STORE);
+    var p;
+    if (stored) {
+      p = vault().then(function (v) {
+        return importStored(stored).then(function (key) { return decrypt(key, v); }).then(mount);
+      }).catch(function (e) {
+        if (e && e.message === 'fetch') throw e;
+        lsDel(KEY_STORE);
+        throw new Error('key');
+      });
+    } else if (hash) {
+      p = tryCode(decodeURIComponent(hash[1]));
+    } else {
+      showLock('');
+      return;
+    }
+    p.catch(function (e) {
+      showLock(e && e.message === 'fetch' ? offlineMsg() : '');
+    });
+  }
+
+  $('lk-form').addEventListener('submit', function (ev) {
+    ev.preventDefault();
+    var code = $('lk-code').value;
+    if (!norm(code)) { $('lk-msg').textContent = 'Please type the code.'; return; }
+    var btn = $('lk-btn');
+    btn.disabled = true; btn.textContent = 'Opening…';
+    $('lk-msg').textContent = '';
+    tryCode(code).catch(function (e) {
+      btn.disabled = false; btn.textContent = 'Open';
+      if (e && e.message === 'fetch') { $('lk-msg').textContent = offlineMsg(); return; }
+      $('lk-msg').textContent = 'That code didn’t work. Please try again.';
+      var f = $('lk-form'); f.classList.remove('shake'); void f.offsetWidth; f.classList.add('shake');
+    });
+  });
+
+  start();
+})();
+</script>
+</body>
+</html>
