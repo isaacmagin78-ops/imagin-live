@@ -1,5 +1,5 @@
 /* Our Journey: keeps everything on this phone so it opens without internet. */
-var VERSION = 'sa-voyage-v2';
+var VERSION = 'sa-voyage-v3';
 var CORE = [
   './', 'v.bin', 'manifest.webmanifest',
   'icons/icon-180.png', 'icons/icon-192.png', 'icons/icon-512.png',
@@ -33,6 +33,15 @@ self.addEventListener('fetch', function (e) {
   var url = new URL(req.url);
   if (url.origin !== self.location.origin) return;
   var nav = req.mode === 'navigate';
+  if (/\/m-[a-f0-9]{20}\.bin$/.test(url.pathname)) {
+    // Separate persistent cache: video bytes remain encrypted at rest.
+    e.respondWith(caches.open('sa-private-media-v1').then(function (c) {
+      return c.match(req).then(function (hit) {
+        return hit || fetch(req);
+      });
+    }));
+    return;
+  }
   var key = nav ? './' : req;
   var live = nav || /\/v\.bin$/.test(url.pathname);
   e.respondWith(caches.open(VERSION).then(function (c) {
