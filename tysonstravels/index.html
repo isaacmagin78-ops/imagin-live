@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tysonstravels · Bespoke Travel & Content</title>
+<meta name="description" content="Tysonstravels designs bespoke trips, on-location content, and pet-friendly luxury itineraries — unique access, hands-on experience, led by rescue pit bull Tyson.">
+<meta name="theme-color" content="#0c0c0c">
+<link rel="canonical" href="https://isaacmagin78-ops.github.io/imagin-live/tysonstravels/">
+<link rel="icon" type="image/png" href="favicon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Tysonstravels · Bespoke Travel & Content">
+<meta property="og:description" content="Bespoke trips. Unique access. Hands-on experience. Travel and content services fronted by Tyson, a rescue pit bull with real miles behind him.">
+<meta property="og:image" content="https://isaacmagin78-ops.github.io/imagin-live/tysonstravels/tyson-beach.jpg">
+<meta property="og:url" content="https://isaacmagin78-ops.github.io/imagin-live/tysonstravels/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Tysonstravels · Bespoke Travel & Content">
+<meta name="twitter:description" content="Bespoke trips. Unique access. Hands-on experience.">
+<meta name="twitter:image" content="https://isaacmagin78-ops.github.io/imagin-live/tysonstravels/tyson-beach.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0c0c0c;
+  --charcoal:#161616;
+  --ivory:#f4efe6;
+  --ivory-dim:#d8d0c4;
+  --muted:#9a9186;
+  --line:rgba(244,239,230,.12);
+  --red:#CC0000;
+  --red-soft:rgba(204,0,0,.14);
+  --max:1120px;
+  --ease:cubic-bezier(.22,1,.36,1);
+  color-scheme:dark;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--ink);
+  color:var(--ivory);
+  font-family:Outfit,system-ui,sans-serif;
+  font-weight:300;
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+img{max-width:100%;display:block;height:auto}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(100% - 2.5rem, var(--max));margin-inline:auto}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:.65rem;
+  font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;
+  color:var(--muted);font-weight:500;
+}
+.eyebrow::before{
+  content:"";width:1.6rem;height:1px;background:var(--red);
+}
+h1,h2,h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:500;letter-spacing:-.01em;line-height:1.08}
+h1{font-size:clamp(2.8rem,7.5vw,5.4rem)}
+h2{font-size:clamp(2.1rem,4.5vw,3.35rem)}
+h3{font-size:clamp(1.35rem,2.2vw,1.7rem)}
+.lede{font-size:clamp(1.05rem,1.6vw,1.2rem);color:var(--ivory-dim);max-width:36rem}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:.55rem;
+  min-height:3rem;padding:.85rem 1.45rem;border-radius:999px;
+  font-size:.78rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;
+  transition:transform .35s var(--ease), background .35s var(--ease), color .35s var(--ease), border-color .35s var(--ease);
+}
+.btn-primary{background:var(--ivory);color:var(--ink)}
+.btn-primary:hover,.btn-primary:focus-visible{background:#fff;transform:translateY(-1px)}
+.btn-ghost{border:1px solid var(--line);color:var(--ivory)}
+.btn-ghost:hover,.btn-ghost:focus-visible{border-color:rgba(244,239,230,.35)}
+.btn:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+
+/* Header */
+.site-header{
+  position:fixed;inset:0 0 auto;z-index:40;
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  background:rgba(12,12,12,.72);border-bottom:1px solid transparent;
+  transition:border-color .3s ease, background .3s ease;
+}
+.site-header.is-scrolled{border-color:var(--line);background:rgba(12,12,12,.9)}
+.nav{
+  display:flex;align-items:center;justify-content:space-between;
+  min-height:4.25rem;gap:1rem;
+}
+.brand{display:flex;align-items:baseline;gap:.55rem}
+.brand-mark{
+  font-family:"Cormorant Garamond",Georgia,serif;font-size:1.45rem;font-weight:600;letter-spacing:.02em;
+}
+.brand-mark span{color:var(--red)}
+.brand-sub{font-size:.65rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+.nav-links{display:flex;align-items:center;gap:1.35rem}
+.nav-links a{
+  font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ivory-dim);font-weight:400;
+}
+.nav-links a:hover,.nav-links a:focus-visible{color:var(--ivory)}
+.nav-cta{display:none}
+@media (min-width:780px){
+  .nav-cta{display:inline-flex}
+}
+
+/* Hero */
+.hero{
+  position:relative;min-height:100svh;display:grid;align-items:end;
+  padding:7.5rem 0 4.5rem;overflow:hidden;
+}
+.hero-media{
+  position:absolute;inset:0;z-index:0;
+}
+.hero-media img{
+  width:100%;height:100%;object-fit:cover;object-position:center 35%;
+  filter:saturate(.92) contrast(1.05);
+  transform:scale(1.03);
+}
+.hero-media::after{
+  content:"";position:absolute;inset:0;
+  background:
+    linear-gradient(180deg, rgba(12,12,12,.55) 0%, rgba(12,12,12,.2) 28%, rgba(12,12,12,.55) 55%, rgba(12,12,12,.94) 100%),
+    radial-gradient(60% 50% at 80% 20%, rgba(204,0,0,.18), transparent 60%);
+}
+.hero-content{position:relative;z-index:1;display:grid;gap:1.5rem;padding-bottom:1rem}
+.hero-pillars{
+  display:flex;flex-wrap:wrap;gap:.7rem;margin-top:.35rem;
+}
+.hero-pillars span{
+  border:1px solid var(--line);border-radius:999px;padding:.45rem .9rem;
+  font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ivory-dim);
+}
+.hero-actions{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:.4rem}
+
+/* Sections */
+section{padding:5.5rem 0}
+.section-head{display:grid;gap:1rem;margin-bottom:2.75rem;max-width:40rem}
+.section-head p{color:var(--ivory-dim)}
+
+/* Services */
+.services{background:linear-gradient(180deg, var(--ink), #101010 40%, var(--ink))}
+.service-grid{
+  display:grid;gap:1rem;
+  grid-template-columns:1fr;
+}
+@media (min-width:720px){
+  .service-grid{grid-template-columns:1fr 1fr}
+}
+.service-card{
+  border:1px solid var(--line);border-radius:1.25rem;padding:1.6rem 1.5rem 1.7rem;
+  background:rgba(255,255,255,.02);
+  transition:border-color .35s var(--ease), transform .35s var(--ease), background .35s var(--ease);
+}
+.service-card:hover{border-color:rgba(244,239,230,.28);transform:translateY(-2px);background:rgba(255,255,255,.035)}
+.service-num{
+  font-family:"Cormorant Garamond",Georgia,serif;font-size:1.5rem;color:var(--red);margin-bottom:.85rem;
+}
+.service-card p{color:var(--muted);margin-top:.75rem;font-size:.98rem}
+
+/* How */
+.how{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.steps{
+  display:grid;gap:1.25rem;
+  counter-reset:step;
+}
+@media (min-width:860px){
+  .steps{grid-template-columns:repeat(3,1fr);gap:1.5rem}
+}
+.step{
+  position:relative;padding:1.5rem 0 0;
+  border-top:1px solid var(--line);
+}
+.step::before{
+  counter-increment:step;content:counter(step, decimal-leading-zero);
+  font-family:"Cormorant Garamond",Georgia,serif;font-size:2rem;color:var(--red);
+  display:block;margin-bottom:.9rem;
+}
+.step p{color:var(--muted);margin-top:.7rem}
+
+/* About */
+.about-grid{
+  display:grid;gap:2.25rem;align-items:center;
+}
+@media (min-width:900px){
+  .about-grid{grid-template-columns:1.05fr .95fr;gap:3.5rem}
+}
+.about-copy{display:grid;gap:1.15rem}
+.about-copy p{color:var(--ivory-dim);font-size:1.05rem}
+.about-copy .pull{
+  font-family:"Cormorant Garamond",Georgia,serif;font-size:clamp(1.55rem,3vw,2rem);
+  color:var(--ivory);line-height:1.25;font-style:italic;
+}
+.about-visual{display:grid;gap:1rem}
+.photo-frame{
+  border-radius:1.35rem;overflow:hidden;border:1px solid var(--line);
+  background:#1a1a1a;aspect-ratio:4/5;
+}
+.photo-frame img{width:100%;height:100%;object-fit:cover}
+.photo-pair{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.photo-pair .photo-frame{aspect-ratio:3/4}
+/* Partner slot is hidden until a photo is added. Re-enable by removing
+   hidden from #team-teresa-slot; these rules then restore the two-up pair.
+   display:none !important is required because .team-slot sets display:grid,
+   which otherwise overrides the hidden attribute. */
+#team-teresa-slot[hidden]{display:none !important}
+.photo-pair:has(#team-teresa-slot[hidden]){grid-template-columns:1fr}
+.photo-pair:has(#team-teresa-slot[hidden]) .photo-frame{aspect-ratio:5/4}
+.team-slot{
+  border:1px dashed rgba(244,239,230,.18);border-radius:1.35rem;
+  min-height:12rem;display:grid;place-items:center;padding:1.5rem;text-align:center;
+  background:linear-gradient(160deg, rgba(255,255,255,.03), rgba(204,0,0,.05));
+}
+.team-slot strong{
+  display:block;font-family:"Cormorant Garamond",Georgia,serif;font-size:1.4rem;font-weight:500;margin-bottom:.35rem;
+}
+.team-slot span{color:var(--muted);font-size:.9rem;max-width:16rem}
+
+/* Contact */
+.contact{
+  position:relative;overflow:hidden;
+  background:
+    radial-gradient(50% 60% at 0% 100%, rgba(204,0,0,.16), transparent 60%),
+    radial-gradient(40% 50% at 100% 0%, rgba(244,239,230,.06), transparent 55%),
+    var(--charcoal);
+}
+.contact-card{
+  border:1px solid var(--line);border-radius:1.5rem;padding:clamp(1.75rem,4vw,3rem);
+  background:rgba(12,12,12,.55);backdrop-filter:blur(8px);
+  display:grid;gap:2rem;
+}
+@media (min-width:800px){
+  .contact-card{grid-template-columns:1.2fr .8fr;align-items:end}
+}
+.contact-list{display:grid;gap:1rem}
+.contact-list a{
+  display:flex;flex-direction:column;gap:.25rem;padding:1rem 0;
+  border-bottom:1px solid var(--line);
+}
+.contact-list a:first-child{border-top:1px solid var(--line)}
+.contact-list .label{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.contact-list .value{font-size:1.15rem;font-weight:400}
+.contact-list a:hover .value{color:#fff}
+
+/* Footer */
+.site-footer{
+  padding:2.25rem 0 2.75rem;border-top:1px solid var(--line);
+  color:var(--muted);font-size:.85rem;
+}
+.footer-row{
+  display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;align-items:center;
+}
+.footer-brand{font-family:"Cormorant Garamond",Georgia,serif;font-size:1.2rem;color:var(--ivory)}
+.footer-brand span{color:var(--red)}
+
+/* Reveal */
+.reveal{opacity:1;transform:none}
+@media (prefers-reduced-motion:no-preference){
+  .js-ready .reveal.is-in{animation:rise .85s var(--ease) both}
+  @keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .hero-media img{transform:none}
+}
+</style>
+</head>
+<body>
+<a class="btn btn-ghost" href="#main" style="position:absolute;left:-999px;top:0;z-index:100" onfocus="this.style.left='1rem';this.style.top='1rem'" onblur="this.style.left='-999px'">Skip to content</a>
+
+<header class="site-header" id="top">
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="Tysonstravels home">
+      <span class="brand-mark">Tyson<span>travels</span></span>
+      <span class="brand-sub">Est. rescue</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact" class="nav-cta btn btn-primary">Inquire</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero">
+    <div class="hero-media" aria-hidden="true">
+      <img src="tyson-hallway.jpg" alt="" width="1080" height="1210" fetchpriority="high">
+    </div>
+    <div class="wrap hero-content reveal">
+      <p class="eyebrow">Bespoke travel &amp; content</p>
+      <h1>Travel shaped by presence, not packages.</h1>
+      <p class="lede">Tysonstravels builds private itineraries and on-location storytelling for people who want the real room, the real table, and a dog who has earned every mile.</p>
+      <div class="hero-pillars" aria-label="Brand pillars">
+        <span>Bespoke</span>
+        <span>Unique Access</span>
+        <span>Hands-On Experience</span>
+      </div>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#contact">Start a conversation</a>
+        <a class="btn btn-ghost" href="#services">View services</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Services</p>
+        <h2>Four ways we travel with you.</h2>
+        <p>No rate cards on the wall. Every engagement is scoped to the trip, the brand, and the story you want told.</p>
+      </div>
+      <div class="service-grid">
+        <article class="service-card reveal">
+          <div class="service-num">01</div>
+          <h3>Bespoke trip design</h3>
+          <p>Private itineraries built around pace, taste, and access — hotels, tables, and days that feel curated rather than booked.</p>
+        </article>
+        <article class="service-card reveal">
+          <div class="service-num">02</div>
+          <h3>On-location content</h3>
+          <p>Photo and short-form production on the road with Tyson in frame when the story calls for it — real footage, not stock.</p>
+        </article>
+        <article class="service-card reveal">
+          <div class="service-num">03</div>
+          <h3>Brand partnerships</h3>
+          <p>Storytelling for hospitality, pet, and lifestyle brands that want a rescue-led face and a polished, executive tone.</p>
+        </article>
+        <article class="service-card reveal">
+          <div class="service-num">04</div>
+          <h3>Pet-friendly luxury</h3>
+          <p>Itineraries that treat dogs as first-class travelers — suites, routes, and experiences chosen because they work in practice.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="how" id="how">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">How it works</p>
+        <h2>A short path from hello to wheels up.</h2>
+      </div>
+      <div class="steps">
+        <div class="step reveal">
+          <h3>Brief</h3>
+          <p>Tell us the destination, the occasion, and what “great” looks like. We reply with a clear read on fit.</p>
+        </div>
+        <div class="step reveal">
+          <h3>Design</h3>
+          <p>We shape the itinerary or content plan, with access notes and a timeline you can actually keep.</p>
+        </div>
+        <div class="step reveal">
+          <h3>Travel</h3>
+          <p>We stay close while you are on the road — adjustments, introductions, and on-location capture when needed.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="wrap about-grid">
+      <div class="about-visual reveal">
+        <div class="photo-frame">
+          <img src="tyson-beach.jpg" alt="Tyson, a black-and-white rescue pit bull, resting on the sand at the beach" width="760" height="660" loading="lazy">
+        </div>
+        <div class="photo-pair">
+          <div class="photo-frame">
+            <img src="tyson-raincoat.jpg" alt="Tyson in a reflective rain jacket with a Carolina Hurricanes collar" width="1100" height="939" loading="lazy">
+          </div>
+          <!-- Empty Teresa card stays in the markup for a later photo.
+               Re-enable: remove the hidden attribute on #team-teresa-slot. -->
+          <div class="team-slot" id="team-teresa-slot" data-slot="teresa" aria-label="Teresa" hidden>
+            <div>
+              <strong>Teresa</strong>
+              <span>Travel partner</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="about-copy reveal">
+        <p class="eyebrow">About</p>
+        <h2>From the kennel to the corridor.</h2>
+        <p class="pull">Tyson spent years in a cage. Now he walks hotel hallways like he owns the quiet ones.</p>
+        <p>He is a rescue pit bull — shelter name Titan — adopted into a life of real travel, Carolina Hurricanes red, and work that puts him in the room. The team travels with him. The work stays hands-on.</p>
+        <p>Tysonstravels is the service arm of that life: bespoke trip design, content made on location, and partnerships that prefer presence over performance.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <div class="contact-card reveal">
+        <div>
+          <p class="eyebrow">Contact</p>
+          <h2 style="margin:.8rem 0 1rem">Tell us where you are going.</h2>
+          <p class="lede">Write with dates, destination, and whether you need the trip, the content, or both. We answer as people, not as a ticket queue.</p>
+        </div>
+        <div class="contact-list">
+          <a href="mailto:imaginhq@mail.grokbot.com?subject=Tysonstravels%20inquiry">
+            <span class="label">Email</span>
+            <span class="value">imaginhq@mail.grokbot.com</span>
+          </a>
+          <a href="https://x.com/Tysonstravels" target="_blank" rel="noopener noreferrer">
+            <span class="label">X</span>
+            <span class="value">@Tysonstravels</span>
+          </a>
+          <a href="https://instagram.com/Tysonstravels" target="_blank" rel="noopener noreferrer">
+            <span class="label">Instagram</span>
+            <span class="value">@Tysonstravels</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-row">
+    <div class="footer-brand">Tyson<span>travels</span></div>
+    <div>Bespoke · Unique Access · Hands-On Experience</div>
+    <div>© <span id="y"></span> Tysonstravels</div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('y').textContent = new Date().getFullYear();
+const header = document.querySelector('.site-header');
+const onScroll = () => header.classList.toggle('is-scrolled', window.scrollY > 12);
+onScroll();
+window.addEventListener('scroll', onScroll, {passive:true});
+document.documentElement.classList.add('js-ready');
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('is-in'); io.unobserve(e.target);} });
+},{threshold:0.08, rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+// Ensure anything already on screen (and print/screenshot paths) become visible
+requestAnimationFrame(()=>{
+  document.querySelectorAll('.reveal').forEach(el=>{
+    const r=el.getBoundingClientRect();
+    if(r.top < window.innerHeight*0.95 && r.bottom > 0) el.classList.add('is-in');
+  });
+});
+</script>
+</body>
+</html>
