@@ -2,159 +2,242 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>College Checklist · IMagin</title>
 <meta name="robots" content="noindex">
-<meta name="theme-color" content="#1B2440">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%231B2440'/%3E%3Cpath d='M18 33l9 9 19-20' fill='none' stroke='%23C9D46B' stroke-width='7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#0B0B0D">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230B0B0D'/%3E%3Cpath fill='%239B7BFF' d='M11 11L17 16.67V54H11Z'/%3E%3Cpath fill='%233FD0C9' d='M53 11L47 16.67V54H53Z'/%3E%3Cpath fill='%235B47C9' d='M19 18.56L29 28V44L19 52Z'/%3E%3Cpath fill='%237EE7E1' d='M45 18.56L35 28V44L45 52Z'/%3E%3Crect x='30' y='20' width='4' height='33.5' rx='2' fill='%23F4FFFE'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&family=Sora:wght@500;600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --ink:#1B2440;
-  --ink-2:#4B5478;
-  --ink-3:#8a93a5;
-  --paper:#EDE0C0;
-  --panel:#FBF9F4;
-  --rule:#C9B98E;
-  --mark:#C9D46B;
-  --go:#3F6B4A;
-  --go-soft:#E4EDE3;
-  --warn:#B23A2E;
-  --shadow:0 1px 0 var(--rule), 0 20px 40px -32px rgba(27,36,64,.45);
-  --r:4px;
+  --bg:#F7F7F3;--surface:#fff;--ink:#0E1214;--ink-2:#2C383D;--muted:#4E5C63;
+  --line:#D5DCDE;--line-2:#C3CCCF;--space:#0B0B0D;--on:#F3F6F7;--on-muted:#C5D0D4;
+  --aqua:#3FD0C9;--aqua-ink:#0B6E68;--aqua-soft:#E4F6F5;--gold:#E3C068;--gold-ink:#6E5318;--gold-soft:#F8F1DE;
+  --violet:#4C3CB0;--violet-soft:#EEEAFE;--ring:#0B6E68;
+  --display:Sora,"Avenir Next","Segoe UI",system-ui,sans-serif;
+  --sans:"Instrument Sans","Helvetica Neue",Arial,system-ui,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+  color-scheme:light;
 }
-*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
-body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,system-ui,sans-serif;font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
-h1,h2,h3{font-family:Anton,Georgia,serif;font-weight:400;text-transform:uppercase;line-height:1.12;letter-spacing:.01em;margin:0}
-button{font-family:inherit;font-size:inherit;cursor:pointer}
-.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#101114;--surface:#1C2028;--ink:#F2F5F6;--ink-2:#D0D8DC;--muted:#B4BEC3;
+    --line:#313840;--line-2:#465059;
+    --aqua-ink:#9AF0EA;--aqua-soft:rgba(63,208,201,.16);
+    --gold-ink:#F3D48A;--gold-soft:rgba(227,192,104,.16);
+    --violet:#DDD4FF;--violet-soft:rgba(155,123,255,.2);
+    --ring:#3FD0C9;color-scheme:dark;
+  }
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
+button,input,select{font:inherit;color:inherit}
+h1,h2,h3{font-family:var(--display);font-weight:600;letter-spacing:-.03em;margin:0;text-wrap:balance}
+p{margin:0}
+a{color:var(--aqua-ink)}
+:focus-visible{outline:2.5px solid var(--aqua);outline-offset:3px}
+#app[hidden],.welcome[hidden]{display:none !important}
+.wrap{width:min(1080px, calc(100% - 32px));margin-inline:auto}
 
-#gate{position:fixed;inset:0;background:var(--paper);z-index:100;display:flex;align-items:center;justify-content:center;padding:24px}
-#gate .box{background:var(--panel);border:1px solid var(--rule);border-radius:var(--r);box-shadow:var(--shadow);padding:36px 32px;max-width:400px;width:100%}
-#gate h1{font-size:28px;margin-bottom:8px}
-#gate p{color:var(--ink-2);font-size:15px;margin:0 0 22px}
-#code{width:100%;padding:13px 14px;border:1.5px solid var(--rule);border-radius:var(--r);font-size:16px;font-family:inherit;letter-spacing:.08em;text-transform:uppercase;background:#fff}
-#code:focus{outline:none;border-color:var(--ink)}
-#gateErr{color:var(--warn);font-size:14px;margin-top:10px;min-height:20px}
-#gate .help{font-size:14px;color:var(--ink-2);margin:18px 0 0;padding-top:16px;border-top:1px solid var(--rule)}
-#gate .help + .help{border-top:none;padding-top:0;margin-top:8px}
-#gate a,.welcome a,footer a{color:var(--ink);text-underline-offset:2px}
-.welcome{background:var(--go-soft);border:1px solid #b9cfb8;border-radius:var(--r);padding:18px 20px;margin:22px 0 0;display:flex;gap:16px;align-items:flex-start;justify-content:space-between;flex-wrap:wrap}
-.welcome[hidden]{display:none}
-.welcome h2{font-size:22px;margin-bottom:6px;color:var(--go)}
-.welcome p{margin:0 0 6px;font-size:15px;color:var(--ink)}
+#gate{
+  position:fixed;inset:0;z-index:50;display:flex;align-items:center;justify-content:center;
+  padding:24px 16px calc(24px + env(safe-area-inset-bottom));
+  background:
+    radial-gradient(60% 50% at 85% 0%, rgba(63,208,201,.22), transparent 62%),
+    radial-gradient(42% 40% at 8% 90%, rgba(155,123,255,.2), transparent 70%),
+    var(--space);
+  color:var(--on);
+}
+.box{width:min(440px, 100%);background:#F7F7F3;color:#0E1214;border-radius:24px;padding:28px 22px 22px;box-shadow:0 30px 80px -28px rgba(0,0,0,.65)}
+.box .brandish{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.box .brandish svg{width:40px;height:40px;border-radius:12px}
+.box .brandish b{font-family:var(--display);font-weight:600;font-size:15px;letter-spacing:-.02em}
+.box .brandish b span{color:#0B6E68}
+.box .brandish small{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#526066}
+#gate h1{font-size:clamp(1.8rem, 7vw, 2.15rem);line-height:1.05;margin-bottom:8px}
+#gate .lead{color:#3A484E;margin-bottom:18px}
+#gate label{display:block;font-size:14px;font-weight:600;margin-bottom:6px}
+#code{
+  width:100%;min-height:52px;border:1px solid #C3CCCF;border-radius:12px;padding:12px 14px;
+  font-size:16px;letter-spacing:.08em;text-transform:uppercase;background:#fff;color:#0E1214;
+}
+#code:focus{outline:none;border-color:#0B6E68;box-shadow:0 0 0 4px #E4F6F5}
+#gateErr{color:#9A3412;font-size:14px;min-height:1.35em;margin-top:8px}
+.btn{
+  appearance:none;border:0;cursor:pointer;border-radius:999px;min-height:48px;padding:10px 16px;
+  font-weight:700;background:#E3C068;color:#0B0B0D;
+}
+.btn:hover{filter:brightness(1.05)}
+.btn.wide{width:100%;margin-top:8px}
+.btn.ghost{background:transparent;color:#F3F6F7;border:1px solid rgba(255,255,255,.3);font-weight:600}
+.btn.ghost:hover{border-color:#E3C068;color:#E3C068;filter:none}
+.help{font-size:14px;color:#3A484E;margin:14px 0 0;padding-top:14px;border-top:1px solid #D5DCDE}
+.help + .help{border-top:0;padding-top:0;margin-top:8px}
+.help a{color:#0B6E68}
+
+.appbar{
+  position:sticky;top:0;z-index:20;background:#0B0B0D;color:#F3F6F7;
+  padding-top:env(safe-area-inset-top);border-bottom:1px solid rgba(255,255,255,.08);
+}
+.bar{display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:12px 0}
+.logo{display:flex;align-items:center;gap:10px;margin-right:auto;min-width:0}
+.logo svg{width:34px;height:34px;border-radius:10px;flex:none}
+.logo b{display:block;font-family:var(--display);font-weight:600;font-size:16px;letter-spacing:-.03em;line-height:1.1}
+.logo b span{color:#7EE7E1}
+.logo small{display:block;margin-top:2px;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:#A9B4B8}
+.who{display:flex;border:1px solid rgba(255,255,255,.28);border-radius:999px;overflow:hidden}
+.who button{border:0;background:transparent;color:#C5D0D4;min-height:44px;padding:8px 14px;font-weight:600}
+.who button[aria-pressed="true"]{background:#E3C068;color:#0B0B0D}
+.tools{display:flex;gap:8px;margin-left:auto}
+.welcome{
+  display:flex;gap:14px;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;
+  margin-top:16px;padding:16px;border-radius:16px;background:var(--aqua-soft);border:1px solid var(--line);
+}
+.welcome h2{font-size:1.25rem;margin-bottom:6px}
+.welcome p{margin:0 0 6px;font-size:15px}
 .welcome p:last-child{margin-bottom:0}
 .welcome .txt{flex:1;min-width:220px}
-.codechip{font-family:'IBM Plex Mono',monospace;font-weight:700;letter-spacing:.08em;background:#fff;border:1px solid var(--rule);border-radius:3px;padding:1px 7px}
-.btn{background:var(--ink);color:#fff;border:none;border-radius:var(--r);padding:13px 24px;font-weight:600}
-.btn:hover{background:#000}
-.btn:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,button:focus-visible{outline:3px solid var(--go);outline-offset:2px}
-.btn.wide{width:100%;margin-top:16px}
-.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--rule);font-weight:600}
-.btn.ghost:hover{background:#fff;border-color:var(--ink)}
-.btn.sm{padding:8px 14px;font-size:14px}
+.codechip{font-family:var(--mono);font-weight:600;letter-spacing:.06em;background:var(--surface);border:1px solid var(--line-2);border-radius:6px;padding:1px 7px}
 
-header{border-bottom:1px solid var(--rule);background:var(--paper);position:sticky;top:0;z-index:20}
-.bar{display:flex;align-items:center;justify-content:space-between;padding-top:16px;padding-bottom:16px;gap:12px;flex-wrap:wrap}
-.logo{font-family:Anton,serif;font-weight:400;font-size:19px;white-space:nowrap;text-transform:uppercase}
-.logo small{display:block;font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}
-.who{display:flex;border:1.5px solid var(--rule);border-radius:var(--r);overflow:hidden;background:#fff}
-.who button{border:none;background:transparent;padding:9px 18px;font-size:14px;font-weight:600;color:var(--ink-2)}
-.who button[aria-pressed="true"]{background:var(--ink);color:#fff}
-.tools{display:flex;gap:8px}
+.status{padding:26px 0 8px}
+.statusgrid{display:grid;gap:18px}
+@media (min-width:800px){.statusgrid{grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:28px}}
+.status h1{font-size:clamp(1.55rem, 4.4vw, 2.2rem);line-height:1.16}
+.status h1 em{font-style:normal;color:var(--aqua-ink)}
+.why{margin-top:6px;color:var(--muted)}
+.ring{display:flex;align-items:center;gap:14px}
+@media (min-width:800px){.ring{justify-content:flex-end}}
+.ring svg{flex:none}
+#arc{transition:stroke-dashoffset .45s ease}
+.pct{font-family:var(--display);font-weight:600;font-size:2rem;line-height:1;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.lbl{font-size:13px;color:var(--muted);margin-top:2px}
 
-.status{padding:34px 0 26px;border-bottom:1px solid var(--rule)}
-.statusgrid{display:grid;grid-template-columns:1fr 300px;gap:40px;align-items:center}
-@media(max-width:800px){.statusgrid{grid-template-columns:1fr;gap:22px}}
-.status h1{font-size:clamp(26px,4vw,38px);margin-bottom:6px}
-.status h1 em{font-style:normal;background:linear-gradient(180deg,transparent 60%,var(--mark) 60%,var(--mark) 93%,transparent 93%)}
-.status .why{color:var(--ink-2);font-size:16px;margin:0}
-.ring{display:flex;align-items:center;gap:18px;justify-content:flex-end}
-@media(max-width:800px){.ring{justify-content:flex-start}}
-.ring svg{flex:0 0 92px}
-.ring .pct{font-family:Anton,serif;font-weight:400;font-size:34px;line-height:1}
-.ring .lbl{font-size:13px;color:var(--ink-2)}
-
-.cats{display:flex;gap:8px;overflow-x:auto;padding:16px 0;border-bottom:1px solid var(--rule);scrollbar-width:none}
+.cats{display:flex;gap:8px;overflow-x:auto;padding:14px 2px 6px;scrollbar-width:none}
 .cats::-webkit-scrollbar{display:none}
-.pill{white-space:nowrap;border:1.5px solid var(--rule);background:#fff;border-radius:100px;padding:7px 15px;font-size:14px;font-weight:600;color:var(--ink-2)}
-.pill[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
-.pill .n{opacity:.55;margin-left:5px;font-weight:500}
-
-.views{display:flex;gap:22px;border-bottom:1px solid var(--rule);margin-top:2px}
-.views button{background:none;border:none;padding:15px 0;font-weight:600;font-size:15px;color:var(--ink-3);border-bottom:2px solid transparent;margin-bottom:-1px}
-.views button[aria-pressed="true"]{color:var(--ink);border-bottom-color:var(--ink)}
-
-main{padding:26px 0 90px}
+.pill{
+  flex:none;border:1px solid var(--line-2);background:var(--surface);color:var(--ink-2);
+  border-radius:999px;min-height:40px;padding:8px 12px;font-weight:600;font-size:14px;cursor:pointer;
+}
+.pill[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.pill .n{margin-left:6px;font-weight:500;opacity:.65}
+.views{display:flex;gap:4px 18px;border-bottom:1px solid var(--line);overflow-x:auto}
+.views button{
+  background:none;border:0;border-bottom:2px solid transparent;margin-bottom:-1px;
+  min-height:48px;padding:12px 2px;font-weight:600;color:var(--muted);cursor:pointer;white-space:nowrap;
+}
+.views button[aria-pressed="true"]{color:var(--ink);border-bottom-color:var(--gold)}
+main.sheet{padding:8px 0 80px}
 .panel{display:none}
 .panel.on{display:block}
+.grp{margin-top:8px}
+.grp h3{font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:16px 0 8px}
+.task{
+  display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 8px;align-items:start;
+  background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:8px 12px 12px 6px;margin-bottom:8px;
+}
+.tick{width:44px;height:44px;border:0;background:transparent;position:relative;cursor:pointer;padding:0}
+.tick::before{
+  content:"";position:absolute;left:12px;top:12px;width:20px;height:20px;border-radius:6px;
+  border:1.6px solid var(--ink);background:var(--surface);
+}
+.task.done .tick::before{background:#3FD0C9;border-color:#3FD0C9}
+.task.done .tick::after{
+  content:"";position:absolute;left:19px;top:16px;width:5px;height:10px;
+  border:solid #0B0B0D;border-width:0 2px 2px 0;transform:rotate(43deg);
+}
+.ttl{font-weight:600;padding-top:10px}
+.task.done .ttl{color:var(--muted);text-decoration:line-through;text-decoration-thickness:1px}
+.tmeta{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:6px;font-size:13px;color:var(--muted)}
+.tag{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;border-radius:999px;padding:3px 8px;background:var(--aqua-soft);color:var(--aqua-ink)}
+.tag.p{background:var(--violet-soft);color:var(--violet)}
+.tag.s{background:var(--gold-soft);color:var(--gold-ink)}
+.own{border:1px solid var(--line-2);border-radius:10px;background:var(--bg);font-size:16px;padding:6px 8px;color:var(--ink);min-height:36px}
+.hint{color:var(--muted);margin:8px 0 16px}
+h2.sec{font-size:1.45rem;margin:18px 0 4px}
 
-.grp{margin-bottom:26px}
-.grp h3{font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);font-family:'IBM Plex Mono',monospace;margin-bottom:10px}
-.task{display:flex;gap:13px;align-items:flex-start;background:var(--panel);border:1px solid var(--rule);border-radius:var(--r);padding:14px 16px;margin-bottom:8px}
-.task:hover{border-color:#a89968}
-.tick{flex:0 0 20px;width:20px;height:20px;border:1.6px solid var(--ink);border-radius:3px;background:#fff;margin-top:2px;padding:0;position:relative}
-.task.done .tick{background:var(--go);border-color:var(--go)}
-.task.done .tick::after{content:"";position:absolute;left:6px;top:2px;width:5px;height:11px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(43deg)}
-.tbody{flex:1;min-width:0}
-.ttl{font-weight:600;font-size:15px}
-.task.done .ttl{color:var(--ink-3);text-decoration:line-through}
-.tmeta{font-size:13px;color:var(--ink-2);margin-top:3px;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
-.tag{background:var(--go-soft);color:var(--go);border-radius:3px;padding:1px 7px;font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
-.tag.p{background:#f0eef8;color:#5b4b9e}
-.tag.s{background:#fdf1e3;color:#a4600f}
-.own{border:1px solid var(--rule);border-radius:3px;background:#fff;font-size:12px;padding:3px 6px;color:var(--ink-2);font-family:inherit}
+.brow{
+  display:grid;gap:10px;padding:14px;margin-bottom:8px;background:var(--surface);
+  border:1px solid var(--line);border-radius:16px;
+}
+@media (min-width:760px){.brow{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) minmax(0,1fr);align-items:end}}
+.bname{font-weight:600}
+.bfield{display:grid;gap:4px;font-size:12px;font-weight:600;color:var(--muted)}
+.money{display:flex;align-items:center;gap:2px;min-height:48px;padding:8px 10px;border:1px solid var(--line-2);border-radius:12px;background:var(--bg);color:var(--ink)}
+.money input{width:100%;min-width:0;border:0;background:transparent;font-size:16px;padding:0}
+.money input:focus{outline:none}
+.bfield:focus-within .money{border-color:var(--aqua-ink);box-shadow:0 0 0 4px var(--aqua-soft)}
+.total{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-top:14px;padding:16px 18px;background:#0B0B0D;color:#F3F6F7;border-radius:16px}
+.total .n{font-family:var(--display);font-size:1.8rem;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
 
-table{width:100%;border-collapse:collapse;background:var(--panel);border:1px solid var(--rule);border-radius:var(--r);overflow:hidden}
-th{text-align:left;font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3);padding:12px 16px;border-bottom:1px solid var(--rule);background:#f2ead2}
-td{padding:12px 16px;border-bottom:1px solid var(--rule);font-size:15px}
-tr:last-child td{border-bottom:none}
-td input{border:1px solid transparent;background:transparent;padding:6px 8px;border-radius:3px;font-family:inherit;font-size:15px;width:110px;color:var(--ink)}
-td input:hover{border-color:var(--rule);background:#fff}
-td input:focus{outline:none;border-color:var(--ink);background:#fff}
-.total{display:flex;justify-content:space-between;align-items:baseline;margin-top:16px;padding:16px 18px;background:var(--ink);color:#fff;border-radius:var(--r)}
-.total .n{font-family:Anton,serif;font-weight:400;font-size:30px}
-.hint{color:var(--ink-2);font-size:14px;margin:0 0 18px}
-h2.sec{font-size:24px;margin-bottom:4px}
-
-.doc{display:flex;align-items:center;gap:12px;background:var(--panel);border:1px solid var(--rule);border-radius:var(--r);padding:13px 16px;margin-bottom:8px;flex-wrap:wrap}
-.doc .dn{font-weight:600;font-size:15px;flex:1;min-width:150px}
-.seg{display:flex;border:1.5px solid var(--rule);border-radius:100px;overflow:hidden}
-.seg button{border:none;background:#fff;padding:5px 12px;font-size:12px;font-weight:600;color:var(--ink-3)}
-.seg button[aria-pressed="true"]{background:var(--ink);color:#fff}
-footer{border-top:1px solid var(--rule);padding:22px 0 40px;font-size:13px;color:var(--ink-3)}
-footer a{color:var(--ink-2)}
+.doc{display:grid;gap:10px;padding:14px;margin-bottom:8px;background:var(--surface);border:1px solid var(--line);border-radius:16px}
+@media (min-width:760px){.doc{grid-template-columns:minmax(160px,1fr) auto;align-items:center}}
+.dn{font-weight:600}
+.seg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border:1px solid var(--line-2);border-radius:12px;overflow:hidden}
+@media (min-width:560px){.seg{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.seg button{border:0;background:var(--surface);color:var(--muted);min-height:44px;padding:8px 8px;font-size:13px;font-weight:600;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+footer{border-top:1px solid var(--line);padding:22px 0 calc(32px + env(safe-area-inset-bottom));font-size:13.5px;color:var(--muted)}
+footer a{color:var(--ink-2);font-weight:600}
+footer .wrap{display:grid;gap:8px}
+@media (prefers-reduced-motion: reduce){*{transition:none !important;animation:none !important}}
+@media (forced-colors: active){
+  .btn,.pill,.tick::before{border:1px solid ButtonText}
+  .task.done .tick::before{background:Highlight;border-color:Highlight}
+}
 </style>
 </head>
 <body>
 
 <div id="gate">
   <div class="box">
+    <div class="brandish">
+      <svg viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#0B0B0D"/>
+        <path fill="#9B7BFF" d="M11 11L17 16.67V54H11Z"/>
+        <path fill="#3FD0C9" d="M53 11L47 16.67V54H53Z"/>
+        <path fill="#5B47C9" d="M19 18.56L29 28V44L19 52Z"/>
+        <path fill="#7EE7E1" d="M45 18.56L35 28V44L45 52Z"/>
+        <rect x="30" y="20" width="4" height="33.5" rx="2" fill="#F4FFFE"/>
+      </svg>
+      <div><b>IM<span>agin</span></b><small>College Checklist</small></div>
+    </div>
     <h1>College Checklist</h1>
-    <p>Enter your access code to open your checklist.</p>
-    <label for="code" class="sr" style="position:absolute;left:-9999px">Access code</label>
-    <input id="code" placeholder="ACCESS CODE" autocomplete="off" autocapitalize="characters" spellcheck="false">
+    <p class="lead">Enter your access code to open your checklist.</p>
+    <label for="code">Access code</label>
+    <input id="code" placeholder="ACCESS CODE" autocomplete="off" autocapitalize="characters" spellcheck="false" enterkeyhint="go">
     <div id="gateErr" role="alert"></div>
-    <button class="btn wide" id="enter">Open my checklist</button>
+    <button class="btn wide" id="enter" type="button">Open my checklist</button>
     <p class="help">Just paid? Your checklist opens on its own right after checkout, and this browser remembers it.</p>
     <p class="help">Lost your code? Use the <a data-sales href="https://isaacmagin78-ops.github.io/imagin-live/college/#contact">question form at the sales page</a>.</p>
+    <noscript><p class="help">The checklist saves on this device and needs JavaScript turned on.</p></noscript>
   </div>
 </div>
 
 <div id="app" hidden>
-<header>
+<header class="appbar">
   <div class="wrap bar">
-    <div class="logo">College Checklist<small>IMagin</small></div>
+    <div class="logo">
+      <svg viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#141418"/>
+        <path fill="#9B7BFF" d="M11 11L17 16.67V54H11Z"/>
+        <path fill="#3FD0C9" d="M53 11L47 16.67V54H53Z"/>
+        <path fill="#5B47C9" d="M19 18.56L29 28V44L19 52Z"/>
+        <path fill="#7EE7E1" d="M45 18.56L35 28V44L45 52Z"/>
+        <rect x="30" y="20" width="4" height="33.5" rx="2" fill="#F4FFFE"/>
+      </svg>
+      <div><b>College Checklist</b><small>IMagin</small></div>
+    </div>
     <div class="who" role="group" aria-label="View as">
-      <button id="wParent" aria-pressed="true">Parent</button>
-      <button id="wStudent" aria-pressed="false">Student</button>
+      <button type="button" id="wParent" aria-pressed="true">Parent</button>
+      <button type="button" id="wStudent" aria-pressed="false">Student</button>
     </div>
     <div class="tools">
-      <button class="btn ghost sm" id="export">Export</button>
-      <button class="btn ghost sm" id="reset">Reset</button>
+      <button class="btn ghost" type="button" id="export">Export</button>
+      <button class="btn ghost" type="button" id="reset">Reset</button>
     </div>
   </div>
 </header>
@@ -167,22 +250,22 @@ footer a{color:var(--ink-2)}
       <p>Opening it on a different phone or computer? Use access code <span class="codechip" id="welcomeCode"></span>. Write it down now.</p>
       <p>Your plan saves on this device only. To share it with your student or counselor, tap <strong>Export</strong>.</p>
     </div>
-    <button class="btn ghost sm" id="welcomeOk">Got it</button>
+    <button class="btn" type="button" id="welcomeOk">Got it</button>
   </div>
 </div>
 
-<section class="status">
+<section class="status" aria-labelledby="headline">
   <div class="wrap statusgrid">
     <div>
-      <h1 id="headline">Next up: <em id="nextTask">—</em></h1>
+      <h1 id="headline" data-state="next">Next up: <em id="nextTask">—</em></h1>
       <p class="why" id="subline"></p>
     </div>
     <div class="ring">
       <svg width="92" height="92" viewBox="0 0 92 92" aria-hidden="true">
-        <circle cx="46" cy="46" r="40" fill="none" stroke="#e2dccd" stroke-width="9"/>
-        <circle id="arc" cx="46" cy="46" r="40" fill="none" stroke="#1f7a5c" stroke-width="9"
+        <circle cx="46" cy="46" r="40" fill="none" stroke="var(--line)" stroke-width="9"/>
+        <circle id="arc" cx="46" cy="46" r="40" fill="none" stroke="var(--ring)" stroke-width="9"
                 stroke-linecap="round" stroke-dasharray="251.3" stroke-dashoffset="251.3"
-                transform="rotate(-90 46 46)" style="transition:stroke-dashoffset .6s ease"/>
+                transform="rotate(-90 46 46)"/>
       </svg>
       <div>
         <div class="pct"><span id="pctN">0</span>%</div>
@@ -193,24 +276,21 @@ footer a{color:var(--ink-2)}
 </section>
 
 <div class="wrap">
-  <div class="cats" id="cats"></div>
-  <div class="views" role="group">
-    <button id="vTasks" aria-pressed="true">Tasks</button>
-    <button id="vBudget" aria-pressed="false">Budget</button>
-    <button id="vDocs" aria-pressed="false">Documents</button>
+  <div class="cats" id="cats" role="group" aria-label="Categories"></div>
+  <div class="views" role="group" aria-label="Checklist sections">
+    <button type="button" id="vTasks" aria-pressed="true">Tasks</button>
+    <button type="button" id="vBudget" aria-pressed="false">Budget</button>
+    <button type="button" id="vDocs" aria-pressed="false">Documents</button>
   </div>
 </div>
 
-<main class="wrap">
+<main class="wrap sheet">
   <div class="panel on" id="pTasks"></div>
 
   <div class="panel" id="pBudget">
     <h2 class="sec">Budget</h2>
     <p class="hint">Fill in what you actually expect to spend. Everything is saved on this device.</p>
-    <table>
-      <thead><tr><th>Item</th><th>Estimated</th><th>Actual</th></tr></thead>
-      <tbody id="bRows"></tbody>
-    </table>
+    <div id="bRows"></div>
     <div class="total"><span>Total estimated</span><span class="n" id="bTotal">$0</span></div>
   </div>
 
@@ -223,10 +303,10 @@ footer a{color:var(--ink-2)}
 
 <footer>
   <div class="wrap">
-    College Checklist · IMagin<br>
-    Your plan is stored on this device only and is never sent to a server. One plan per device: use Export to share a copy.<br>
-    Opening it somewhere else? Your access code is <span class="codechip" id="footCode"></span>.
-    Questions? Use the <a data-sales href="https://isaacmagin78-ops.github.io/imagin-live/college/#contact">question form at the sales page</a>.
+    <div>College Checklist · IMagin</div>
+    <div>Your plan is stored on this device only and is never sent to a server. One plan per device: use Export to share a copy.</div>
+    <div>Opening it somewhere else? Your access code is <span class="codechip" id="footCode"></span>.</div>
+    <div>Questions? Use the <a data-sales href="https://isaacmagin78-ops.github.io/imagin-live/college/#contact">question form at the sales page</a>.</div>
   </div>
 </footer>
 </div>
@@ -243,10 +323,10 @@ footer a{color:var(--ink-2)}
   This is a SOFT gate: anyone who knows /?paid=1 or reads this source gets in.
   Accepted on purpose for a $49 checklist; a real gate needs a server check.
 */
-const CODE       = "IMAGIN2026";            // ACCESS CODE: change here only
-const SALES_URL  = "https://isaacmagin78-ops.github.io/imagin-live/college/#contact"; // SALES PAGE SWAP POINT: question form
-const KEY        = "cc.v1";                 // saved plan (unchanged, so existing buyers keep their data)
-const UNLOCK_KEY = "cc.unlocked";           // remembered unlock
+const CODE       = "IMAGIN2026";
+const SALES_URL  = "https://isaacmagin78-ops.github.io/imagin-live/college/#contact";
+const KEY        = "cc.v1";
+const UNLOCK_KEY = "cc.unlocked";
 
 const TASKS = [
   ["Foundation","Set a target GPA and a plan to hit it","student","Freshman–Junior"],
@@ -341,7 +421,6 @@ try{
     if(saved && typeof saved === "object") S = Object.assign(S, saved);
   }
 }catch(e){}
-// A damaged save must never blank the app: repair any field that isn't the right shape.
 ["done","owner","est","act","docs"].forEach(k=>{ if(!S[k] || typeof S[k] !== "object") S[k] = {}; });
 if(S.who !== "parent" && S.who !== "student") S.who = "parent";
 const save = () => { try{ localStorage.setItem(KEY, JSON.stringify(S)); }catch(e){} };
@@ -357,117 +436,196 @@ const visible = () => TASKS.map((t,i)=>({t,i}))
 function render(){
   $("wParent").setAttribute("aria-pressed", S.who==="parent");
   $("wStudent").setAttribute("aria-pressed", S.who==="student");
-  $("cats").innerHTML = "";
+  const cats = $("cats");
+  cats.replaceChildren();
   CATS.forEach(c=>{
     const n = c==="All" ? TASKS.length : TASKS.filter(t=>t[0]===c).length;
     const b = document.createElement("button");
-    b.className="pill"; b.setAttribute("aria-pressed", S.cat===c);
-    b.innerHTML = c + '<span class="n">' + n + '</span>';
-    b.onclick = ()=>{ S.cat=c; save(); render(); };
-    $("cats").appendChild(b);
+    b.type = "button";
+    b.className = "pill";
+    b.setAttribute("aria-pressed", S.cat===c ? "true" : "false");
+    b.append(document.createTextNode(c));
+    const count = document.createElement("span");
+    count.className = "n";
+    count.textContent = String(n);
+    b.append(count);
+    b.addEventListener("click", ()=>{ S.cat=c; save(); render(); });
+    cats.appendChild(b);
   });
 
   const rows = visible();
-  const host = $("pTasks"); host.innerHTML="";
+  const host = $("pTasks");
+  host.replaceChildren();
   if(!rows.length){
-    host.innerHTML = '<p class="hint">Nothing here for this view. Switch to the other person, or pick another category.</p>';
+    const empty = document.createElement("p");
+    empty.className = "hint";
+    empty.textContent = "Nothing here for this view. Switch to the other person, or pick another category.";
+    host.appendChild(empty);
   }
   const groups = {};
   rows.forEach(r => (groups[r.t[0]] = groups[r.t[0]] || []).push(r));
   Object.keys(groups).forEach(g=>{
-    const wrap = document.createElement("div"); wrap.className="grp";
-    wrap.innerHTML = "<h3>"+g+"</h3>";
+    const wrap = document.createElement("div");
+    wrap.className = "grp";
+    const h = document.createElement("h3");
+    h.textContent = g;
+    wrap.appendChild(h);
     groups[g].forEach(({t,i})=>{
       const owner = S.owner[i] || t[2];
       const el = document.createElement("div");
       el.className = "task" + (S.done[i] ? " done" : "");
-      const tagClass = owner==="parent" ? "p" : owner==="student" ? "s" : "";
-      el.innerHTML =
-        '<button class="tick" aria-label="Mark done" aria-pressed="'+(!!S.done[i])+'"></button>'+
-        '<div class="tbody"><div class="ttl"></div>'+
-        '<div class="tmeta"><span class="tag '+tagClass+'">'+owner+'</span><span>'+t[3]+'</span>'+
-        '<select class="own"><option value="both">Both</option><option value="parent">Parent</option><option value="student">Student</option></select>'+
-        '</div></div>';
-      el.querySelector(".ttl").textContent = t[1];
-      el.querySelector(".tick").onclick = ()=>{ S.done[i] = !S.done[i]; save(); render(); };
-      const sel = el.querySelector(".own"); sel.value = owner;
-      sel.onchange = e => { S.owner[i] = e.target.value; save(); render(); };
+      const tick = document.createElement("button");
+      tick.type = "button";
+      tick.className = "tick";
+      tick.setAttribute("aria-pressed", S.done[i] ? "true" : "false");
+      tick.setAttribute("aria-label", (S.done[i] ? "Mark not done: " : "Mark done: ") + t[1]);
+      tick.addEventListener("click", ()=>{ S.done[i] = !S.done[i]; save(); render(); });
+      const body = document.createElement("div");
+      body.className = "tbody";
+      const title = document.createElement("div");
+      title.className = "ttl";
+      title.textContent = t[1];
+      const meta = document.createElement("div");
+      meta.className = "tmeta";
+      const tag = document.createElement("span");
+      tag.className = "tag" + (owner==="parent" ? " p" : owner==="student" ? " s" : "");
+      tag.textContent = owner;
+      const when = document.createElement("span");
+      when.textContent = t[3];
+      const sel = document.createElement("select");
+      sel.className = "own";
+      sel.setAttribute("aria-label", "Owner for " + t[1]);
+      [["both","Both"],["parent","Parent"],["student","Student"]].forEach(([val,label])=>{
+        const opt = document.createElement("option");
+        opt.value = val;
+        opt.textContent = label;
+        sel.appendChild(opt);
+      });
+      sel.value = owner;
+      sel.addEventListener("change", e => { S.owner[i] = e.target.value; save(); render(); });
+      meta.append(tag, when, sel);
+      body.append(title, meta);
+      el.append(tick, body);
       wrap.appendChild(el);
     });
     host.appendChild(wrap);
   });
 
-  const all = TASKS.length, done = TASKS.filter((_,i)=>S.done[i]).length;
+  const all = TASKS.length;
+  const done = TASKS.filter((_,i)=>S.done[i]).length;
   const pct = all ? Math.round(done/all*100) : 0;
-  $("pctN").textContent = pct; $("doneN").textContent = done; $("allN").textContent = all;
-  $("arc").style.strokeDashoffset = 251.3 * (1 - pct/100);
+  $("pctN").textContent = pct;
+  $("doneN").textContent = done;
+  $("allN").textContent = all;
+  $("arc").style.strokeDashoffset = String(251.3 * (1 - pct/100));
 
   const next = TASKS.findIndex((_,i)=>!S.done[i]);
+  const headline = $("headline");
   if(next === -1){
-    $("headline").innerHTML = 'You\'re <em>done</em>.';
+    if(headline.getAttribute("data-state") !== "done"){
+      headline.innerHTML = "You're <em id=\"nextTask\">done</em>.";
+      headline.setAttribute("data-state","done");
+    }
     $("subline").textContent = "Every task on the list is checked off. Go enjoy the summer.";
   } else {
+    if(headline.getAttribute("data-state") !== "next"){
+      headline.innerHTML = 'Next up: <em id="nextTask"></em>';
+      headline.setAttribute("data-state","next");
+    }
     $("nextTask").textContent = TASKS[next][1];
     $("subline").textContent = TASKS[next][0] + " · " + TASKS[next][3];
   }
 
-  const br = $("bRows"); br.innerHTML="";
+  const br = $("bRows");
+  br.replaceChildren();
   let tot = 0;
   BUDGET.forEach(([name,def],i)=>{
     const est = S.est[i] !== undefined ? S.est[i] : def;
     tot += Number(est)||0;
-    const tr = document.createElement("tr");
-    tr.innerHTML = "<td></td>"+
-      '<td>$<input inputmode="numeric" value="'+est+'" data-k="est" data-i="'+i+'"></td>'+
-      '<td>$<input inputmode="numeric" value="'+(S.act[i]||"")+'" placeholder="—" data-k="act" data-i="'+i+'"></td>';
-    tr.children[0].textContent = name;
-    br.appendChild(tr);
-  });
-  br.querySelectorAll("input").forEach(inp=>{
-    inp.onchange = e=>{
-      const v = e.target.value.replace(/[^0-9.]/g,"");
-      S[e.target.dataset.k][e.target.dataset.i] = v; save(); render();
-    };
+    const row = document.createElement("div");
+    row.className = "brow";
+    const nm = document.createElement("p");
+    nm.className = "bname";
+    nm.textContent = name;
+    row.appendChild(nm);
+    [["Estimated","est", est, false],["Actual","act", S.act[i] || "", true]].forEach(([lab,k,val,placeholder])=>{
+      const label = document.createElement("label");
+      label.className = "bfield";
+      const cap = document.createElement("span");
+      cap.textContent = lab;
+      const money = document.createElement("span");
+      money.className = "money";
+      money.append("$");
+      const inp = document.createElement("input");
+      inp.inputMode = "numeric";
+      inp.autocomplete = "off";
+      inp.value = val;
+      inp.dataset.k = k;
+      inp.dataset.i = String(i);
+      inp.setAttribute("aria-label", name + ", " + lab);
+      if(placeholder) inp.placeholder = "—";
+      inp.addEventListener("change", e=>{
+        const v = e.target.value.replace(/[^0-9.]/g,"");
+        S[e.target.dataset.k][e.target.dataset.i] = v;
+        save();
+        render();
+      });
+      money.appendChild(inp);
+      label.append(cap, money);
+      row.appendChild(label);
+    });
+    br.appendChild(row);
   });
   $("bTotal").textContent = "$" + tot.toLocaleString();
 
-  const dr = $("dRows"); dr.innerHTML="";
+  const dr = $("dRows");
+  dr.replaceChildren();
   DOCS.forEach((d,i)=>{
     const cur = S.docs[i] || "Not started";
-    const el = document.createElement("div"); el.className="doc";
-    el.innerHTML = '<span class="dn"></span><div class="seg"></div>';
-    el.querySelector(".dn").textContent = d;
-    const seg = el.querySelector(".seg");
+    const el = document.createElement("div");
+    el.className = "doc";
+    const name = document.createElement("span");
+    name.className = "dn";
+    name.textContent = d;
+    const seg = document.createElement("div");
+    seg.className = "seg";
+    seg.setAttribute("role","group");
+    seg.setAttribute("aria-label", d);
     DOC_STATES.forEach(st=>{
-      const b=document.createElement("button");
-      b.textContent=st; b.setAttribute("aria-pressed", cur===st);
-      b.onclick=()=>{ S.docs[i]=st; save(); render(); };
+      const b = document.createElement("button");
+      b.type = "button";
+      b.textContent = st;
+      b.setAttribute("aria-pressed", cur===st ? "true" : "false");
+      b.addEventListener("click", ()=>{ S.docs[i]=st; save(); render(); });
       seg.appendChild(b);
     });
+    el.append(name, seg);
     dr.appendChild(el);
   });
 }
 
-$("wParent").onclick  = ()=>{ S.who="parent";  $("wParent").setAttribute("aria-pressed",true);  $("wStudent").setAttribute("aria-pressed",false); save(); render(); };
-$("wStudent").onclick = ()=>{ S.who="student"; $("wStudent").setAttribute("aria-pressed",true); $("wParent").setAttribute("aria-pressed",false);  save(); render(); };
+$("wParent").addEventListener("click", ()=>{ S.who="parent"; save(); render(); });
+$("wStudent").addEventListener("click", ()=>{ S.who="student"; save(); render(); });
 
 const panels = {vTasks:"pTasks", vBudget:"pBudget", vDocs:"pDocs"};
 Object.keys(panels).forEach(v=>{
-  $(v).onclick = ()=>{
+  $(v).addEventListener("click", ()=>{
     Object.keys(panels).forEach(k=>{
-      $(k).setAttribute("aria-pressed", k===v);
+      $(k).setAttribute("aria-pressed", k===v ? "true" : "false");
       $(panels[k]).classList.toggle("on", k===v);
     });
-  };
+  });
 });
 
-$("reset").onclick = ()=>{
+$("reset").addEventListener("click", ()=>{
   if(confirm("Clear every check, owner, budget number, and document status? This can't be undone.")){
-    S = { done:{}, owner:{}, est:{}, act:{}, docs:{}, who:S.who, cat:"All" }; save(); render();
+    S = { done:{}, owner:{}, est:{}, act:{}, docs:{}, who:S.who, cat:"All" };
+    save();
+    render();
   }
-};
+});
 
-$("export").onclick = ()=>{
+$("export").addEventListener("click", ()=>{
   const lines = ["COLLEGE CHECKLIST — " + new Date().toLocaleDateString(), ""];
   let cat = "";
   TASKS.forEach((t,i)=>{
@@ -476,8 +634,7 @@ $("export").onclick = ()=>{
     lines.push((S.done[i] ? "[x] " : "[ ] ") + t[1] + "  (" + owner + " · " + t[3] + ")");
   });
   lines.push("", "BUDGET");
-  let tot=0;
-  BUDGET.forEach(([n,d],i)=>{ const e=S.est[i]!==undefined?S.est[i]:d; tot+=Number(e)||0;
+  BUDGET.forEach(([n,d],i)=>{ const e=S.est[i]!==undefined?S.est[i]:d;
     lines.push(n + " — est $" + e + (S.act[i] ? "  actual $"+S.act[i] : "")); });
   lines.push("", "DOCUMENTS");
   DOCS.forEach((d,i)=> lines.push(d + " — " + (S.docs[i]||"Not started")));
@@ -489,16 +646,12 @@ $("export").onclick = ()=>{
   document.body.appendChild(a);
   a.click();
   a.remove();
-  // Revoking right away cancels the download in some browsers; give it a moment.
   setTimeout(()=>URL.revokeObjectURL(a.href), 4000);
-};
+});
 
-/* ---------- Unlock. Runs LAST, after every constant, render() and handler above
-   exist. (The old version called render() from here at the top of the script,
-   before CATS was defined, so a refresh threw and left a blank page.) ---------- */
 function readUnlock(){
   try{ if(localStorage.getItem(UNLOCK_KEY) === "1") return true; }catch(e){}
-  try{ if(sessionStorage.getItem("cc.ok") === "1") return true; }catch(e){} // older sessions
+  try{ if(sessionStorage.getItem("cc.ok") === "1") return true; }catch(e){}
   return false;
 }
 function rememberUnlock(){
@@ -517,14 +670,15 @@ function unlock(){
 document.querySelectorAll("a[data-sales]").forEach(a => { a.href = SALES_URL; });
 $("welcomeCode").textContent = CODE;
 $("footCode").textContent = CODE;
-$("welcomeOk").onclick = () => { $("welcome").hidden = true; };
+$("welcomeOk").addEventListener("click", () => { $("welcome").hidden = true; });
 
 $("enter").addEventListener("click", tryCode);
 $("code").addEventListener("keydown", e=>{ if(e.key==="Enter") tryCode(); });
 function tryCode(){
   const typed = $("code").value.replace(/[\s-]+/g, "").toUpperCase();
   if(typed === CODE){
-    rememberUnlock(); unlock();
+    rememberUnlock();
+    unlock();
   } else {
     $("gateErr").textContent = "That code isn't right. Check for a typo, or use the question form at the sales page.";
   }
@@ -537,9 +691,6 @@ if(paid){
   const stored = rememberUnlock();
   unlock();
   $("welcome").hidden = false;
-  // Drop ?paid=1 from the address bar once the unlock is safely stored, so a
-  // bookmark or a shared link doesn't carry it. If storage is blocked (some
-  // private windows), keep it so a refresh still works.
   if(stored){
     try{
       const u = new URL(location.href);
