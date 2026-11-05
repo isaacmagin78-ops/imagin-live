@@ -1,5 +1,5 @@
 /* Our Journey: keeps everything on this phone so it opens without internet. */
-var VERSION = 'sa-voyage-preview-v1';
+var VERSION = 'preview-sa-v1';
 var CORE = [
   './', 'v.bin', 'manifest.webmanifest',
   'icons/icon-180.png', 'icons/icon-192.png', 'icons/icon-512.png',
@@ -15,7 +15,7 @@ self.addEventListener('install', function (e) {
 
 self.addEventListener('activate', function (e) {
   e.waitUntil(caches.keys().then(function (keys) {
-    return Promise.all(keys.filter(function (k) { return k.indexOf('sa-voyage-') === 0 && k !== VERSION; })
+    return Promise.all(keys.filter(function (k) { return k.indexOf('preview-sa-') === 0 && k !== VERSION; })
       .map(function (k) { return caches.delete(k); }));
   }).then(function () { return self.clients.claim(); }));
 });
