@@ -1,0 +1,24 @@
+# imagin-live is a static site. GitHub Pages already publishes this
+# repository root (index.html and every folder beside it). Netlify
+# must do the same: no install, no build, publish the root.
+#
+# The only package.json is drivers-app/. If Netlify treats that folder
+# as the site, it looks for a dist/ that is not in git, the build fails,
+# and https://imagin-live.netlify.app/ stays on "no current deploy".
+#
+# These values override the Netlify UI. Package directory cannot be set
+# here — leave it blank in the UI (Project configuration → Build & deploy
+# → Continuous deployment → Build settings):
+#   Repository:        isaacmagin78-ops/imagin-live
+#   Production branch: main
+#   Base directory:    (blank, or .)     not drivers-app
+#   Package directory: (blank)           not drivers-app
+#   Build command:     (blank)           this file supplies one
+#   Publish directory: .                 repository root, where index.html is
+# Then trigger a deploy. Until a deploy is published, the URL stays a
+# plain-text Not Found.
+
+[build]
+  base = "."
+  command = "echo 'Static site: publishing the repository root. No build step.'"
+  publish = "."
